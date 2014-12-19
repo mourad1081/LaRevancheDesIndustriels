@@ -13,10 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,25 +27,95 @@ QT_BEGIN_NAMESPACE
 class Ui_Application
 {
 public:
-    QWidget *centralWidget;
-    QMenuBar *menuBar;
-    QStatusBar *statusBar;
+    QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *titre;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *btnNouvellePartie;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *btnQuitter;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *btnOptions;
 
     void setupUi(QMainWindow *Application)
     {
         if (Application->objectName().isEmpty())
             Application->setObjectName(QStringLiteral("Application"));
-        Application->resize(400, 300);
-        centralWidget = new QWidget(Application);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        Application->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(Application);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 21));
-        Application->setMenuBar(menuBar);
-        statusBar = new QStatusBar(Application);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        Application->setStatusBar(statusBar);
+        Application->resize(661, 405);
+        centralwidget = new QWidget(Application);
+        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        centralwidget->setStyleSheet(QLatin1String("#centralwidget\n"
+"{\n"
+"border-image: url(:/img/SuperMarioBrosWallpaper.png) 0 0 0 0 stretch stretch;\n"
+"}\n"
+"\n"
+"#titre\n"
+"{\n"
+"border-image: url(:/img/titre.png) 0 0 0 0 stretch stretch;\n"
+"}\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"background-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 173, 0, 255));\n"
+"border-radius:25px;\n"
+"color:black;\n"
+"}\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(0, 173, 0, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        titre = new QLabel(centralwidget);
+        titre->setObjectName(QStringLiteral("titre"));
+        titre->setMinimumSize(QSize(661, 250));
+        titre->setMaximumSize(QSize(16777215, 16777215));
+
+        verticalLayout->addWidget(titre);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        btnNouvellePartie = new QPushButton(centralwidget);
+        btnNouvellePartie->setObjectName(QStringLiteral("btnNouvellePartie"));
+        btnNouvellePartie->setMinimumSize(QSize(150, 50));
+        QFont font;
+        font.setPointSize(12);
+        font.setBold(true);
+        font.setWeight(75);
+        btnNouvellePartie->setFont(font);
+        btnNouvellePartie->setCursor(QCursor(Qt::PointingHandCursor));
+
+        horizontalLayout->addWidget(btnNouvellePartie);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        btnQuitter = new QPushButton(centralwidget);
+        btnQuitter->setObjectName(QStringLiteral("btnQuitter"));
+        btnQuitter->setMinimumSize(QSize(150, 50));
+        btnQuitter->setFont(font);
+        btnQuitter->setCursor(QCursor(Qt::PointingHandCursor));
+
+        horizontalLayout->addWidget(btnQuitter);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        btnOptions = new QPushButton(centralwidget);
+        btnOptions->setObjectName(QStringLiteral("btnOptions"));
+        btnOptions->setMinimumSize(QSize(150, 50));
+        btnOptions->setFont(font);
+        btnOptions->setCursor(QCursor(Qt::PointingHandCursor));
+
+        horizontalLayout->addWidget(btnOptions);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        Application->setCentralWidget(centralwidget);
 
         retranslateUi(Application);
 
@@ -51,7 +124,11 @@ public:
 
     void retranslateUi(QMainWindow *Application)
     {
-        Application->setWindowTitle(QApplication::translate("Application", "Application", 0));
+        Application->setWindowTitle(QApplication::translate("Application", "MainWindow", 0));
+        titre->setText(QString());
+        btnNouvellePartie->setText(QApplication::translate("Application", "Nouvelle partie", 0));
+        btnQuitter->setText(QApplication::translate("Application", "Quitter", 0));
+        btnOptions->setText(QApplication::translate("Application", "Options", 0));
     } // retranslateUi
 
 };

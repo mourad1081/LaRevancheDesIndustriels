@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\sujetDObservation.o
+./debug\niveaux.o
+./debug\personnage.o
+./debug\personnagevue.o
+./debug\histoire.o
+./debug\gestionmonde.o
+./debug\monde.o
+./debug\application.o
+./debug\qrc_images.o
+./debug\moc_application.o
+);

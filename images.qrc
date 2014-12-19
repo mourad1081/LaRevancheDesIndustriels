@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/curseur.png</file>
+        <file>img/curseur_boutton.png</file>
+        <file>img/Hero.png</file>
+        <file>img/pikachu.png</file>
+        <file>img/SuperMarioBrosWallpaper.png</file>
+        <file>img/titre.png</file>
+    </qresource>
+</RCC>

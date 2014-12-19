@@ -14,16 +14,16 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11 -pedantic-errors
 
 SOURCES += main.cpp\
-        application.cpp \
     O_SDO/sujetDObservation.cpp \
     metier/niveaux.cpp \
     metier/personnage.cpp \
     vue/personnagevue.cpp \
     vue/histoire.cpp \
     vue/gestionmonde.cpp \
-    vue/monde.cpp
+    vue/monde.cpp \
+    vue/application.cpp
 
-HEADERS  += application.h \
+HEADERS  += \
     O_SDO/observateur.h \
     O_SDO/sujetDObservation.h \
     metier/niveaux.h \
@@ -31,9 +31,11 @@ HEADERS  += application.h \
     vue/personnagevue.h \
     vue/histoire.h \
     vue/gestionmonde.h \
-    vue/monde.h
+    vue/monde.h \
+    vue/application.h
 
-FORMS    += application.ui
+FORMS    += \
+    vue/application.ui
 
 INCLUDEPATH += $$PWD/SDL/include/SDL
 DEPENDPATH += $$PWD/SDL/include/SDL
@@ -62,3 +64,6 @@ unix|win32: LIBS += -L$$PWD/SDL/lib/ -lSDL_ttf
 
 INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include
+
+RESOURCES += \
+    images.qrc

@@ -1,4 +1,4 @@
-#include "application.h"
+#include "vue/application.h"
 #include <QApplication>
 #include <iostream>
 #include "SDL.h"
@@ -10,6 +10,5 @@ int main(int argc, char **argv)
     QApplication a(argc, argv);
     Application w;
     w.show();
-    cout << "";
     return a.exec();
 }

@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\sujetDObservation.o
+./release\niveaux.o
+./release\personnage.o
+./release\personnagevue.o
+./release\histoire.o
+./release\gestionmonde.o
+./release\monde.o
+./release\application.o
+./release\qrc_images.o
+./release\moc_application.o
+);
