@@ -14,10 +14,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -O2 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -std=c++11 -pedantic-errors -O2 -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -I"C:\Qt\5.3\mingw482_32\include" -I"C:\Qt\5.3\mingw482_32\include\QtWidgets" -I"C:\Qt\5.3\mingw482_32\include\QtGui" -I"C:\Qt\5.3\mingw482_32\include\QtCore" -I"release" -I"." -I"C:\Qt\5.3\mingw482_32\mkspecs\win32-g++"
+INCPATH       = -I. -I"SDL\include\SDL" -I"SDL\lib" -I"SDL\include" -I"SDL\include" -I"SDL\include" -I"SDL\include" -I"C:\Qt\5.3\mingw482_32\include" -I"C:\Qt\5.3\mingw482_32\include\QtWidgets" -I"C:\Qt\5.3\mingw482_32\include\QtGui" -I"C:\Qt\5.3\mingw482_32\include\QtCore" -I"release" -I"." -I"C:\Qt\5.3\mingw482_32\mkspecs\win32-g++"
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LC:/Qt/5.3/mingw482_32/lib -lqtmain -LC:\mingw482\mingw32\lib -LC:\Utils\icu32_52_1_mingw482\lib -LC:\utils\postgresql\pgsql\lib -LC:\utils\mysql\mysql\lib -LC:\opensll\lib -LC:\Qt\5.3\mingw482_32/lib -lQt5Widgets -lQt5Gui -lQt5Core 
+LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -LC:/Qt/5.3/mingw482_32/lib -lqtmain -LC:\mingw482\mingw32\lib -LC:\Utils\icu32_52_1_mingw482\lib -LC:\utils\postgresql\pgsql\lib -LC:\utils\mysql\mysql\lib -LC:\opensll\lib -LC:\Qt\5.3\mingw482_32/lib -L SDL/lib/ -lmingw32 -lSDLmain -llibSDL -lSDL_image "-LC:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/lib/" -lSDL_ttf -lQt5Widgets -lQt5Gui -lQt5Core 
 QMAKE         = C:\Qt\5.3\mingw482_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -217,7 +217,7 @@ release/moc_application.cpp: C:/Qt/5.3/mingw482_32/include/QtWidgets/QMainWindow
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qicon.h \
 		application.h
-	C:\Qt\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.3/mingw482_32/mkspecs/win32-g++ -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus" -IC:/Qt/5.3/mingw482_32/include -IC:/Qt/5.3/mingw482_32/include/QtWidgets -IC:/Qt/5.3/mingw482_32/include/QtGui -IC:/Qt/5.3/mingw482_32/include/QtCore application.h -o release\moc_application.cpp
+	C:\Qt\5.3\mingw482_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.3/mingw482_32/mkspecs/win32-g++ -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/include/SDL" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/lib" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/include" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/include" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/include" -I"C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/LaRevancheDesIndus/SDL/include" -IC:/Qt/5.3/mingw482_32/include -IC:/Qt/5.3/mingw482_32/include/QtWidgets -IC:/Qt/5.3/mingw482_32/include/QtGui -IC:/Qt/5.3/mingw482_32/include/QtCore application.h -o release\moc_application.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -349,7 +349,34 @@ release/main.o: main.cpp application.h \
 		C:/Qt/5.3/mingw482_32/include/QtCore/qeventloop.h \
 		C:/Qt/5.3/mingw482_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.3/mingw482_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.3/mingw482_32/include/QtGui/qinputmethod.h
+		C:/Qt/5.3/mingw482_32/include/QtGui/qinputmethod.h \
+		SDL/include/SDL/SDL.h \
+		SDL/include/SDL/SDL_main.h \
+		SDL/include/SDL/SDL_stdinc.h \
+		SDL/include/SDL/SDL_config.h \
+		SDL/include/SDL/SDL_platform.h \
+		SDL/include/SDL/SDL_config_win32.h \
+		SDL/include/SDL/begin_code.h \
+		SDL/include/SDL/close_code.h \
+		SDL/include/SDL/SDL_audio.h \
+		SDL/include/SDL/SDL_error.h \
+		SDL/include/SDL/SDL_endian.h \
+		SDL/include/SDL/SDL_mutex.h \
+		SDL/include/SDL/SDL_thread.h \
+		SDL/include/SDL/SDL_rwops.h \
+		SDL/include/SDL/SDL_cdrom.h \
+		SDL/include/SDL/SDL_cpuinfo.h \
+		SDL/include/SDL/SDL_events.h \
+		SDL/include/SDL/SDL_active.h \
+		SDL/include/SDL/SDL_keyboard.h \
+		SDL/include/SDL/SDL_keysym.h \
+		SDL/include/SDL/SDL_mouse.h \
+		SDL/include/SDL/SDL_video.h \
+		SDL/include/SDL/SDL_joystick.h \
+		SDL/include/SDL/SDL_quit.h \
+		SDL/include/SDL/SDL_loadso.h \
+		SDL/include/SDL/SDL_timer.h \
+		SDL/include/SDL/SDL_version.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
 release/application.o: application.cpp application.h \
