@@ -17,13 +17,21 @@ SOURCES += main.cpp\
         application.cpp \
     O_SDO/sujetDObservation.cpp \
     metier/niveaux.cpp \
-    metier/personnage.cpp
+    metier/personnage.cpp \
+    vue/personnagevue.cpp \
+    vue/histoire.cpp \
+    vue/gestionmonde.cpp \
+    vue/monde.cpp
 
 HEADERS  += application.h \
     O_SDO/observateur.h \
     O_SDO/sujetDObservation.h \
     metier/niveaux.h \
-    metier/personnage.h
+    metier/personnage.h \
+    vue/personnagevue.h \
+    vue/histoire.h \
+    vue/gestionmonde.h \
+    vue/monde.h
 
 FORMS    += application.ui
 
