@@ -3,6 +3,8 @@
 
 class Histoire
 {
+private:
+
 public:
     Histoire();
 };

@@ -2,4 +2,10 @@
 
 PersonnageVue::PersonnageVue()
 {
+    
+}
+
+PersonnageVue::~PersonnageVue()
+{
+    
 }

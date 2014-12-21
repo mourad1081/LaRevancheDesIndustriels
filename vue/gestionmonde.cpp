@@ -3,3 +3,8 @@
 GestionMonde::GestionMonde()
 {
 }
+
+void GestionMonde::gererEvenements()
+{
+
+}

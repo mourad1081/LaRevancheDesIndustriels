@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="300" height="15" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="tileset" tilewidth="64" tileheight="64">
+  <image source="../../../../../../Desktop/tileset.bmp" trans="000000" width="1280" height="64"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="300" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztmn9vwiAQQGur3aLdskS//2edZJDg7ThKR0u7vD9e7PFLrPLCUceu60YAgIPw8eTzD/X/dW53QapsFNcAsB1LHbCF17Z0p+aglJfwFcCxkW7Z8z5OI7WPYn8FADWp4cacg/AVwHEo3Q+13F8tGZvzK4B90TI/W8N3re8nAGzD3s6PWs23dK90imh9TwDgN8EVa+ZBtX1Uko/KfO8WXcd+cm0uEXLMaQffFQC8nunE5aWekW6w3qsm1jxTfnJx7Kc5vsJZAG3QzppHJV4ynjVGro3lHqtfKL9FcYmfLF9NHb4CWIs57kitwUnUW+MNT3qlPjB4vmbOzfqPlBa7sa/+1cW5/K6Gr3AWQF1Sz+fdtbXmcuXBFc5RsRveEmjn18FhvWeI6s6+LJ5v78td/Oh+9k8PH5fmd7V8NXWveSYAlBPW9RDh4uCAq29zFvUWrk9Yo8Exzg9yrWto6/+kIOu0tlps+SgXl/hKmzPPEAGWk1pTOd4zaH0uglRfrY3sq9Wl+m8dW3O2Prek9W8DYG98A+H5b9A=
+  </data>
+ </layer>
+</map>
