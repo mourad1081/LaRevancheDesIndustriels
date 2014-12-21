@@ -36,6 +36,7 @@ public:
     QPushButton *btnQuitter;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *btnOptions;
+    QPushButton *btnActiverSon;
 
     void setupUi(QMainWindow *Application)
     {
@@ -112,6 +113,12 @@ public:
 
         horizontalLayout->addWidget(btnOptions);
 
+        btnActiverSon = new QPushButton(centralwidget);
+        btnActiverSon->setObjectName(QStringLiteral("btnActiverSon"));
+        btnActiverSon->setMinimumSize(QSize(50, 50));
+
+        horizontalLayout->addWidget(btnActiverSon);
+
 
         verticalLayout->addLayout(horizontalLayout);
 
@@ -129,6 +136,7 @@ public:
         btnNouvellePartie->setText(QApplication::translate("Application", "Nouvelle partie", 0));
         btnQuitter->setText(QApplication::translate("Application", "Quitter", 0));
         btnOptions->setText(QApplication::translate("Application", "Options", 0));
+        btnActiverSon->setText(QString());
     } // retranslateUi
 
 };
