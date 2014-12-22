@@ -1,7 +1,6 @@
 INPUT(
 ./debug\main.o
 ./debug\sujetDObservation.o
-./debug\niveaux.o
 ./debug\personnage.o
 ./debug\personnagevue.o
 ./debug\histoire.o
@@ -10,6 +9,8 @@ INPUT(
 ./debug\application.o
 ./debug\exceptiongame.o
 ./debug\tuile.o
+./debug\evenement.o
+./debug\niveau.o
 ./debug\qrc_images.o
 ./debug\moc_application.o
 );

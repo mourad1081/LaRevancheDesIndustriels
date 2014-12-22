@@ -3,13 +3,13 @@
 
 #include <SDL.h>
 
-#include "metier/niveaux.h"
+#include "metier/niveau.h"
 #include "metier/tuile.h"
 
 class Monde
 {
 private:
-    Niveaux * _niveau;
+    Niveau * _niveau;
     int _niveauActuel;
     //---- pour les tuiles
     int _largeurTuile;       // largeur d'une tuile

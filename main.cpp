@@ -1,7 +1,7 @@
 #include "vue/application.h"
 #include <QApplication>
 #include <iostream>
-#include "vue/monde.h"
+#include "vue/gestionmonde.h"
 #include "SDL.h"
 #undef main
 
@@ -23,10 +23,12 @@ int main(int argc, char **argv)
         // notre fenetre ,param (taille,taille,couleur,option)
         SDL_Surface * fenetre = SDL_SetVideoMode(600
                                                  ,600,32,SDL_HWSURFACE);
-        Monde m(600,600);
-        m.AfficherMonde(fenetre);
-        SDL_Flip(fenetre);
-        SDL_Delay(10000);
+        GestionMonde g(fenetre,600,600);
+        while (1) {
+            g.miseAjourDeLaMap();
+            SDL_Delay(50);
+        }
+
     }catch(ExceptionGame eg){
         cerr << eg.what();
     }

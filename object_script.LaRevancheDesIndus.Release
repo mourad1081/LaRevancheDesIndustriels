@@ -1,7 +1,6 @@
 INPUT(
 ./release\main.o
 ./release\sujetDObservation.o
-./release\niveaux.o
 ./release\personnage.o
 ./release\personnagevue.o
 ./release\histoire.o
@@ -10,6 +9,8 @@ INPUT(
 ./release\application.o
 ./release\exceptiongame.o
 ./release\tuile.o
+./release\evenement.o
+./release\niveau.o
 ./release\qrc_images.o
 ./release\moc_application.o
 );

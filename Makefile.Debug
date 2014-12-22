@@ -45,7 +45,6 @@ OBJECTS_DIR   = debug
 
 SOURCES       = main.cpp \
 		O_SDO\sujetDObservation.cpp \
-		metier\niveaux.cpp \
 		metier\personnage.cpp \
 		vue\personnagevue.cpp \
 		vue\histoire.cpp \
@@ -53,11 +52,12 @@ SOURCES       = main.cpp \
 		vue\monde.cpp \
 		vue\application.cpp \
 		metier\exceptiongame.cpp \
-		metier\tuile.cpp debug\qrc_images.cpp \
+		metier\tuile.cpp \
+		metier\evenement.cpp \
+		metier\niveau.cpp debug\qrc_images.cpp \
 		debug\moc_application.cpp
 OBJECTS       = debug/main.o \
 		debug/sujetDObservation.o \
-		debug/niveaux.o \
 		debug/personnage.o \
 		debug/personnagevue.o \
 		debug/histoire.o \
@@ -66,6 +66,8 @@ OBJECTS       = debug/main.o \
 		debug/application.o \
 		debug/exceptiongame.o \
 		debug/tuile.o \
+		debug/evenement.o \
+		debug/niveau.o \
 		debug/qrc_images.o \
 		debug/moc_application.o
 
@@ -108,7 +110,7 @@ dist:
 	$(ZIP) LaRevancheDesIndus.zip $(SOURCES) $(DIST) LaRevancheDesIndus.pro ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\qdevice.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\common\shell-win32.conf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\qconfig.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_declarative.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_webkit.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\spec_post.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\build_pass.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\qml_debug.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\declarative_debug.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\win32\rtti.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\qt.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\resources.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\moc.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\uic.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\Qt5.2.1\5.2.1\mingw48_32\mkspecs\features\lex.prf LaRevancheDesIndus.pro images.qrc C:/Qt/Qt5.2.1/5.2.1/mingw48_32/lib/Qt5Widgetsd.prl C:/Qt/Qt5.2.1/5.2.1/mingw48_32/lib/Qt5Guid.prl C:/Qt/Qt5.2.1/5.2.1/mingw48_32/lib/Qt5Cored.prl  RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\sujetDObservation.o debug\niveaux.o debug\personnage.o debug\personnagevue.o debug\histoire.o debug\gestionmonde.o debug\monde.o debug\application.o debug\exceptiongame.o debug\tuile.o debug\qrc_images.o debug\moc_application.o
+	-$(DEL_FILE) debug\main.o debug\sujetDObservation.o debug\personnage.o debug\personnagevue.o debug\histoire.o debug\gestionmonde.o debug\monde.o debug\application.o debug\exceptiongame.o debug\tuile.o debug\evenement.o debug\niveau.o debug\qrc_images.o debug\moc_application.o
 
 distclean: clean
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -125,11 +127,11 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_images.cpp
 debug/qrc_images.cpp: images.qrc \
 		img/curseur.png \
-		img/SuperMarioBrosWallpaper.png \
 		img/pikachu.png \
 		img/curseur_boutton.png \
-		img/titre.png \
-		img/Hero.png
+		img/SuperMarioBrosWallpaper.png \
+		img/Hero.png \
+		img/titre.png
 	C:\Qt\Qt5.2.1\5.2.1\mingw48_32\bin\rcc.exe -name images images.qrc -o debug\qrc_images.cpp
 
 compiler_moc_header_make_all: debug/moc_application.cpp
@@ -388,6 +390,8 @@ debug/main.o: main.cpp vue/application.h \
 		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtGui/qguiapplication.h \
 		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtGui/qinputmethod.h \
+		vue/gestionmonde.h \
+		vue/monde.h \
 		SDL/include/SDL/SDL.h \
 		SDL/include/SDL/SDL_main.h \
 		SDL/include/SDL/SDL_stdinc.h \
@@ -414,66 +418,15 @@ debug/main.o: main.cpp vue/application.h \
 		SDL/include/SDL/SDL_quit.h \
 		SDL/include/SDL/SDL_loadso.h \
 		SDL/include/SDL/SDL_timer.h \
-		SDL/include/SDL/SDL_version.h
+		SDL/include/SDL/SDL_version.h \
+		metier/tuile.h \
+		metier/TypeTuile.h \
+		metier/evenement.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o main.cpp
 
 debug/sujetDObservation.o: O_SDO/sujetDObservation.cpp O_SDO/sujetDObservation.h \
 		O_SDO/observateur.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\sujetDObservation.o O_SDO\sujetDObservation.cpp
-
-debug/niveaux.o: metier/niveaux.cpp metier/niveaux.h \
-		metier/exceptiongame.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QVector \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qvector.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qalgorithms.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobal.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qconfig.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qfeatures.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsystemdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qprocessordetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qcompilerdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobalstatic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qgenericatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_msvc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_integrity.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qoldbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_vxworks.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_power.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_alpha.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv7.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv6.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv5.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bfin.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_ia64.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_mips.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_s390.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sh4a.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sparc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_x86.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_gcc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_unix.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qmutex.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlogging.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qflags.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypeinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypetraits.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsysinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qiterator.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlist.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qrefcount.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qarraydata.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qpoint.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qnamespace.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QString \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstring.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qchar.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbytearray.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstringbuilder.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\niveaux.o metier\niveaux.cpp
 
 debug/personnage.o: metier/personnage.cpp metier/personnage.h \
 		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QString \
@@ -559,60 +512,9 @@ debug/gestionmonde.o: vue/gestionmonde.cpp vue/gestionmonde.h \
 		SDL/include/SDL/SDL_loadso.h \
 		SDL/include/SDL/SDL_timer.h \
 		SDL/include/SDL/SDL_version.h \
-		metier/niveaux.h \
-		metier/exceptiongame.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QVector \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qvector.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qalgorithms.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobal.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qconfig.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qfeatures.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsystemdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qprocessordetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qcompilerdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobalstatic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qgenericatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_msvc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_integrity.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qoldbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_vxworks.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_power.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_alpha.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv7.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv6.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv5.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bfin.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_ia64.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_mips.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_s390.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sh4a.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sparc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_x86.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_gcc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_unix.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qmutex.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlogging.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qflags.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypeinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypetraits.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsysinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qiterator.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlist.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qrefcount.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qarraydata.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qpoint.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qnamespace.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QString \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstring.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qchar.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbytearray.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstringbuilder.h \
 		metier/tuile.h \
-		metier/TypeTuile.h
+		metier/TypeTuile.h \
+		metier/evenement.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gestionmonde.o vue\gestionmonde.cpp
 
 debug/monde.o: vue/monde.cpp vue/monde.h \
@@ -643,58 +545,6 @@ debug/monde.o: vue/monde.cpp vue/monde.h \
 		SDL/include/SDL/SDL_loadso.h \
 		SDL/include/SDL/SDL_timer.h \
 		SDL/include/SDL/SDL_version.h \
-		metier/niveaux.h \
-		metier/exceptiongame.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QVector \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qvector.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qalgorithms.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobal.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qconfig.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qfeatures.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsystemdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qprocessordetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qcompilerdetection.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qglobalstatic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qgenericatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_msvc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_integrity.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qoldbasicatomic.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_vxworks.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_power.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_alpha.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv7.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv6.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_armv5.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_bfin.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_ia64.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_mips.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_s390.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sh4a.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_sparc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_x86.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_gcc.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qatomic_unix.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qmutex.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlogging.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qflags.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypeinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qtypetraits.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qsysinfo.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qiterator.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qlist.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qrefcount.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qarraydata.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qpoint.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qnamespace.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/QString \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstring.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qchar.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qbytearray.h \
-		../../../../Qt/Qt5.2.1/5.2.1/mingw48_32/include/QtCore/qstringbuilder.h \
 		metier/tuile.h \
 		metier/TypeTuile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\monde.o vue\monde.cpp
@@ -890,6 +740,39 @@ debug/tuile.o: metier/tuile.cpp metier/tuile.h \
 		SDL/include/SDL/SDL_timer.h \
 		SDL/include/SDL/SDL_version.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tuile.o metier\tuile.cpp
+
+debug/evenement.o: metier/evenement.cpp metier/evenement.h \
+		SDL/include/SDL/SDL.h \
+		SDL/include/SDL/SDL_main.h \
+		SDL/include/SDL/SDL_stdinc.h \
+		SDL/include/SDL/SDL_config.h \
+		SDL/include/SDL/SDL_platform.h \
+		SDL/include/SDL/SDL_config_win32.h \
+		SDL/include/SDL/begin_code.h \
+		SDL/include/SDL/close_code.h \
+		SDL/include/SDL/SDL_audio.h \
+		SDL/include/SDL/SDL_error.h \
+		SDL/include/SDL/SDL_endian.h \
+		SDL/include/SDL/SDL_mutex.h \
+		SDL/include/SDL/SDL_thread.h \
+		SDL/include/SDL/SDL_rwops.h \
+		SDL/include/SDL/SDL_cdrom.h \
+		SDL/include/SDL/SDL_cpuinfo.h \
+		SDL/include/SDL/SDL_events.h \
+		SDL/include/SDL/SDL_active.h \
+		SDL/include/SDL/SDL_keyboard.h \
+		SDL/include/SDL/SDL_keysym.h \
+		SDL/include/SDL/SDL_mouse.h \
+		SDL/include/SDL/SDL_video.h \
+		SDL/include/SDL/SDL_joystick.h \
+		SDL/include/SDL/SDL_quit.h \
+		SDL/include/SDL/SDL_loadso.h \
+		SDL/include/SDL/SDL_timer.h \
+		SDL/include/SDL/SDL_version.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\evenement.o metier\evenement.cpp
+
+debug/niveau.o: metier/niveau.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\niveau.o metier\niveau.cpp
 
 debug/qrc_images.o: debug/qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_images.o debug\qrc_images.cpp
