@@ -6,7 +6,7 @@ Application::Application(QWidget *parent) :
     ui(new Ui::Application)
 {
     ui->setupUi(this);
-    showFullScreen();
+   // showFullScreen();
 }
 
 Application::~Application()

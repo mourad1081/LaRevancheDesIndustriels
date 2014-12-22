@@ -8,6 +8,8 @@ INPUT(
 ./debug\gestionmonde.o
 ./debug\monde.o
 ./debug\application.o
+./debug\exceptiongame.o
+./debug\tuile.o
 ./debug\qrc_images.o
 ./debug\moc_application.o
 );
