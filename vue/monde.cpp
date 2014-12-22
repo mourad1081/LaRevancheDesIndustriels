@@ -7,7 +7,10 @@ Monde::Monde(int largeurFenetre , int hauteurFenetre)  throw(ExceptionGame)
     _hauteurFenetre = hauteurFenetre;
     _horiScroll = 0;
     _vertiScroll = 0;
-    _niveau = new Niveaux(_niveauActuel);
+    _niveau = new Niveau(_niveauActuel);
+    _nbrTuilesEnColonneMonde = _niveau->getNbrColonne();
+    _nbrTuilesEnLigneMonde = _niveau->getNbrLigne();
+
     // ouvre le fichier de configuration en lecture
     ifstream fichierConfig(NOM_FICHIER_CONFIG.c_str(), ios::in);
     if ( fichierConfig ){
@@ -28,16 +31,30 @@ void Monde::setNiveauActuel(int nouveauNiveau) throw(ExceptionGame)
 {
     _niveauActuel = nouveauNiveau;
     delete _niveau;
-    _niveau = new  Niveaux(_niveauActuel);
+    _niveau = new  Niveau(_niveauActuel);
+    _horiScroll = 0;
+    _vertiScroll = 0;
+    _nbrTuilesEnColonneMonde = _niveau->getNbrColonne();
+    _nbrTuilesEnLigneMonde = _niveau->getNbrLigne();
 }
 
 
 void Monde::setHoriScroll(int horiScroll){
-    _horiScroll = horiScroll;
+    if (horiScroll < 0
+            || horiScroll > (_nbrTuilesEnColonneMonde*_largeurTuile)-_largeurFenetre) {
+     _horiScroll = _horiScroll;
+    } else {
+        _horiScroll = horiScroll;
+    }
 }
 
 void Monde::setVertiScroll(int vertiScroll){
-    _vertiScroll = vertiScroll;
+    if (vertiScroll < 0
+            || vertiScroll > (_nbrTuilesEnLigneMonde*_hauteurTuile)-_hauteurFenetre) {
+     _vertiScroll = _vertiScroll;
+    } else {
+        _vertiScroll = vertiScroll;
+    }
 }
 int Monde::getHoriScroll()const{
     return _horiScroll;
@@ -55,7 +72,7 @@ int Monde::getNbrTuilesEnColonneMonde() const{
     return _nbrTuilesEnColonneMonde;
 }
 int Monde::getNbrTuilesEnLigneMonde()const{
-   return _nbrTuilesEnLigneMonde;
+    return _nbrTuilesEnLigneMonde;
 }
 
 void Monde::AfficherMonde(SDL_Surface * fenetre){
@@ -63,11 +80,10 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
     SDL_Rect rectDest;
     int numTuile;
     int minX,minY,maxX,maxY;
-    minX = _horiScroll / _largeurTuile;
-    minY = _vertiScroll / _hauteurTuile;
+    minX = _horiScroll / _largeurTuile-1;
+    minY = _vertiScroll / _hauteurTuile-1;
     maxX = ((_horiScroll + _largeurFenetre) / _largeurTuile);
     maxY = ((_vertiScroll + _hauteurFenetre) / _hauteurTuile);
-
 
     for ( int i = minX; i <=  maxX ; i++){
         for ( int j = minY ; j <= maxY ; j++){
@@ -81,13 +97,14 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
                 numTuile = 0;
             }else{
                 numTuile = _niveau->getNiveau()[j][i];
-                cerr << _niveau->getNiveau()[j][i] << "  " ;
+
             }
             SDL_BlitSurface(_imagesDesTuiles
                             ,&(_tuiles[numTuile].getRectangle()),fenetre,&rectDest);
         }
     }
 }
+
 void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){
 
     string baliseTitre, nomFichierImage,baliseNbrTuileImg;
