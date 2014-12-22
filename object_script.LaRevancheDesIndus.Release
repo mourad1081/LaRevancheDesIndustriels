@@ -8,6 +8,8 @@ INPUT(
 ./release\gestionmonde.o
 ./release\monde.o
 ./release\application.o
+./release\exceptiongame.o
+./release\tuile.o
 ./release\qrc_images.o
 ./release\moc_application.o
 );

@@ -1,0 +1,32 @@
+#nomFichierImage
+tuiles.bmp
+#nbrTuilesColonneFichierImage
+25
+#nbrTuilesLigneFichierImage
+1
+#typeTuile
+tuiles0	vide
+tuiles1	plein
+tuiles2	vide_avec_degats
+tuiles3	vide
+tuiles4	vide
+tuiles5	vide
+tuiles6	plein
+tuiles7	vide_avec_degats
+tuiles8	vide
+tuiles9	vide
+tuiles10	vide
+tuiles11	plein
+tuiles12	vide_avec_degats
+tuiles13	vide
+tuiles14	vide
+tuiles15	vide
+tuiles16	plein
+tuiles17	vide_avec_degats
+tuiles18	vide
+tuiles19	vide
+tuiles20	vide
+tuiles21	plein
+tuiles22	vide_avec_degats
+tuiles23	vide
+tuiles24	vide

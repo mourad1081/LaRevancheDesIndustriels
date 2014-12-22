@@ -1,14 +1,36 @@
 #include "vue/application.h"
 #include <QApplication>
 #include <iostream>
+#include "vue/monde.h"
 #include "SDL.h"
 #undef main
 
 using namespace std;
 int main(int argc, char **argv)
 {
+    /*
     QApplication a(argc, argv);
     Application w;
-    w.show();
-    return a.exec();
+    w.show();*/
+
+    try {
+        // initialise SDL
+        if ( SDL_Init(SDL_INIT_VIDEO) == -1){
+            cerr << "Erreur d'initialisation de SDL" << endl;
+            exit(EXIT_FAILURE);
+        }
+
+        // notre fenetre ,param (taille,taille,couleur,option)
+        SDL_Surface * fenetre = SDL_SetVideoMode(600
+                                                 ,600,32,SDL_HWSURFACE);
+        Monde m(600,600);
+        m.AfficherMonde(fenetre);
+        SDL_Flip(fenetre);
+        SDL_Delay(10000);
+    }catch(ExceptionGame eg){
+        cerr << eg.what();
+    }
+    /* return a.exec();*/
+
+
 }

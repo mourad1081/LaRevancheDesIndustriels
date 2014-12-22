@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     vue/histoire.cpp \
     vue/gestionmonde.cpp \
     vue/monde.cpp \
-    vue/application.cpp
+    vue/application.cpp \
+    metier/exceptiongame.cpp \
+    metier/tuile.cpp
 
 HEADERS  += \
     O_SDO/observateur.h \
@@ -32,7 +34,10 @@ HEADERS  += \
     vue/histoire.h \
     vue/gestionmonde.h \
     vue/monde.h \
-    vue/application.h
+    vue/application.h \
+    metier/exceptiongame.h \
+    metier/tuile.h \
+    metier/TypeTuile.h
 
 FORMS    += \
     vue/application.ui
