@@ -12,16 +12,17 @@ private:
     Evenement * _lesEvents;
     int _largeurFenetre;
     int _hauteurFenetre;
-    const int VITESSE_DEPLACEMENT = 10;
+    const int VITESSE_DEPLACEMENT = 20;
 public:
     GestionMonde(SDL_Surface *fenetre, int largeurFenetre, int hauteurFenetre);
     void miseAjourDeLaMap();
 private:
+
     /*!
-         * \brief Permet de se deplacer dans la map en utilisant les fleches
-         * \param monde Le monde dans lequel on veut se déplacé
-         * \param event
-         */
+     * \brief Permet de se deplacer dans la map en utilisant les fleches
+     * \param monde Le monde dans lequel on veut se déplacer
+     * \param event
+     */
     void bougerLaMap();
 };
 

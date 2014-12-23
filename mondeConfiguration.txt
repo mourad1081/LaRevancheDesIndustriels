@@ -1,7 +1,7 @@
 #nomFichierImage
 tuiles.bmp
 #nbrTuilesColonneFichierImage
-25
+20
 #nbrTuilesLigneFichierImage
 1
 #typeTuile

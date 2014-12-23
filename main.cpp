@@ -21,8 +21,7 @@ int main(int argc, char **argv)
         }
 
         // notre fenetre ,param (taille,taille,couleur,option)
-        SDL_Surface * fenetre = SDL_SetVideoMode(600
-                                                 ,600,32,SDL_HWSURFACE);
+        SDL_Surface * fenetre = SDL_SetVideoMode(600,600,32,SDL_HWSURFACE);
         GestionMonde g(fenetre,600,600);
         while (1) {
             g.miseAjourDeLaMap();
@@ -33,6 +32,4 @@ int main(int argc, char **argv)
         cerr << eg.what();
     }
     /* return a.exec();*/
-
-
 }

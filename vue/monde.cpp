@@ -107,8 +107,8 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
 
 void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){
 
-    string baliseTitre, nomFichierImage,baliseNbrTuileImg;
-    string baliseTypeTuile,typeTuile;
+    string baliseTitre, nomFichierImage, baliseNbrTuileImg;
+    string baliseTypeTuile, typeTuile;
 
     fichier >> baliseTitre;
     if ( ! baliseTitre.compare(BALISE_FICHIER_IMAGE) ){
