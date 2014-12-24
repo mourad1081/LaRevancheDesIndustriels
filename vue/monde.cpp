@@ -1,10 +1,10 @@
 #include "monde.h"
 
-Monde::Monde()  throw(ExceptionGame)
+Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     :   _niveauActuel(1)
 {
-    _largeurFenetre = SCREEN_WIDTH;
-    _hauteurFenetre = SCREEN_HEIGHT;
+    _largeurFenetre = largeurFenetre;
+    _hauteurFenetre = hauteurFenetre;
     _horiScroll = 0;
     _vertiScroll = 0;
     _niveau = new Niveau(_niveauActuel);
@@ -82,6 +82,12 @@ int Monde::getMaxY()const{
     return this->getNbrTuilesEnLigneMonde()
             * this->getHauteurTuile();
 }
+int Monde::getLargeurFenetre() const{
+    return _largeurFenetre;
+}
+int Monde::getHauteurFenetre() const{
+    return _hauteurFenetre;
+}
 
 void Monde::AfficherMonde(SDL_Surface * fenetre){
 
@@ -118,19 +124,11 @@ bool Monde::collisionPerso(Hero *h){
     int x1, x2, y1, y2,i,j;
     Uint16 indicetile;
 
-    //Lorsque le joueur est mort, c'est à dire qu'il sort de l'écran
-    // par le bas, si c'est le cas, un timer est lancé.
-    if(posHero.y + PLAYER_HEIGHT >= this->getMaxY()){
-        if(h->getTimerMort() == 0){
-            h->setTimerMort(1);
-        }
-        return false;
-    }
-
     //On teste si la position du joueur n'est pas en dehors de la map,
     //si c'est le cas, on retourne vrai.
     if (posHero.x < 0  || posHero.y < 0 ||
-            posHero.x + PLAYER_WIDTH >= this->getMaxX())
+            posHero.x + posHero.w >= this->getMaxX()
+            || posHero.y + posHero.h >= this->getMaxY())
     {
         return true;
     }
@@ -145,9 +143,15 @@ bool Monde::collisionPerso(Hero *h){
 
             indicetile = _niveau->getNiveau()[j][i];
             if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
-                /*cout << "perso i : "<< i << endl;
-                cout << "perso j : " << j << endl;*/
+                cout << "perso i : "<< i << endl;
+                cout << "perso j : " << j << endl;
                 return true;
+            }
+            if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
+                if(h->getTimerMort() == 0){
+                    h->setTimerMort(20);
+                }
+                return false;
             }
             if (_niveau->getNiveau()[j][i] == 18){
                 _niveau->getNiveau()[j][i] = 5;
@@ -166,7 +170,8 @@ bool Monde::collisionMonstre(Monstre *m){
     //On teste si la position du monstre n'est pas en dehors de la map,
     //si c'est le cas, on retourne vrai.
     if (posMonstre.x < 0  || posMonstre.y < 0 ||
-            posMonstre.x + MONSTER_WIDTH >= this->getMaxX() || posMonstre.y + MONSTER_HEIGHT >= this->getMaxY())
+            posMonstre.x + posMonstre.w >= this->getMaxX()
+            || posMonstre.y + posMonstre.h >= this->getMaxY())
     {
         return true;
     }
@@ -185,18 +190,21 @@ bool Monde::collisionMonstre(Monstre *m){
 
                 return true;
             }
+            if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
+                return true;
+            }
             if( i-1 >= 0 && j-1 >= 0
                     && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde
                     && m->isOnGround()
                     ){
 
                 //SOUCIS AVEC UN SEGMENTATION FAULT
-                if ((_tuiles[_niveau->getNiveau()[j+1][i-1]].getType() == TypeTuile::VIDE
+                /*if ((_tuiles[_niveau->getNiveau()[j+1][i-1]].getType() == TypeTuile::VIDE
                      && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)
                          || (_tuiles[_niveau->getNiveau()[j+1][i+1]].getType() == TypeTuile::VIDE
                              && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)) {
                    return true;
-                }
+                }*/
             }
 
             /*if (_niveau->getNiveau()[j][i] == 9){
@@ -204,8 +212,8 @@ bool Monde::collisionMonstre(Monstre *m){
                 m->setTimerMort(1);
             }*/
         }
-        return false;
     }
+    return false;
 }
 
 void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){

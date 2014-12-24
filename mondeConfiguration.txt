@@ -5,28 +5,23 @@ tuiles.bmp
 #nbrTuilesLigneFichierImage
 1
 #typeTuile
-tuiles0	vide
-tuiles1	plein
-tuiles2	vide_avec_degats
+tuiles0	plein
+tuiles1	vide
+tuiles2	vide
 tuiles3	vide
-tuiles4	vide
+tuiles4	plein
 tuiles5	vide
 tuiles6	plein
 tuiles7	vide_avec_degats
-tuiles8	vide
-tuiles9	vide
-tuiles10	vide
+tuiles8	vide_avec_degats
+tuiles9	vide_avec_degats
+tuiles10	vide_avec_degats
 tuiles11	plein
-tuiles12	vide_avec_degats
+tuiles12	vide
 tuiles13	vide
 tuiles14	vide
 tuiles15	vide
-tuiles16	plein
+tuiles16	vide_avec_degats
 tuiles17	vide_avec_degats
 tuiles18	vide
 tuiles19	vide
-tuiles20	vide
-tuiles21	plein
-tuiles22	vide_avec_degats
-tuiles23	vide
-tuiles24	vide

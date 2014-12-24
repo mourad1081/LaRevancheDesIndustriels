@@ -6,19 +6,12 @@
 #include "metier/evenement.h"
 #include "metier/hero.h"
 
-// Taille du sprite de notre héros (largeur = width et hauteur = heigth)
-#define MONSTER_WIDTH 40
-#define MONSTER_HEIGHT 80
-
-#define VITESSE_MONSTER 1
 // Constantes pour l'animation
-#define TIME_BETWEEN_2_FRAMES 8
 //Valeurs attribuées aux états/directions
 #define WALK 1
 #define RIGHT 1
 #define LEFT 2
 
-#define NB_MONSTRES 1
 class Monde;
 class Hero;
 class Monstre
@@ -38,12 +31,18 @@ private:
     int _etat, _direction;
     int _onGround, _timerMort;
 
-
     bool _estMort;
+
+    // Constantes pour l'animation
+    const int TIME_BETWEEN_2_FRAMES = 8;
+
+    // Constante définissant le seuil entre les tiles traversables
+    const int VITESSE_MONSTER = 2;
+
 public:
     Monstre();
     ~Monstre();
-    Monstre(char * name, int x, int y);
+    Monstre(char * name, int x, int y, int w, int h);
     void drawAnimatedMonster(SDL_Surface * screen, Monde * m);
     void updateMonster(Hero * h, Monde * m);
     int testCollision(Hero * h);

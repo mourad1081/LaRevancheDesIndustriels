@@ -78,7 +78,7 @@ RESOURCES += \
     images.qrc
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_imaged
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 else:unix: LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 
 INCLUDEPATH += $$PWD/SDL/include

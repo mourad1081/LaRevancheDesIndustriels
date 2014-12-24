@@ -16,8 +16,6 @@
 #include "metier/tuile.h"
 
 //Taille de la fenetre du jeu
-#define SCREEN_WIDTH 600
-#define SCREEN_HEIGHT 600
 using namespace std;
 /*!
  * \brief Représente un Monde
@@ -54,7 +52,7 @@ private:
     const string NOM_FICHIER_CONFIG = "mondeConfiguration.txt";
 
 public:
-    Monde() throw(ExceptionGame);
+    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);
     int getNiveauActuel() const;
 
     void setNiveauActuel(int nouveauNiveau) throw(ExceptionGame);
@@ -90,6 +88,16 @@ public:
         * \return la hauteur d'une tuile
         */
     int getHauteurTuile() const;
+    /*!
+        * \brief Donne la largeur de la fenetre
+        * \return la largeur de la fenetre
+        */
+    int getLargeurFenetre() const;
+    /*!
+        * \brief Donne la hauteur d'une de la fenetre
+        * \return la hauteur de la fenetre
+        */
+    int getHauteurFenetre() const;
     /*!
         * \brief Donne le nombre de tuile en colonne du monde
         * \return le nombre de tuile en colonne du monde

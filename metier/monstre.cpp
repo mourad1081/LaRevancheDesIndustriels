@@ -5,8 +5,8 @@ Monstre::Monstre()
     //On charge les coordonnées du hero
     posReelle.x = 0;
     posReelle.y = 0;
-    posReelle.w = MONSTER_WIDTH;
-    posReelle.h = MONSTER_HEIGHT;
+    posReelle.w = 0;
+    posReelle.h = 0;
 
     //On indique l'état et la direction du héro
     _direction = LEFT;
@@ -22,7 +22,7 @@ Monstre::Monstre()
 
     _estMort = false;
 }
-Monstre::Monstre(char * name, int x, int y)
+Monstre::Monstre(char * name, int x, int y, int w, int h)
 {
     //On charge le sprite
     _sprite = IMG_Load(name);
@@ -30,8 +30,8 @@ Monstre::Monstre(char * name, int x, int y)
     //On charge les coordonnées du hero
     posReelle.x = x;
     posReelle.y = y;
-    posReelle.w = MONSTER_WIDTH;
-    posReelle.h = MONSTER_HEIGHT;
+    posReelle.w = w;
+    posReelle.h = h;
 
     //On indique l'état et la direction du héro
     _direction = RIGHT;
@@ -69,8 +69,8 @@ void Monstre::drawAnimatedMonster(SDL_Surface * screen, Monde * m)
         //Puisque la première frame est la numéro 0, la dernière est donc la numéro 11
 
         //SOUCIS SEGMENTATION FAULT ET JE VOIS PAS PQ
-        /*if(_frameNumber >= _sprite->w / MONSTER_WIDTH)
-            _frameNumber = 0;*/
+        if(_frameNumber >= _sprite->w / posReelle.w)
+            _frameNumber = 0;
     }else{
         //Sinon, on décrémente notre timer
         _frameTimer--;
@@ -83,17 +83,17 @@ void Monstre::drawAnimatedMonster(SDL_Surface * screen, Monde * m)
 
     dest.x = posReelle.x - m->getHoriScroll();
     dest.y = posReelle.y - m->getVertiScroll();
-    dest.w = MONSTER_WIDTH;
-    dest.h = MONSTER_HEIGHT;
+    dest.w = posReelle.w;
+    dest.h = posReelle.h;
 
     // Rectangle source à blitter
     SDL_Rect src;
 
     //On choisit la bonne frame à blitter
-    src.x = _frameNumber * MONSTER_WIDTH;
+    src.x = _frameNumber * posReelle.w;
     src.y = 0;
-    src.w = MONSTER_WIDTH;
-    src.h = MONSTER_HEIGHT;
+    src.w = posReelle.w;
+    src.h = posReelle.h;
 
     // Blitte notre héros sur l'écran aux coordonnées x et y
     SDL_BlitSurface(_sprite, &src, screen, &dest);
@@ -110,8 +110,8 @@ void Monstre::updateMonster(Hero * h, Monde * m)
 
     posTest.x = posReelle.x;
     posTest.y = posReelle.y;
-    posTest.h = MONSTER_HEIGHT;
-    posTest.w = MONSTER_WIDTH;
+    posTest.h = posReelle.h;
+    posTest.w = posReelle.w;
 
     if(_direction == RIGHT)
     {
@@ -166,7 +166,7 @@ void Monstre::updateMonster(Hero * h, Monde * m)
     if (testCollision(h) == 1)
     {
         //On met le timer à 1 pour tuer le joueur intantanément
-        //h->setTimerMort(1);
+        h->setTimerMort(1);
     }
     else if (testCollision(h) == 2)
     {
@@ -204,13 +204,10 @@ int Monstre::testCollision(Hero *player)
         //On devra alors tuer le monstre et on fera rebondir le joueur.
     }else if (posPlayer.y + posPlayer.h < posReelle.y +10)
     {
-        cout << "return 2" << endl;
-        posPlayer.y = - JUMP_HEIGHT;
         return 2;
     }
     //Sinon, on renvoie 1 et c'est le joueur qui meurt...
     else{
-        cout << "return 1" << endl;
         return 1;
     }
 }

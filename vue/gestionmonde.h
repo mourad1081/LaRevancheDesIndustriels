@@ -3,6 +3,9 @@
 
 #include "vue/monde.h"
 #include "metier/evenement.h"
+#include "metier/hero.h"
+#include "metier/monstre.h"
+#include "vue/monde.h"
 
 class GestionMonde
 {
@@ -10,20 +13,26 @@ private:
     SDL_Surface * _fenetre;
     Monde * _monde;
     Evenement * _lesEvents;
+    Hero * hero;
+    Monstre * monstres[2];
     int _largeurFenetre;
     int _hauteurFenetre;
-    const int VITESSE_DEPLACEMENT = 20;
+    int _nbMonstres=2;
+
+
 public:
     GestionMonde(SDL_Surface *fenetre, int largeurFenetre, int hauteurFenetre);
-    void miseAjourDeLaMap();
-private:
 
     /*!
-     * \brief Permet de se deplacer dans la map en utilisant les fleches
-     * \param monde Le monde dans lequel on veut se déplacer
-     * \param event
+     * \brief Permet de mettre a joueurs les joueurs à l'écran
      */
-    void bougerLaMap();
+    void miseAjourJoueurs();
+
+    /*!
+     * \brief Permet mettre à jour la map
+     */
+    void miseAjourDeLaMap();
+
 };
 
 #endif // GESTIONMONDE_H

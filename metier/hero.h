@@ -5,26 +5,12 @@
 #include "vue/monde.h"
 #include "metier/evenement.h"
 
-// Taille du sprite de notre héros (largeur = width et hauteur = heigth)
-#define PLAYER_WIDTH 40
-#define PLAYER_HEIGHT 80
-// Constantes pour l'animation
-#define TIME_BETWEEN_2_FRAMES 8
 //Valeurs attribuées aux états/directions
 #define WALK 1
 #define STOPPED 2
 #define JUMP 3
 #define RIGHT 1
 #define LEFT 2
-
-// Constante définissant le seuil entre les tiles traversables
-#define VITESSE_JOUEUR 3
-#define BLANK_TILE 5
-
-//Constantes définissant la gravité et la vitesse max de chute
-#define GRAVITY_SPEED 0.8
-#define MAX_FALL_SPEED 10
-#define JUMP_HEIGHT 12
 
 class Monde;
 class Hero
@@ -48,10 +34,18 @@ private:
     //Variables liées au joueur
     int _nbVies, _nbPoints;
 
+    // Constantes pour l'animation
+    const int TIME_BETWEEN_2_FRAMES = 8;
+
+    // Constante définissant le seuil entre les tiles traversables
+    const int VITESSE_JOUEUR = 3;
+    const int JUMP_HEIGHT = 12;
+    const int GRAVITY_SPEED = 0.8;
+
 public:
     Hero();
     ~Hero();
-    Hero(char * name, int x, int y);
+    Hero(char * name, int x, int y, int w, int h);
     void drawAnimatedPlayer(SDL_Surface * screen, Monde * m);
     void updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen);
     void centerScrollingOnPlayer(Monde * m);

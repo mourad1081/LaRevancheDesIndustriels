@@ -5,8 +5,8 @@ Hero::Hero()
     //On charge les coordonnées du hero
     posReelle.x = 0;
     posReelle.y = 0;
-    posReelle.w = PLAYER_WIDTH;
-    posReelle.h = PLAYER_HEIGHT;
+    posReelle.w = 0;
+    posReelle.h = 0;
 
     //On initialise les variables pour l'animation
     _frameNumber = 0;
@@ -19,15 +19,15 @@ Hero::Hero()
     _nbVies = 3;
     _nbPoints = 0;
 }
-Hero::Hero(char * name, int x, int y)
+Hero::Hero(char * name, int x, int y, int w, int h)
 {
     //On charge le sprite
     _sprite = IMG_Load(name);
     //On charge les coordonnées du hero
     posReelle.x = x;
     posReelle.y = y;
-    posReelle.w = PLAYER_WIDTH;
-    posReelle.h = PLAYER_HEIGHT;
+    posReelle.w = w;
+    posReelle.h = h;
 
     //On indique l'état et la direction du héro
     _direction = RIGHT;
@@ -66,7 +66,7 @@ void Hero::drawAnimatedPlayer(SDL_Surface * screen, Monde * m)
             //Pour connaître la frame max, il suffit de diviser la longueur du spritesheet
             //par la longueur de notre héros : 480 / 40 = 12 frames
             //Puisque la première frame est la numéro 0, la dernière est donc la numéro 11
-            if(_frameNumber >= _sprite->w / PLAYER_WIDTH)
+            if(_frameNumber >= _sprite->w / posReelle.w)
                 _frameNumber = 0;
         }else{
             //Sinon, on décrémente notre timer
@@ -85,17 +85,17 @@ void Hero::drawAnimatedPlayer(SDL_Surface * screen, Monde * m)
     //au scrolling :
     dest.x = posReelle.x - m->getHoriScroll();
     dest.y = posReelle.y - m->getVertiScroll();
-    dest.w = PLAYER_WIDTH;
-    dest.h = PLAYER_HEIGHT;
+    dest.w = posReelle.w;
+    dest.h = posReelle.h;
 
     // Rectangle source à blitter
     SDL_Rect src;
 
     //On choisit la bonne frame à blitter
-    src.x = _frameNumber * PLAYER_WIDTH;
+    src.x = _frameNumber * posReelle.w;
     src.y = 0;
-    src.w = PLAYER_WIDTH;
-    src.h = PLAYER_HEIGHT;
+    src.w = posReelle.w;
+    src.h = posReelle.h;
 
     // Blitte notre héros sur l'écran aux coordonnées x et y
     SDL_BlitSurface(_sprite, &src, screen, &dest);
@@ -112,8 +112,8 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 
     posTest.x = posReelle.x;
     posTest.y = posReelle.y;
-    posTest.h = PLAYER_HEIGHT;
-    posTest.w = PLAYER_WIDTH;
+    posTest.h = posReelle.h;
+    posTest.w = posReelle.w;
 
     //std::cout << "_x" << posReelle.x << endl;
     //std::cout << "_y" << posReelle.y << endl;
@@ -192,20 +192,20 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             }
             v_y += 0.9;
             this->centerScrollingOnPlayer(m);
-            //m->AfficherMonde(screen);
+            m->AfficherMonde(screen);
             drawAnimatedPlayer(screen, m);
             //Affiche l'écran
             SDL_Flip(screen);
             SDL_Delay(20);
         }*/
 
-        if(_direction == LEFT){
+        /*if(_direction == LEFT){
             _sprite = IMG_Load("img/jumpleft.png");
         }
 
         if(_direction ==  RIGHT){
             _sprite = IMG_Load("img/jumpright.png");
-        }
+        }*/
 
     }
 
@@ -221,8 +221,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         _onGround = 1;
     }
 
-    //On centre le scrolling sur le joueur.
-    this->centerScrollingOnPlayer(m);
 
     if (_timerMort > 0)
     {
@@ -243,6 +241,8 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //cout << "_timerMort : " << _timerMort << endl;
     //cout << "nbVies : " << _nbVies << endl;
     //cout << "nbPoints : " << _nbPoints << endl;
+    //On centre le scrolling sur le joueur.
+    this->centerScrollingOnPlayer(m);
 }
 
 void Hero::centerScrollingOnPlayer(Monde * m)
@@ -256,7 +256,7 @@ void Hero::centerScrollingOnPlayer(Monde * m)
 
     //La map se déplacera sur le joueur, il sera toujours situé au milieu de l'écran.
 
-    m->setHoriScroll( posReelle.x  - (SCREEN_WIDTH / 2));
+    m->setHoriScroll( posReelle.x  - (m->getLargeurFenetre() / 2));
 
     //On bloque le scroll sur le début et la fin de la map lorsque
     //le scrolling va trop loin.
@@ -265,14 +265,14 @@ void Hero::centerScrollingOnPlayer(Monde * m)
     {
         m->setHoriScroll(0);
     }
-    else if (m->getHoriScroll() + SCREEN_WIDTH >= m->getMaxX())
+    else if (m->getHoriScroll() + m->getLargeurFenetre() >= m->getMaxX())
     {
-        m->setHoriScroll(m->getMaxX() - SCREEN_WIDTH);
+        m->setHoriScroll(m->getMaxX() - m->getLargeurFenetre());
     }
 
     //La map se déplacera sur le joueur, il sera toujours situé au milieu de l'écran.
 
-    m->setVertiScroll( posReelle.y  - (SCREEN_HEIGHT / 2));
+    m->setVertiScroll( posReelle.y  - (m->getHauteurFenetre() / 2));
 
     //On bloque le scroll sur le haut et le bas de la map lorsque
     //le scrolling va trop loin.
@@ -281,9 +281,9 @@ void Hero::centerScrollingOnPlayer(Monde * m)
     {
         m->setVertiScroll(0);
     }
-    else if (m->getVertiScroll() + SCREEN_HEIGHT >= m->getMaxY() )
+    else if (m->getVertiScroll() + m->getHauteurFenetre() >= m->getMaxY() )
     {
-        m->setVertiScroll(m->getMaxY() - SCREEN_HEIGHT);
+        m->setVertiScroll(m->getMaxY() - m->getHauteurFenetre());
     }
 }
 

@@ -1,10 +1,9 @@
 #include "vue/application.h"
 #include <QApplication>
+#include <QMessageBox>
 #include <iostream>
 #include "SDL.h"
-#include "metier/hero.h"
-#include "metier/monstre.h"
-#include "vue/monde.h"
+#include "vue/gestionmonde.h"
 #undef main
 
 using namespace std;
@@ -22,7 +21,7 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
     // notre fenetre ,param (taille,taille,couleur,option)
-    SDL_Surface * fenetre = SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,
+    SDL_Surface * fenetre = SDL_SetVideoMode(600,600,
                                              32,SDL_HWSURFACE);
 
     // renomer la fenetre
@@ -36,44 +35,11 @@ int main(int argc, char **argv) {
     //SDL_FillRect(fenetre,NULL,couleurFond);
 
 
-    Monde * m;
-    Hero * hero;
-    Monstre * monstres[NB_MONSTRES];
+    GestionMonde * gestionMonde;
 
     try{
 
-        m = new Monde();
-        hero = new Hero ("img/walkright.png", 0, 0);
-        Evenement * evt = new Evenement();
-
-        float randomX;
-        for(int i=0; i < NB_MONSTRES ; i++)
-        {
-            randomX = rand()%m->getMaxX();
-            //randomX = 400;
-            monstres[i] = new Monstre ("img/walkright.png", randomX ,300);
-        }
-
-        while(!evt->key[SDLK_ESCAPE] && !evt->quit && hero->getNbVies() > 0){
-            m->AfficherMonde(fenetre);
-            evt->ActiveAttenteEvenement();
-            hero->drawAnimatedPlayer(fenetre, m);
-            hero->updatePlayer(evt, m, fenetre);
-
-            for(int i=0; i < NB_MONSTRES ; i++)
-            {
-                if(!monstres[i]->estMort()){
-                    monstres[i]->drawAnimatedMonster(fenetre, m);
-                    monstres[i]->updateMonster(hero, m);
-                }
-            }
-
-            //Affiche l'écran
-            SDL_Flip(fenetre);
-            //Delai
-            SDL_Delay(5);
-        }
-
+        gestionMonde = new GestionMonde(fenetre,600, 600);
 
     }catch(ExceptionGame eg){
         cerr << eg.what() << endl;
@@ -83,7 +49,6 @@ int main(int argc, char **argv) {
     }
 
     // libere la memoire
-    //delete(hero);
     SDL_FreeSurface(fenetre);
     SDL_Quit();
     exit(EXIT_SUCCESS);
