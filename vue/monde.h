@@ -1,13 +1,32 @@
 #ifndef MONDE_H
 #define MONDE_H
 
+#include <iostream>
+#include <vector>
 #include <SDL.h>
+#include <string>
+#include <fstream>
+
+#include "metier/hero.h"
+#include "metier/monstre.h"
+#include "metier/tuile.h"
+#include "metier/exceptiongame.h"
 
 #include "metier/niveau.h"
 #include "metier/tuile.h"
 
+//Taille de la fenetre du jeu
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 600
+using namespace std;
+/*!
+ * \brief Représente un Monde
+ */
+class Hero;
+class Monstre;
 class Monde
 {
+
 private:
     Niveau * _niveau;
     int _niveauActuel;
@@ -18,6 +37,7 @@ private:
     int _nbrTuilesEnLigne;   // nbr de tuile en ligne de l'image tuile.bmp
     SDL_Surface * _imagesDesTuiles; // l'image tuiles.bmp
     vector<Tuile> _tuiles;   // liste des tuiles presente dans l'image tuiles.bmp
+
     //---- pour l'affichage du monde
     int _nbrTuilesEnColonneMonde; // nbr de tuiles en colonne du monde
     int _nbrTuilesEnLigneMonde;   // nbr de tuiles en ligne du monde
@@ -34,7 +54,7 @@ private:
     const string NOM_FICHIER_CONFIG = "mondeConfiguration.txt";
 
 public:
-    Monde(int largeurFenetre , int hauteurFenetre) throw(ExceptionGame);
+    Monde() throw(ExceptionGame);
     int getNiveauActuel() const;
 
     void setNiveauActuel(int nouveauNiveau) throw(ExceptionGame);
@@ -81,10 +101,34 @@ public:
         */
     int getNbrTuilesEnLigneMonde()const;
     /*!
+     * \brief Donne la largeur du monde
+     * \return largeur du monde
+     */
+    int getMaxX()const;
+    /*!
+     * \brief Donne la hauteur du monde
+     * \return hauteur du monde
+     */
+    int getMaxY()const;
+    /*!
         * \brief Permet l'affichage du monde dans une fenetre
         * \param fenetre la fenetre dans laquel on affiche le monde
         */
     void AfficherMonde(SDL_Surface * fenetre);
+    /*!
+     * \brief Permet de savoir si le personnage est en collison avec
+     * un element du monde qu'il ne peut pas traverser
+     * \param perso
+     * \return true s'il y a collision, faux sinon
+     */
+    bool collisionPerso(Hero *h);
+    /*!
+     * \brief Permet de savoir si un monstre est en collison avec
+     * un element du monde qu'il ne peut pas traverser
+     * \param monstre
+     * \return true s'il y a collision, faux sinon
+     */
+    bool collisionMonstre(Monstre *m);
 private:
     void chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame);
     SDL_Surface* chargerImage(string nomFichierImage);

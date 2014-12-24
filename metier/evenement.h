@@ -12,13 +12,16 @@ public:
     Evenement();
     /*!
      * \brief Active l'attente d'évenement, les evenements qui se seront
-     * produit seront enregistre et pourront être consulter
+     * produit seront enregistre et pourront etre consulter
      */
     void ActiveAttenteEvenement();
 
 public:
-    char _touches[SDLK_LAST];
-    char _quitter;
+    char key[SDLK_LAST];
+    int mousex,mousey;
+    int mousexrel,mouseyrel;
+    char mousebuttons[8];
+    char quit;
 };
 
 #endif // EVENEMENT_H

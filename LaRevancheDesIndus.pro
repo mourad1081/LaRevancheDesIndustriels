@@ -15,7 +15,6 @@ QMAKE_CXXFLAGS += -std=c++11 -pedantic-errors
 
 SOURCES += main.cpp\
     O_SDO/sujetDObservation.cpp \
-    metier/personnage.cpp \
     vue/personnagevue.cpp \
     vue/histoire.cpp \
     vue/gestionmonde.cpp \
@@ -24,22 +23,25 @@ SOURCES += main.cpp\
     metier/exceptiongame.cpp \
     metier/tuile.cpp \
     metier/evenement.cpp \
-    metier/niveau.cpp
+    metier/niveau.cpp \
+    metier/monstre.cpp \
+    metier/hero.cpp
 
 HEADERS  += \
     O_SDO/observateur.h \
     O_SDO/sujetDObservation.h \
-    metier/personnage.h \
     vue/personnagevue.h \
     vue/histoire.h \
-    vue/gestionmonde.h \
     vue/monde.h \
     vue/application.h \
     metier/exceptiongame.h \
     metier/tuile.h \
     metier/TypeTuile.h \
     metier/evenement.h \
-    metier/niveau.h
+    metier/niveau.h \
+    metier/monstre.h \
+    metier/hero.h \
+    vue/gestionmonde.h
 
 FORMS    += \
     vue/application.ui

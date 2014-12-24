@@ -1,10 +1,10 @@
 #include "monde.h"
 
-Monde::Monde(int largeurFenetre , int hauteurFenetre)  throw(ExceptionGame)
+Monde::Monde()  throw(ExceptionGame)
     :   _niveauActuel(1)
 {
-    _largeurFenetre = largeurFenetre;
-    _hauteurFenetre = hauteurFenetre;
+    _largeurFenetre = SCREEN_WIDTH;
+    _hauteurFenetre = SCREEN_HEIGHT;
     _horiScroll = 0;
     _vertiScroll = 0;
     _niveau = new Niveau(_niveauActuel);
@@ -74,6 +74,14 @@ int Monde::getNbrTuilesEnColonneMonde() const{
 int Monde::getNbrTuilesEnLigneMonde()const{
     return _nbrTuilesEnLigneMonde;
 }
+int Monde::getMaxX()const{
+    return this->getNbrTuilesEnColonneMonde()
+            * this->getLargeurTuile();
+}
+int Monde::getMaxY()const{
+    return this->getNbrTuilesEnLigneMonde()
+            * this->getHauteurTuile();
+}
 
 void Monde::AfficherMonde(SDL_Surface * fenetre){
 
@@ -102,6 +110,101 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
             SDL_BlitSurface(_imagesDesTuiles
                             ,&(_tuiles[numTuile].getRectangle()),fenetre,&rectDest);
         }
+    }
+}
+
+bool Monde::collisionPerso(Hero *h){
+    SDL_Rect posHero = h->getPosTestHero();
+    int x1, x2, y1, y2,i,j;
+    Uint16 indicetile;
+
+    //Lorsque le joueur est mort, c'est à dire qu'il sort de l'écran
+    // par le bas, si c'est le cas, un timer est lancé.
+    if(posHero.y + PLAYER_HEIGHT >= this->getMaxY()){
+        if(h->getTimerMort() == 0){
+            h->setTimerMort(1);
+        }
+        return false;
+    }
+
+    //On teste si la position du joueur n'est pas en dehors de la map,
+    //si c'est le cas, on retourne vrai.
+    if (posHero.x < 0  || posHero.y < 0 ||
+            posHero.x + PLAYER_WIDTH >= this->getMaxX())
+    {
+        return true;
+    }
+
+    x1 = posHero.x / _largeurTuile;
+    y1 = posHero.y / _hauteurTuile;
+    x2 = (posHero.x + posHero.w -1) / _largeurTuile;
+    y2 = (posHero.y + posHero.h -1) / _hauteurTuile;
+
+    for ( i = x1 ; i <=  x2  ; i++) {
+        for ( j = y1 ; j <= y2  ; j++){
+
+            indicetile = _niveau->getNiveau()[j][i];
+            if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
+                /*cout << "perso i : "<< i << endl;
+                cout << "perso j : " << j << endl;*/
+                return true;
+            }
+            if (_niveau->getNiveau()[j][i] == 18){
+                _niveau->getNiveau()[j][i] = 5;
+                h->incNbPoints();
+            }
+        }
+    }
+    return false;
+}
+
+bool Monde::collisionMonstre(Monstre *m){
+    SDL_Rect posMonstre = m->getPosTestMonstre();
+    int x1, x2, y1, y2,i,j;
+    Uint16 indicetile;
+
+    //On teste si la position du monstre n'est pas en dehors de la map,
+    //si c'est le cas, on retourne vrai.
+    if (posMonstre.x < 0  || posMonstre.y < 0 ||
+            posMonstre.x + MONSTER_WIDTH >= this->getMaxX() || posMonstre.y + MONSTER_HEIGHT >= this->getMaxY())
+    {
+        return true;
+    }
+
+    x1 = posMonstre.x / _largeurTuile;
+    y1 = posMonstre.y / _hauteurTuile;
+    x2 = (posMonstre.x + posMonstre.w -1) / _largeurTuile;
+    y2 = (posMonstre.y + posMonstre.h -1) / _hauteurTuile;
+
+    for ( i = x1 ; i <=  x2  ; i++) {
+        for ( j = y1 ; j <= y2  ; j++){
+            indicetile = _niveau->getNiveau()[j][i];
+            if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
+                //cout << "monstre i : " << i << endl;
+                //cout << "monstre j : " << j << endl;
+
+                return true;
+            }
+            if( i-1 >= 0 && j-1 >= 0
+                    && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde
+                    && m->isOnGround()
+                    ){
+
+                //SOUCIS AVEC UN SEGMENTATION FAULT
+                if ((_tuiles[_niveau->getNiveau()[j+1][i-1]].getType() == TypeTuile::VIDE
+                     && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)
+                         || (_tuiles[_niveau->getNiveau()[j+1][i+1]].getType() == TypeTuile::VIDE
+                             && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)) {
+                   return true;
+                }
+            }
+
+            /*if (_niveau->getNiveau()[j][i] == 9){
+                _niveau->getNiveau()[j][i] = 0;
+                m->setTimerMort(1);
+            }*/
+        }
+        return false;
     }
 }
 

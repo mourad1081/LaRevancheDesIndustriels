@@ -2,7 +2,7 @@
 
 GestionMonde::GestionMonde(SDL_Surface * fenetre
                            ,int largeurFenetre, int hauteurFenetre){
-    _fenetre = fenetre;
+    /*_fenetre = fenetre;
     _lesEvents = new Evenement();
     //_lesEvents->ActiveAttenteEvenement();
     _largeurFenetre = largeurFenetre;
@@ -12,12 +12,12 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
         _monde = new Monde(largeurFenetre,hauteurFenetre);
     } catch( ExceptionGame eg ) {
         cerr << eg.what() ;
-    }
+    }*/
 }
 
 
 void GestionMonde::bougerLaMap(){
-    if (_lesEvents->_touches[SDLK_LEFT])
+   /* if (_lesEvents->_touches[SDLK_LEFT])
        _monde->setHoriScroll(_monde->getHoriScroll() - VITESSE_DEPLACEMENT);
 
     if (_lesEvents->_touches[SDLK_RIGHT])
@@ -30,12 +30,12 @@ void GestionMonde::bougerLaMap(){
         _monde->setVertiScroll(_monde->getVertiScroll() + VITESSE_DEPLACEMENT);
 
     if (_lesEvents->_quitter)
-        exit(0);
+        exit(0);*/
 }
 
 void GestionMonde::miseAjourDeLaMap(){
-    _lesEvents->ActiveAttenteEvenement();
+   /* _lesEvents->ActiveAttenteEvenement();
     bougerLaMap();
     _monde->AfficherMonde(_fenetre);
-    SDL_Flip(_fenetre);
+    SDL_Flip(_fenetre);*/
 }

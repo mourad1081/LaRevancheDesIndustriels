@@ -11,6 +11,8 @@ INPUT(
 ./release\tuile.o
 ./release\evenement.o
 ./release\niveau.o
+./release\monstre.o
+./release\hero.o
 ./release\qrc_images.o
 ./release\moc_application.o
 );
