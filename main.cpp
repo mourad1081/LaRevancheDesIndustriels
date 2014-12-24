@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
     try{
 
         m = new Monde();
-        hero = new Hero ("img/walkright.png", 0, 0);
+        hero = new Hero("img/walkright.png", 0, 0);
         Evenement * evt = new Evenement();
 
         float randomX;

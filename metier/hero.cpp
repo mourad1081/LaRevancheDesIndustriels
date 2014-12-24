@@ -172,7 +172,7 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             posReelle.y -= JUMP_HEIGHT;
         }
 
-        /* double v_x;
+         double v_x;
 
          if(_direction == LEFT){
             v_x = -3;
@@ -197,7 +197,7 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             //Affiche l'écran
             SDL_Flip(screen);
             SDL_Delay(20);
-        }*/
+        }
 
         if(_direction == LEFT){
             _sprite = IMG_Load("img/jumpleft.png");
