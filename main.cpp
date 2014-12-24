@@ -63,8 +63,8 @@ int main(int argc, char **argv) {
             for(int i=0; i < NB_MONSTRES ; i++)
             {
                 if(!monstres[i]->estMort()){
-                    //monstres[i]->drawAnimatedMonster(fenetre, m);
-                    //monstres[i]->updateMonster(hero, m);
+                    monstres[i]->drawAnimatedMonster(fenetre, m);
+                    monstres[i]->updateMonster(hero, m);
                 }
             }
 
@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
     }
 
     // libere la memoire
-    delete(hero);
+    //delete(hero);
     SDL_FreeSurface(fenetre);
     SDL_Quit();
     exit(EXIT_SUCCESS);

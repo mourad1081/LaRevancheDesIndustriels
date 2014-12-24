@@ -1,7 +1,6 @@
 INPUT(
 ./release\main.o
 ./release\sujetDObservation.o
-./release\personnage.o
 ./release\personnagevue.o
 ./release\histoire.o
 ./release\gestionmonde.o
