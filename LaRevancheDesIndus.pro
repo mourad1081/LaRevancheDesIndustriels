@@ -76,3 +76,10 @@ DEPENDPATH += $$PWD/SDL/include
 
 RESOURCES += \
     images.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_imaged
+else:unix: LIBS += -L$$PWD/SDL/lib/ -lSDL_image
+
+INCLUDEPATH += $$PWD/SDL/include
+DEPENDPATH += $$PWD/SDL/include
