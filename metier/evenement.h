@@ -22,9 +22,6 @@ public:
 
 public:
     char key[SDLK_LAST];
-    int mousex,mousey;
-    int mousexrel,mouseyrel;
-    char mousebuttons[8];
     char quit;
 };
 
