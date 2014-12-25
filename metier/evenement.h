@@ -3,6 +3,10 @@
 
 #include <SDL.h>
 
+/*!
+ * \brief Classe qui permet de connaitre les évenements
+ * qui se sont produit au clavier (ex: pression de touche,...)
+ */
 class Evenement
 {
 public:
@@ -11,8 +15,8 @@ public:
      */
     Evenement();
     /*!
-     * \brief Active l'attente d'évenement, les evenements qui se seront
-     * produit seront enregistre et pourront etre consulter
+     * \brief Active l'attente d'évenement, les évenements qui se seront
+     * produit seront enregistré et pourront etre consulter
      */
     void ActiveAttenteEvenement();
 

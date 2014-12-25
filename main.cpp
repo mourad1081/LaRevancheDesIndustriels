@@ -10,9 +10,9 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
-    /*
+
     QApplication a(argc, argv);
-    Application w;
+  /*  Application w;
     w.show();*/
 
     // initialise SDL
@@ -21,8 +21,8 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
     // notre fenetre ,param (taille,taille,couleur,option)
-    SDL_Surface * fenetre = SDL_SetVideoMode(600,600,
-                                             32,SDL_HWSURFACE);
+    SDL_Surface * fenetre = SDL_SetVideoMode(0,0,
+                                             32,SDL_HWSURFACE | SDL_FULLSCREEN |SDL_DOUBLEBUF);
 
     // renomer la fenetre
     SDL_WM_SetCaption("Jeu de plateforme", NULL);
@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
 
     try{
 
-        gestionMonde = new GestionMonde(fenetre,600, 600);
+        gestionMonde = new GestionMonde(fenetre,fenetre->w, fenetre->h);
 
     }catch(ExceptionGame eg){
         cerr << eg.what() << endl;

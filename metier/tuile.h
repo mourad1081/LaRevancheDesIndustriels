@@ -13,8 +13,19 @@
 class Tuile
 {
 public:
+    /*!
+     * \brief Crée une tuile vide (ne fait rien)
+     */
     Tuile();
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le rectangle de la tuile.
+     */
     SDL_Rect& getRectangle();
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le type de la tuile.
+     */
     TypeTuile getType()const;
     /*!
      * \brief Configure le rectangle, une tuile occupe une
@@ -30,6 +41,7 @@ public:
      * \param type le type de la tuile
      */
     void setType(TypeTuile type);
+
 private:
     SDL_Rect _rectangle;
     TypeTuile _type;
