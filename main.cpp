@@ -35,8 +35,10 @@ void lancerApplication()
         exit(EXIT_FAILURE);
     }
     // notre fenetre ,param (taille,taille,couleur,option)
-    SDL_Surface * fenetre = SDL_SetVideoMode(0,0,
-                                             32,SDL_HWSURFACE | SDL_FULLSCREEN |SDL_DOUBLEBUF);
+    SDL_Surface * fenetre = SDL_SetVideoMode(0, 0, 32,
+                                             SDL_HWSURFACE
+                                             | SDL_FULLSCREEN
+                                             | SDL_DOUBLEBUF);
 
     // renomer la fenetre
     SDL_WM_SetCaption("Jeu de plateforme", NULL);
