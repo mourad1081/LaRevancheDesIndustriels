@@ -43,7 +43,7 @@ public:
     {
         if (Application->objectName().isEmpty())
             Application->setObjectName(QStringLiteral("Application"));
-        Application->resize(681, 392);
+        Application->resize(728, 391);
         centralwidget = new QWidget(Application);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setStyleSheet(QLatin1String("\n"
@@ -66,6 +66,7 @@ public:
 "QPushButton::hover\n"
 "{\n"
 "color:salmon;\n"
+"font:16pt;\n"
 "}"));
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -90,7 +91,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         btnNouvellePartie = new QPushButton(centralwidget);
         btnNouvellePartie->setObjectName(QStringLiteral("btnNouvellePartie"));
-        btnNouvellePartie->setMinimumSize(QSize(0, 0));
+        btnNouvellePartie->setMinimumSize(QSize(200, 0));
         QFont font;
         font.setPointSize(14);
         font.setBold(false);
@@ -104,17 +105,20 @@ public:
 
         btnContinuer = new QPushButton(centralwidget);
         btnContinuer->setObjectName(QStringLiteral("btnContinuer"));
+        btnContinuer->setEnabled(false);
+        btnContinuer->setMinimumSize(QSize(200, 0));
         QFont font1;
         font1.setPointSize(14);
         font1.setStyleStrategy(QFont::PreferAntialias);
         btnContinuer->setFont(font1);
         btnContinuer->setCursor(QCursor(Qt::PointingHandCursor));
+        btnContinuer->setStyleSheet(QStringLiteral("color: rgb(162, 162, 162);"));
 
         verticalLayout->addWidget(btnContinuer, 0, Qt::AlignRight);
 
         btnOptions = new QPushButton(centralwidget);
         btnOptions->setObjectName(QStringLiteral("btnOptions"));
-        btnOptions->setMinimumSize(QSize(0, 0));
+        btnOptions->setMinimumSize(QSize(200, 0));
         btnOptions->setFont(font);
         btnOptions->setCursor(QCursor(Qt::PointingHandCursor));
 
@@ -122,7 +126,7 @@ public:
 
         btnHackNASA = new QPushButton(centralwidget);
         btnHackNASA->setObjectName(QStringLiteral("btnHackNASA"));
-        btnHackNASA->setMinimumSize(QSize(0, 0));
+        btnHackNASA->setMinimumSize(QSize(200, 0));
         btnHackNASA->setFont(font);
         btnHackNASA->setCursor(QCursor(Qt::PointingHandCursor));
 
@@ -130,14 +134,17 @@ public:
 
         btnMusique = new QPushButton(centralwidget);
         btnMusique->setObjectName(QStringLiteral("btnMusique"));
+        btnMusique->setEnabled(false);
+        btnMusique->setMinimumSize(QSize(200, 0));
         btnMusique->setFont(font1);
         btnMusique->setCursor(QCursor(Qt::PointingHandCursor));
+        btnMusique->setStyleSheet(QStringLiteral("color: rgb(162, 162, 162);"));
 
         verticalLayout->addWidget(btnMusique, 0, Qt::AlignRight);
 
         btnQuitter = new QPushButton(centralwidget);
         btnQuitter->setObjectName(QStringLiteral("btnQuitter"));
-        btnQuitter->setMinimumSize(QSize(0, 0));
+        btnQuitter->setMinimumSize(QSize(200, 0));
         btnQuitter->setFont(font);
         btnQuitter->setCursor(QCursor(Qt::PointingHandCursor));
 
@@ -161,7 +168,7 @@ public:
         btnNouvellePartie->setText(QApplication::translate("Application", "NOUVELLE PARTIE", 0));
         btnContinuer->setText(QApplication::translate("Application", "CONTINUER", 0));
         btnOptions->setText(QApplication::translate("Application", "PARAM\303\210TRES", 0));
-        btnHackNASA->setText(QApplication::translate("Application", "HACKER LA NSA", 0));
+        btnHackNASA->setText(QApplication::translate("Application", "HACKER LA NASA", 0));
         btnMusique->setText(QApplication::translate("Application", "MUSIQUE", 0));
         btnQuitter->setText(QApplication::translate("Application", "QUITTER", 0));
     } // retranslateUi

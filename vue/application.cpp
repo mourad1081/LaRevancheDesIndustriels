@@ -7,6 +7,7 @@ Application::Application(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
+    _musique.demarrerMusique();
     _volume = 1;
     _clicQuit = false;
     _sonActif = true;
@@ -59,10 +60,12 @@ void Application::on_btnOptions_clicked()
     ParametresSon *param = new ParametresSon(0);
     if (param->exec() == QDialog::Accepted)
     {
-        if((_sonActif = param->isSonActif()))
+        if( (_sonActif = param->isSonActif()) )
         {
+            _musique.reprendre();
             _jouerAMusiqueALinfini = param->isMusiqueInfinie();
-        }
+        } else
+            _musique.pause();
         _difficulteJeu = param->getDifficulte();
         _nbVies = param->getNbVies();
         _volume = param->getVolume();

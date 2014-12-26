@@ -12,8 +12,6 @@ void lancerApplication();
 
 int main(int argc, char **argv)
 {
-    GestionSon son;
-    son.demarrerMusique();
     QApplication a(argc, argv);
     Application w;
     w.show();
@@ -26,8 +24,6 @@ int main(int argc, char **argv)
 
 void lancerApplication()
 {
-    //GestionSon son;
-
     // initialise SDL
     if ( SDL_Init(SDL_INIT_VIDEO) == -1)
     {

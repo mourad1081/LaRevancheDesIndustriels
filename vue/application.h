@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QMovie>
 #include "parametresson.h"
-
+#include "gestionson.h"
 class ParametresSon;
 namespace Ui {
 class Application;
@@ -31,6 +31,7 @@ private:
     bool _clicQuit;
 
     //---Paramètres---//
+    GestionSon _musique;
     bool _sonActif;
     bool _jouerAMusiqueALinfini;
     int _nbVies;
