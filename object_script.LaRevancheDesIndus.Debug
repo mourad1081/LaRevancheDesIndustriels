@@ -12,6 +12,9 @@ INPUT(
 ./debug\niveau.o
 ./debug\monstre.o
 ./debug\hero.o
+./debug\gestionson.o
+./debug\parametresson.o
 ./debug\qrc_images.o
 ./debug\moc_application.o
+./debug\moc_parametresson.o
 );

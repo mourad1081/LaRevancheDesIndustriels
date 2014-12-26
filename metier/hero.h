@@ -38,9 +38,9 @@ private:
     const int TIME_BETWEEN_2_FRAMES = 8;
 
     // Constante définissant le seuil entre les tiles traversables
-    const int VITESSE_JOUEUR = 3;
-    const int JUMP_HEIGHT = 12;
-    const int GRAVITY_SPEED = 0.8;
+    const int VITESSE_JOUEUR = 10;
+    const int JUMP_HEIGHT = 30;
+    const int GRAVITY_SPEED = 0.9;
 
 public:
     Hero();
