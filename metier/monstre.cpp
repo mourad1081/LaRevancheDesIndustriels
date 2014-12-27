@@ -161,8 +161,25 @@ void Monstre::updateMonster(Hero * h, Monde * m)
     }else{
         _onGround = 1;
     }
-
-    //Finalement on va tester le
+    SDL_Rect posPlayer = h->getPosReelleHero();
+    if ((posPlayer.x > posReelle.x + posReelle.w)
+                || (posPlayer.x + posPlayer.w < posReelle.x)
+                || (posPlayer.y > posReelle.y + posReelle.h)
+                || (posPlayer.y + posPlayer.h < posReelle.y)){
+        //Sinon, il y a collision. Si le joueur est au-dessus du monstre (avec une marge
+        //de 10 pixels pour éviter les frustrations dues au pixel perfect), on renvoie 2.
+        //On devra alors tuer le monstre et on fera rebondir le joueur.
+    }else if (posPlayer.y + posPlayer.h < posReelle.y + 10)
+    {
+        posPlayer.y -= 100;
+        cout << "le monstre est mort" << endl;
+        _timerMort = 1;
+    }
+    //Sinon, on renvoie 1 et c'est le joueur qui meurt...
+    else{
+        h->setTimerMort(1);
+    }
+    /*//Finalement on va tester le
     if (testCollision(h) == 1)
     {
         //On met le timer à 1 pour tuer le joueur intantanément
@@ -171,12 +188,12 @@ void Monstre::updateMonster(Hero * h, Monde * m)
     else if (testCollision(h) == 2)
     {
         //On fait rebondir le joueur sur le monstre
-        /*h->getPosTestHero().y -= JUMP_HEIGHT + MONSTER_HEIGHT;
+        h->getPosTestHero().y -= JUMP_HEIGHT + MONSTER_HEIGHT;
         if(!m->collisionPerso(h)){
             h->getPosReelleHero().y -= JUMP_HEIGHT + MONSTER_HEIGHT;
-        }*/
-        _timerMort = 20;
-    }
+        }
+        //_timerMort = 20;
+    }*/
     if (_timerMort > 0)
     {
         _timerMort--;
@@ -193,17 +210,21 @@ int Monstre::testCollision(Hero *player)
     SDL_Rect posPlayer = player->getPosReelleHero();
 
     //On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
-    if ((posPlayer.x > posReelle.x + posReelle.w)
+    /*if ((posPlayer.x > posReelle.x + posReelle.w)
             || (posPlayer.x + posPlayer.w < posReelle.x)
             || (posPlayer.y > posReelle.y + posReelle.h)
-            || (posPlayer.y + posPlayer.h < posReelle.y)
-            ){
+            || (posPlayer.y + posPlayer.h < posReelle.y)){*/
+    if ((posPlayer.x > posReelle.x + posReelle.w)
+                || (posPlayer.x + posPlayer.w < posReelle.x)
+                || (posPlayer.y > posReelle.y + posReelle.h)
+                || (posPlayer.y + posPlayer.h < posReelle.y)){
         return 0;
         //Sinon, il y a collision. Si le joueur est au-dessus du monstre (avec une marge
         //de 10 pixels pour éviter les frustrations dues au pixel perfect), on renvoie 2.
         //On devra alors tuer le monstre et on fera rebondir le joueur.
-    }else if (posPlayer.y + posPlayer.h < posReelle.y +10)
+    }else if (posPlayer.y + posPlayer.h < posReelle.y + 10)
     {
+        posPlayer.y -= 20;
         return 2;
     }
     //Sinon, on renvoie 1 et c'est le joueur qui meurt...

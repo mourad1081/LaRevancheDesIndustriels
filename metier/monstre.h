@@ -37,7 +37,7 @@ private:
     const int TIME_BETWEEN_2_FRAMES = 8;
 
     // Constante définissant le seuil entre les tiles traversables
-    const int VITESSE_MONSTER = 2;
+    const int VITESSE_MONSTER = 1;
 
 public:
     Monstre();

@@ -39,8 +39,13 @@ private:
 
     // Constante définissant le seuil entre les tiles traversables
     const int VITESSE_JOUEUR = 3;
-    const int JUMP_HEIGHT = 12;
+    const int JUMP_HEIGHT = 15;
     const int GRAVITY_SPEED = 0.8;
+    const int MAX_FALL_SPEED = 5;
+
+    int _nb = 0;
+    float _gravity = 0.8;
+    bool _estMort = false;
 
 public:
     Hero();

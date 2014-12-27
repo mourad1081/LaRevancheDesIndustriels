@@ -14,10 +14,10 @@ private:
     Monde * _monde;
     Evenement * _lesEvents;
     Hero * hero;
-    Monstre * monstres[2];
+    Monstre * monstres[5];
     int _largeurFenetre;
     int _hauteurFenetre;
-    int _nbMonstres=2;
+    int _nbMonstres=5;
 
 
 public:

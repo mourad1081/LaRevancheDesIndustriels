@@ -59,9 +59,7 @@ void Niveau::chargerNiveauDepuisFichier(ifstream& fichier)
         for ( int j=0; j < _nbrColonne ; j++){
             fichier >> numTuile;
             _niveau[i][j] = numTuile;
-
         }
-
     }
 }
 

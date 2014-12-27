@@ -10,6 +10,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = LaRevancheDesIndus
 TEMPLATE = app
+CONFIG += console
+CONFIG -= app_bundle
+CONFIG += qt
 
 QMAKE_CXXFLAGS += -std=c++11 -pedantic-errors
 

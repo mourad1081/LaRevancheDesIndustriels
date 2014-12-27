@@ -161,65 +161,58 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             _sprite = IMG_Load("img/walkright.png");
         }
     }
-
-    if ((evt->key[SDLK_UP] ||
-         evt->key[SDLK_SPACE]) && _onGround == 1){
-
+    if(evt->key[SDLK_UP] && _nb <= 20){
+        _nb++;
         _etat = JUMP;
-
         posTest.y -= JUMP_HEIGHT;
         if(!m->collisionPerso(this)){
             posReelle.y -= JUMP_HEIGHT;
         }
 
-        /* double v_x;
-
-         if(_direction == LEFT){
-            v_x = -3;
-        }else{
-            v_x = 3;
-        }
-        bool collision = false;
-        double v_y = -15;
-        while(!collision && v_y < 15) {
-            posTest.y += v_y;
-            posTest.x += v_x;
-            if(!m->collisionPerso(this)){
-                posReelle.y += v_y;
-                posReelle.x += v_x;
-            }else{
-                collision =true;
-            }
-            v_y += 0.9;
-            this->centerScrollingOnPlayer(m);
-            m->AfficherMonde(screen);
-            drawAnimatedPlayer(screen, m);
-            //Affiche l'écran
-            SDL_Flip(screen);
-            SDL_Delay(20);
-        }*/
-
-        /*if(_direction == LEFT){
+        /*if(_direction == LEFT)
+        {
             _sprite = IMG_Load("img/jumpleft.png");
-        }
-
-        if(_direction ==  RIGHT){
+        }else
+        {
             _sprite = IMG_Load("img/jumpright.png");
         }*/
-
     }
 
-    //On incrémente la position y du perso, ce qui permet de
-    //le faire chuter.
-    posTest.y += VITESSE_JOUEUR +valTest;
-
-    //Le perso passe sous la map et donc meurt.
-    if(!m->collisionPerso(this)){
-        posReelle.y += VITESSE_JOUEUR;
-        //_onGround = 0;
+    if(_estMort) {
+        _nb++;
+        /*if(_nb > 50){
+            posReelle.y = 0;
+            posReelle.x = 0;
+            _estMort = false;
+        }else if( _nb > 30){
+            posTest.y += JUMP_HEIGHT;
+        }else {
+            posTest.y -= JUMP_HEIGHT;
+        }*/
+        if(_nb > 50){
+            posTest.y -= JUMP_HEIGHT;
+        }
     }else{
-        _onGround = 1;
+        //On incrémente la position y du perso, ce qui permet de
+        //le faire chuter.
+
+        posTest.y += _gravity;
+        if(!m->collisionPerso(this)){
+            posReelle.y += _gravity;
+        }else{
+            _nb = 0;
+            _gravity = 0.8;
+        }
+        _gravity += _gravity;
+        if(_gravity >= MAX_FALL_SPEED)
+        {
+            _gravity = MAX_FALL_SPEED;
+        }
     }
+
+    //On centre le scrolling sur le joueur.
+    this->centerScrollingOnPlayer(m);
+
 
 
     if (_timerMort > 0)
@@ -229,20 +222,23 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         //Mort du joueur.
         if (_timerMort == 0)
         {
-            //Possiblité de rajouter un saut comme dans mario.
-            //posTest.y -= JUMP_HEIGHT/2;
-
-            posReelle.y = 0;
-            posReelle.x = 0;
-
+            _nb = 0;
+            _estMort = true;
             //_nbVies--;
         }
     }
     //cout << "_timerMort : " << _timerMort << endl;
     //cout << "nbVies : " << _nbVies << endl;
     //cout << "nbPoints : " << _nbPoints << endl;
-    //On centre le scrolling sur le joueur.
-    this->centerScrollingOnPlayer(m);
+
+
+    //cout << "posReelle.x : "<< posReelle.x << endl;
+    //cout << "posReelle.y : "<< posReelle.y << endl;
+    //cout << "_onGround : "<< _onGround << endl;
+    //cout << "_gravity : "<< _gravity << endl;
+    cout << "_nb : "<< _nb << endl;
+
+
 }
 
 void Hero::centerScrollingOnPlayer(Monde * m)
@@ -264,6 +260,7 @@ void Hero::centerScrollingOnPlayer(Monde * m)
     if (m->getHoriScroll() < 0)
     {
         m->setHoriScroll(0);
+
     }
     else if (m->getHoriScroll() + m->getLargeurFenetre() >= m->getMaxX())
     {

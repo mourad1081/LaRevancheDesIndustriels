@@ -1,5 +1,4 @@
 #include "monde.h"
-
 Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     :   _niveauActuel(1)
 {
@@ -10,7 +9,7 @@ Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     _niveau = new Niveau(_niveauActuel);
     _nbrTuilesEnColonneMonde = _niveau->getNbrColonne();
     _nbrTuilesEnLigneMonde = _niveau->getNbrLigne();
-
+    _schema = _niveau->getNiveau();
     // ouvre le fichier de configuration en lecture
     ifstream fichierConfig(NOM_FICHIER_CONFIG.c_str(), ios::in);
     if ( fichierConfig ){
@@ -32,6 +31,7 @@ void Monde::setNiveauActuel(int nouveauNiveau) throw(ExceptionGame)
     _niveauActuel = nouveauNiveau;
     delete _niveau;
     _niveau = new  Niveau(_niveauActuel);
+    _schema = _niveau->getNiveau();
     _horiScroll = 0;
     _vertiScroll = 0;
     _nbrTuilesEnColonneMonde = _niveau->getNbrColonne();
@@ -40,21 +40,11 @@ void Monde::setNiveauActuel(int nouveauNiveau) throw(ExceptionGame)
 
 
 void Monde::setHoriScroll(int horiScroll){
-    if (horiScroll < 0
-            || horiScroll > (_nbrTuilesEnColonneMonde*_largeurTuile)-_largeurFenetre) {
-     _horiScroll = _horiScroll;
-    } else {
-        _horiScroll = horiScroll;
-    }
+    _horiScroll = horiScroll;
 }
 
 void Monde::setVertiScroll(int vertiScroll){
-    if (vertiScroll < 0
-            || vertiScroll > (_nbrTuilesEnLigneMonde*_hauteurTuile)-_hauteurFenetre) {
-     _vertiScroll = _vertiScroll;
-    } else {
-        _vertiScroll = vertiScroll;
-    }
+    _vertiScroll = vertiScroll;
 }
 int Monde::getHoriScroll()const{
     return _horiScroll;
@@ -110,7 +100,7 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
                  || j >= _nbrTuilesEnLigneMonde){
                 numTuile = 0;
             }else{
-                numTuile = _niveau->getNiveau()[j][i];
+                numTuile = _schema[j][i];
 
             }
             SDL_BlitSurface(_imagesDesTuiles
@@ -141,21 +131,47 @@ bool Monde::collisionPerso(Hero *h){
     for ( i = x1 ; i <=  x2  ; i++) {
         for ( j = y1 ; j <= y2  ; j++){
 
-            indicetile = _niveau->getNiveau()[j][i];
+            indicetile = _schema[j][i];
             if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
-                cout << "perso i : "<< i << endl;
-                cout << "perso j : " << j << endl;
                 return true;
             }
+            //On gère la tuile des pieces.
+            if (_schema[j][i] == 18){
+                if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
+                        && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
+                        && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
+                        && posHero.y + posHero.h >= (j * _hauteurTuile) + (_hauteurTuile / 3)){
+
+                    _schema[j][i] = 5;
+                    //h->incNbPoints();
+                    cout << "perso i : "<< i << endl;
+                    cout << "perso j : " << j << endl;
+                }
+            }
+
             if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
-                if(h->getTimerMort() == 0){
+                if (_schema[j][i] == 9 || _schema[j][i] == 10){
+                    if(posHero.y + posHero.h >= (j * _hauteurTuile)+ (_hauteurTuile / 3)
+                            && posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
+                            && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)){
+                        _schema[j][i] = 10;
+                        if(h->getTimerMort() == 0){
+                            h->setTimerMort(30);
+                        }
+                    }
+                }else if(h->getTimerMort() == 0){
                     h->setTimerMort(20);
                 }
-                return false;
             }
-            if (_niveau->getNiveau()[j][i] == 18){
-                _niveau->getNiveau()[j][i] = 5;
-                h->incNbPoints();
+
+            if (_schema[j][i] == 2){
+                /*if(nb <= 20){
+                    nb++;
+                    posHero.y -= 12;
+                    if(!this->collisionPerso(h)){
+                        posHero.y -= 12;
+                    }
+                }*/
             }
         }
     }
@@ -183,34 +199,23 @@ bool Monde::collisionMonstre(Monstre *m){
 
     for ( i = x1 ; i <=  x2  ; i++) {
         for ( j = y1 ; j <= y2  ; j++){
-            indicetile = _niveau->getNiveau()[j][i];
+            indicetile = _schema[j][i];
             if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
-                //cout << "monstre i : " << i << endl;
-                //cout << "monstre j : " << j << endl;
-
                 return true;
             }
             if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
                 return true;
             }
             if( i-1 >= 0 && j-1 >= 0
-                    && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde
-                    && m->isOnGround()
-                    ){
+                    && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde){
 
-                //SOUCIS AVEC UN SEGMENTATION FAULT
-                /*if ((_tuiles[_niveau->getNiveau()[j+1][i-1]].getType() == TypeTuile::VIDE
-                     && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)
-                         || (_tuiles[_niveau->getNiveau()[j+1][i+1]].getType() == TypeTuile::VIDE
-                             && _tuiles[_niveau->getNiveau()[j+1][i]].getType() == TypeTuile::PLEIN)) {
-                   return true;
-                }*/
+                if ((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                     && _tuiles[_schema[j+1][i-1]].getType() == TypeTuile::PLEIN)
+                        || (_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                            && _tuiles[_schema[j+1][i+1]].getType() == TypeTuile::PLEIN)) {
+                    return true;
+                }
             }
-
-            /*if (_niveau->getNiveau()[j][i] == 9){
-                _niveau->getNiveau()[j][i] = 0;
-                m->setTimerMort(1);
-            }*/
         }
     }
     return false;

@@ -11,16 +11,22 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
     try {
         _monde = new Monde(largeurFenetre,hauteurFenetre);
 
-        hero = new Hero("img/walkright.png", 0, 0, 40, 80);
+        hero = new Hero("img/walkright.png", 93 ,800, 40, 80);
 
-        float randomX;
+        /*float randomX;
         for(int i=0; i < _nbMonstres ; i++)
         {
             //Il faudra placer les monstres en fonction du niveau.
             randomX = rand()%_monde->getMaxX();
             //randomX = 400;
-            monstres[i] = new Monstre ("img/walkright.png", randomX ,300, 40, 80);
-        }
+            monstres[i] = new Monstre ("img/walkright.png", 93 ,800, 40, 80);
+        }*/
+
+        monstres[0] = new Monstre ("img/walkright.png", 93 ,800, 40, 80);
+        monstres[1] = new Monstre ("img/walkright.png", 1845 ,685, 40, 80);
+        monstres[2] = new Monstre ("img/walkright.png", 2394 ,685, 40, 80);
+        monstres[3] = new Monstre ("img/walkright.png", 2877 ,750, 40, 80);
+        monstres[4] = new Monstre ("img/walkright.png", 3480 ,750, 40, 80);
 
         while(!_lesEvents->key[SDLK_ESCAPE] && !_lesEvents->quit && hero->getNbVies() > 0){
 
