@@ -10,7 +10,9 @@
 #include <string>
 
 using namespace std;
-
+/*!
+ * \brief Classe qui représente un niveau du jeu
+ */
 class Niveau
 {
 private:
@@ -27,9 +29,28 @@ private:
     const string BALISE_COLONNE_NIVEAU = "#COLONNE";
 
 public:
+    /*!
+     * \brief Crée un niveau d'un certain numéro
+     * \param numeroDuNiveau le numéro du niveau que l'on veut crée
+     * \exception ExceptionGame Problème d'ouverture du fichier de niveau
+     * \exception ExceptionGame Problème au niveau des balises
+     *  dans le fichier de niveau
+     */
     Niveau(int numeroDuNiveau) throw (ExceptionGame);
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le niveau sous forme de tableau 2d.
+     */
     vector<vector<int>> getNiveau();
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le nombre de ligne du niveau.
+     */
     int getNbrLigne() const;
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le nombre de colonne du niveau.
+     */
     int getNbrColonne() const;
 
 private:

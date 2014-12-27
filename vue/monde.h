@@ -15,16 +15,15 @@
 #include "metier/niveau.h"
 #include "metier/tuile.h"
 
-//Taille de la fenetre du jeu
 using namespace std;
 /*!
  * \brief Représente un Monde
  */
 class Hero;
 class Monstre;
+
 class Monde
 {
-
 private:
     Niveau * _niveau;
     int _niveauActuel;
@@ -53,9 +52,27 @@ private:
     const string NOM_FICHIER_CONFIG = "mondeConfiguration.txt";
 
 public:
-    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);
-    int getNiveauActuel() const;
 
+    /*!
+     * \brief Crée un monde avec le niveau 1.
+     * \param largeurFenetre la largeur de la fenètre
+     *  ou vas être afficher le monde.
+     * \param hauteurFenetre la hauteur de la fenètre
+     *  ou vas être afficher le monde.
+     * \exception ExceptionGame Problème d'ouverture du fichier de configuration
+     * \exception ExceptionGame Problème au niveau des balises
+     *  dans le fichier de configuration
+     */
+    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);   
+    /*!
+     * \brief Asseseur en lecture.
+     * \return le niveau actuel.
+     */
+    int getNiveauActuel() const;
+    /*!
+     * \brief Asseseur en écriture.
+     * \param le nouveau niveau actuel.
+     */
     void setNiveauActuel(int nouveauNiveau) throw(ExceptionGame);
     /*!
         * \brief Modifie la valeur de la coordonnée Horizontale(x) de

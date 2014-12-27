@@ -3,26 +3,39 @@
 #include <QMessageBox>
 #include <iostream>
 #include "SDL.h"
+#include "SDL_mixer.h"
 #include "vue/gestionmonde.h"
+#include "vue/gestionson.h"
 #undef main
-
 using namespace std;
+void lancerApplication();
 
-int main(int argc, char **argv) {
-
-    /*
+int main(int argc, char **argv)
+{
     QApplication a(argc, argv);
     Application w;
-    w.show();*/
+    w.show();
+    a.exec();
+    if(!w.getClicQuit())
+    {
+        lancerApplication();
+    }
+}
 
+void lancerApplication()
+{
     // initialise SDL
-    if ( SDL_Init(SDL_INIT_VIDEO) == -1) {
+    if ( SDL_Init(SDL_INIT_VIDEO) == -1)
+    {
         cerr << "Erreur d'initialisation de SDL" << endl;
         exit(EXIT_FAILURE);
     }
     // notre fenetre ,param (taille,taille,couleur,option)
-    SDL_Surface * fenetre = SDL_SetVideoMode(600,600,
-                                             32,SDL_HWSURFACE);
+   SDL_Surface * fenetre = SDL_SetVideoMode(0, 0, 32,
+                                             SDL_HWSURFACE
+                                             | SDL_FULLSCREEN
+                                             | SDL_DOUBLEBUF);
+
 
     // renomer la fenetre
     SDL_WM_SetCaption("Jeu de plateforme", NULL);
@@ -33,14 +46,10 @@ int main(int argc, char **argv) {
     // remplir une surface d'une couleur
     // param -> la Surface a remplir, la partie de la surface, la couleur UINT32
     //SDL_FillRect(fenetre,NULL,couleurFond);
-
-
     GestionMonde * gestionMonde;
 
     try{
-
-        gestionMonde = new GestionMonde(fenetre,600, 600);
-
+        gestionMonde = new GestionMonde(fenetre, fenetre->w, fenetre->h);
     }catch(ExceptionGame eg){
         cerr << eg.what() << endl;
         SDL_FreeSurface(fenetre);
@@ -52,5 +61,4 @@ int main(int argc, char **argv) {
     SDL_FreeSurface(fenetre);
     SDL_Quit();
     exit(EXIT_SUCCESS);
-
 }

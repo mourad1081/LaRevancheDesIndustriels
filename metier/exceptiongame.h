@@ -7,6 +7,9 @@
 
 using namespace std;
 
+/*!
+ * \brief Exception lier au  jeu.
+ */
 class ExceptionGame  : public std::exception {
 
 private :

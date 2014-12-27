@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     metier/evenement.cpp \
     metier/niveau.cpp \
     metier/monstre.cpp \
-    metier/hero.cpp
+    metier/hero.cpp \
+    vue/gestionson.cpp \
+    vue/parametresson.cpp
 
 HEADERS  += \
     O_SDO/observateur.h \
@@ -44,10 +46,13 @@ HEADERS  += \
     metier/niveau.h \
     metier/monstre.h \
     metier/hero.h \
-    vue/gestionmonde.h
+    vue/gestionmonde.h \
+    vue/gestionson.h \
+    vue/parametresson.h
 
 FORMS    += \
-    vue/application.ui
+    vue/application.ui \
+    vue/parametresson.ui
 
 INCLUDEPATH += $$PWD/SDL/include/SDL
 DEPENDPATH += $$PWD/SDL/include/SDL
@@ -83,6 +88,11 @@ RESOURCES += \
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 else:unix: LIBS += -L$$PWD/SDL/lib/ -lSDL_image
+
+INCLUDEPATH += $$PWD/SDL/include
+DEPENDPATH += $$PWD/SDL/include
+
+unix|win32: LIBS += -L$$PWD/SDL/lib/ -lSDL_mixer
 
 INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include

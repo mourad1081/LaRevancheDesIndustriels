@@ -1,10 +1,11 @@
 #nomFichierImage
 tuiles.bmp
 #nbrTuilesColonneFichierImage
-20
+29
 #nbrTuilesLigneFichierImage
 1
 #typeTuile
+tuiles-1	plein
 tuiles0	plein
 tuiles1	vide
 tuiles2	vide
@@ -25,3 +26,11 @@ tuiles16	vide_avec_degats
 tuiles17	vide_avec_degats
 tuiles18	vide
 tuiles19	vide
+tuiles20	plein
+tuiles21	vide
+tuiles22	plein
+tuiles23	plein
+tuiles24	plein
+tuiles25	plein
+tuiles26	plein
+tuiles27	plein

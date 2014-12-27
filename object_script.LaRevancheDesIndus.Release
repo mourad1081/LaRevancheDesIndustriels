@@ -12,6 +12,9 @@ INPUT(
 ./release\niveau.o
 ./release\monstre.o
 ./release\hero.o
+./release\gestionson.o
+./release\parametresson.o
 ./release\qrc_images.o
 ./release\moc_application.o
+./release\moc_parametresson.o
 );

@@ -30,7 +30,7 @@ private:
     //Variables utiles au déplacement
     int _etat, _direction;
     //Variables nécessaires au fonctionnement de la gestion des collisions
-    int _onGround, _timerMort;
+    int _onGround, _timerMort ;
     //Variables liées au joueur
     int _nbVies, _nbPoints;
 
@@ -38,8 +38,9 @@ private:
     const int TIME_BETWEEN_2_FRAMES = 8;
 
     // Constante définissant le seuil entre les tiles traversables
-    const int VITESSE_JOUEUR = 3;
-    const int JUMP_HEIGHT = 15;
+
+    const int VITESSE_JOUEUR = 5;
+    const int JUMP_HEIGHT = 20;
     const int GRAVITY_SPEED = 0.8;
     const int MAX_FALL_SPEED = 5;
 

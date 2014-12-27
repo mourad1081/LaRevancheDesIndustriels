@@ -101,7 +101,6 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
                 numTuile = 0;
             }else{
                 numTuile = _schema[j][i];
-
             }
             SDL_BlitSurface(_imagesDesTuiles
                             ,&(_tuiles[numTuile].getRectangle()),fenetre,&rectDest);
@@ -135,26 +134,25 @@ bool Monde::collisionPerso(Hero *h){
             if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
                 return true;
             }
+            cout << "_schema[j][i] " << _schema[j][i] << endl;
             //On gère la tuile des pieces.
-            if (_schema[j][i] == 18){
+            if (_schema[j][i] == 19){
                 if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                         && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
                         && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
                         && posHero.y + posHero.h >= (j * _hauteurTuile) + (_hauteurTuile / 3)){
 
-                    _schema[j][i] = 5;
-                    //h->incNbPoints();
-                    cout << "perso i : "<< i << endl;
-                    cout << "perso j : " << j << endl;
+                    _schema[j][i] = 6;
+                    h->incNbPoints();
                 }
             }
 
             if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
-                if (_schema[j][i] == 9 || _schema[j][i] == 10){
+                if (_schema[j][i] == 10 || _schema[j][i] == 11){
                     if(posHero.y + posHero.h >= (j * _hauteurTuile)+ (_hauteurTuile / 3)
                             && posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                             && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)){
-                        _schema[j][i] = 10;
+                        _schema[j][i] = 11;
                         if(h->getTimerMort() == 0){
                             h->setTimerMort(30);
                         }
@@ -209,9 +207,11 @@ bool Monde::collisionMonstre(Monstre *m){
             if( i-1 >= 0 && j-1 >= 0
                     && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde){
 
-                if ((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                if (((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                      || _tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
                      && _tuiles[_schema[j+1][i-1]].getType() == TypeTuile::PLEIN)
-                        || (_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                        || ((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
+                             || _tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
                             && _tuiles[_schema[j+1][i+1]].getType() == TypeTuile::PLEIN)) {
                     return true;
                 }
