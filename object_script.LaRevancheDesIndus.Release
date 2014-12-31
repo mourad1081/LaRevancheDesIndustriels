@@ -14,7 +14,9 @@ INPUT(
 ./release\hero.o
 ./release\gestionson.o
 ./release\parametresson.o
+./release\choixmusique.o
 ./release\qrc_images.o
 ./release\moc_application.o
 ./release\moc_parametresson.o
+./release\moc_choixmusique.o
 );

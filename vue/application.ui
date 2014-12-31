@@ -177,7 +177,7 @@ font:16pt;
       <item alignment="Qt::AlignRight">
        <widget class="QPushButton" name="btnMusique">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="minimumSize">
          <size>
@@ -195,7 +195,7 @@ font:16pt;
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(162, 162, 162);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>MUSIQUE</string>

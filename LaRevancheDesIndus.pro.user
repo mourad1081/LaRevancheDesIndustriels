@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 2.8.1, 2014-12-25T23:41:36. -->
-=======
-<!-- Written by QtCreator 3.2.2, 2014-12-26T22:18:10. -->
->>>>>>> 599cfffcc851fd001ff6457841430791c8008e5c
+<!-- Written by QtCreator 3.2.2, 2014-12-31T13:05:11. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -228,7 +224,7 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">LaRevancheDesIndus</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">LaRevancheDesIndus2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/Projet/LaRevancheDesIndustriels/LaRevancheDesIndus.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Mourad Akh/Documents/HEB - ESI - BAC 3/ALG/CPP/Projet/LaRevancheDesIndustriels/LaRevancheDesIndustriels/LaRevancheDesIndus.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">LaRevancheDesIndus.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>

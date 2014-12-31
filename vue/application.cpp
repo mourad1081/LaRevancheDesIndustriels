@@ -66,8 +66,21 @@ void Application::on_btnOptions_clicked()
             _jouerAMusiqueALinfini = param->isMusiqueInfinie();
         } else
             _musique.pause();
+
         _difficulteJeu = param->getDifficulte();
         _nbVies = param->getNbVies();
         _volume = param->getVolume();
+        _musique.volume(param->getVolume());
+
+    }
+}
+
+void Application::on_btnMusique_clicked()
+{
+    ChoixMusique *param = new ChoixMusique(0);
+    if (param->exec() == QDialog::Accepted)
+    {
+        _musique.stop();
+        _musique.changerMusique(param->cheminMusique().toStdString());
     }
 }

@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     metier/monstre.cpp \
     metier/hero.cpp \
     vue/gestionson.cpp \
-    vue/parametresson.cpp
+    vue/parametresson.cpp \
+    vue/choixmusique.cpp
 
 HEADERS  += \
     O_SDO/observateur.h \
@@ -48,11 +49,13 @@ HEADERS  += \
     metier/hero.h \
     vue/gestionmonde.h \
     vue/gestionson.h \
-    vue/parametresson.h
+    vue/parametresson.h \
+    vue/choixmusique.h
 
 FORMS    += \
     vue/application.ui \
-    vue/parametresson.ui
+    vue/parametresson.ui \
+    vue/choixmusique.ui
 
 INCLUDEPATH += $$PWD/SDL/include/SDL
 DEPENDPATH += $$PWD/SDL/include/SDL

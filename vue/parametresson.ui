@@ -519,6 +519,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          </item>
          <item>
           <widget class="QSlider" name="sliderVolume">
+           <property name="maximum">
+            <number>127</number>
+           </property>
            <property name="value">
             <number>50</number>
            </property>

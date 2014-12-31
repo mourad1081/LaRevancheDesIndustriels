@@ -5,6 +5,8 @@
 #include <QMovie>
 #include "parametresson.h"
 #include "gestionson.h"
+#include "choixmusique.h"
+#include <string>
 class ParametresSon;
 namespace Ui {
 class Application;
@@ -25,6 +27,8 @@ private slots:
     void on_btnNouvellePartie_clicked();
     void on_btnHackNASA_clicked();
     void on_btnOptions_clicked();
+
+    void on_btnMusique_clicked();
 
 private:
     Ui::Application *ui;
