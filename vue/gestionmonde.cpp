@@ -23,6 +23,7 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
     _monstres[2] = new Monstre ("img/walkright.png", 2394 ,685, 40, 80);
     _monstres[3] = new Monstre ("img/walkright.png", 2877 ,750, 40, 80);
     _monstres[4] = new Monstre ("img/walkright.png", 3480 ,750, 40, 80);
+
 }
 void GestionMonde::miseAjourJoueurs(){
     if (_lesEvents->key[SDLK_ESCAPE] || _lesEvents->quit || _hero->getNbVies() <= 0 ) {
