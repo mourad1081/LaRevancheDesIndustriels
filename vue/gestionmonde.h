@@ -16,8 +16,8 @@ private:
     SDL_Surface * _fenetre;
     Monde * _monde;
     Evenement * _lesEvents;
-    Hero * hero;
-    Monstre * monstres[5];
+    Hero * _hero;
+    Monstre * _monstres[5];
     int _largeurFenetre;
     int _hauteurFenetre;
     int _nbMonstres=5;

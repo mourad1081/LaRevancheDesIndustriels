@@ -50,6 +50,10 @@ void lancerApplication()
 
     try{
         gestionMonde = new GestionMonde(fenetre, fenetre->w, fenetre->h);
+        while(true){
+            gestionMonde->miseAjourDeLaMap();
+            gestionMonde->miseAjourJoueurs();
+        }
     }catch(ExceptionGame eg){
         cerr << eg.what() << endl;
         SDL_FreeSurface(fenetre);
