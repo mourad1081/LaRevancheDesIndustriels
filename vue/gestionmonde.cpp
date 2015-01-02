@@ -15,7 +15,7 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
     _HUD_etoiles = IMG_Load("img/stars.png");
 
     _monde = new Monde(largeurFenetre,hauteurFenetre);
-    _hero = new Hero("img/walkright.png", 0 ,0, 64, 100);
+    _hero = new Hero("img/walkright.png", 0 ,0, 40, 80);
     _nbMonstres = _monde->getListPosMonstres().size();
 
 
@@ -27,8 +27,8 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
         _monstres[i] = new Monstre ("img/walkright.png",
                                     posMonstre.x,
                                     posMonstre.y,
-                                    posMonstre.w,
-                                    posMonstre.h);
+                                    40,
+                                    80);
     }
 }
 GestionMonde::~GestionMonde(){
