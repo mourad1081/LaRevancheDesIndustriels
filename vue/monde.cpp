@@ -136,7 +136,8 @@ bool Monde::collisionPerso(Hero *h){
             }
             cout << "_schema[j][i] " << _schema[j][i] << endl;
             //On gère la tuile des pieces.
-            if (_schema[j][i] == 19){
+            if (_tuiles[indicetile].getType() == TypeTuile::PIECE
+                    && _schema[j][i] != 6){
                 if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                         && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
                         && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
@@ -269,8 +270,12 @@ void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){
                     _tuiles[numTuile].setType(TypeTuile::VIDE);
                 } else if( ! typeTuile.compare("vide_avec_degats") ){
                     _tuiles[numTuile].setType(TypeTuile::VIDE_AVEC_DEGATS);
+                } else if( ! typeTuile.compare("piece") ){
+                    _tuiles[numTuile].setType(TypeTuile::PIECE);
+                } else if( ! typeTuile.compare("fin_niveau") ){
+                    _tuiles[numTuile].setType(TypeTuile::FIN_NIVEAU);
                 } else {
-                    _tuiles[numTuile].setType(TypeTuile::VIDE_AVEC_DEGATS);
+                    _tuiles[numTuile].setType(TypeTuile::VIDE);
                 }
                 numTuile++;
             }
