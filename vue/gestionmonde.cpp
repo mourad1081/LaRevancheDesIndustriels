@@ -24,11 +24,11 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
     for(int i=0; i < _nbMonstres ; i++)
     {
         posMonstre = _monde->getListPosMonstres()[i];
-        _monstres[i] = new Monstre ("img/walkright.png",
+        _monstres[i] = new Monstre ("img/monstre.png",
                                     posMonstre.x,
                                     posMonstre.y,
-                                    posMonstre.w,
-                                    posMonstre.h);
+                                    40,
+                                    65);
     }
 }
 GestionMonde::~GestionMonde(){

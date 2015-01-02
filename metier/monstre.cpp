@@ -129,7 +129,7 @@ void Monstre::updateMonster(Hero * h, Monde * m)
 
         if(_direction == LEFT)
         {
-            _sprite = IMG_Load("img/walkleft.png");
+            _sprite = IMG_Load("img/monstre.png");
         }
     }
     if(_direction == LEFT)
@@ -148,7 +148,7 @@ void Monstre::updateMonster(Hero * h, Monde * m)
 
         if(_direction == RIGHT)
         {
-            _sprite = IMG_Load("img/walkright.png");
+            _sprite = IMG_Load("img/monstre.png");
         }
     }
 
@@ -171,29 +171,15 @@ void Monstre::updateMonster(Hero * h, Monde * m)
         //On devra alors tuer le monstre et on fera rebondir le joueur.
     }else if (posPlayer.y + posPlayer.h < posReelle.y + 10)
     {
-        posPlayer.y -= 100;
-        cout << "le monstre est mort" << endl;
+        SDL_Rect newPos = h->getPosReelleHero();
+        newPos.y -= 150;
+        h->setPosReelHero(&newPos);
         _timerMort = 1;
     }
     //Sinon, on renvoie 1 et c'est le joueur qui meurt...
     else{
         h->setTimerMort(1);
     }
-    /*//Finalement on va tester le
-    if (testCollision(h) == 1)
-    {
-        //On met le timer à 1 pour tuer le joueur intantanément
-        h->setTimerMort(1);
-    }
-    else if (testCollision(h) == 2)
-    {
-        //On fait rebondir le joueur sur le monstre
-        h->getPosTestHero().y -= JUMP_HEIGHT + MONSTER_HEIGHT;
-        if(!m->collisionPerso(h)){
-            h->getPosReelleHero().y -= JUMP_HEIGHT + MONSTER_HEIGHT;
-        }
-        //_timerMort = 20;
-    }*/
     if (_timerMort > 0)
     {
         _timerMort--;

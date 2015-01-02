@@ -156,40 +156,32 @@ bool Monde::collisionPerso(Hero *h){
             }
 
             if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
-                if (_schema[j][i] == 10 || _schema[j][i] == 11){
-                    if(posHero.y + posHero.h >= (j * _hauteurTuile)+ (_hauteurTuile / 3)
-                            && posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
-                            && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)){
+                if(posHero.y + posHero.h >= (j * _hauteurTuile)+ (_hauteurTuile / 3)
+                        && posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
+                        && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)){
+                    if(_schema[j][i] == 10){
                         _schema[j][i] = 11;
-                        if(h->getTimerMort() == 0){
-                            h->setTimerMort(30);
-                        }
                     }
-                }else if(h->getTimerMort() == 0){
-                    h->setTimerMort(20);
+                    if(h->getTimerMort() == 0){
+                        h->setTimerMort(100);
+                    }
                 }
             }
 
             if (_schema[j][i] == 2){
-                /*if(nb <= 20){
-                    nb++;
-                    posHero.y -= 12;
-                    if(!this->collisionPerso(h)){
-                        posHero.y -= 12;
-                    }
-                }*/
+                SDL_Rect posDebutHero = h->getPosTestHero();
+                posDebutHero.y -= 100;
+                h->setPosReelHero(&posDebutHero);
             }
             //Si on est sur le bonhomme, on passe au niveau suivant
             if (_schema[j][i] == 20){
                 if(this->getNiveauActuel() < 2){
                     this->setNiveauActuel(this->getNiveauActuel()+1);
-
                     SDL_Rect posDebutHero = h->getPosTestHero();
                     posDebutHero.x = 0;
                     posDebutHero.y = 0;
                     h->setPosReelHero(&posDebutHero);
                 }
-                //changer pos joueur
             }
         }
     }

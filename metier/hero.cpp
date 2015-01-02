@@ -198,7 +198,9 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 
     //On centre le scrolling sur le joueur.
     this->centerScrollingOnPlayer(m);
-
+    if(_estMort){
+        posReelle.y ++;
+    }
 
 
     if (_timerMort > 0)
@@ -209,9 +211,12 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         if (_timerMort == 0)
         {
             _nb = 0;
+            _estMort = false;
             posReelle.x = 0;
             posReelle.y = 0;
             _nbVies--;
+        }else{
+            _estMort = true;
         }
     }
     //cout << "_timerMort : " << _timerMort << endl;
