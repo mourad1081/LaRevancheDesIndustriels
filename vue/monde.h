@@ -34,8 +34,8 @@ private:
     int _nbrTuilesEnLigne;   // nbr de tuile en ligne de l'image tuile.bmp
     SDL_Surface * _imagesDesTuiles; // l'image tuiles.bmp
     vector<Tuile> _tuiles;   // liste des tuiles presente dans l'image tuiles.bmp
-    vector<vector<int>> _schema; // parceque on vas modifier le contenue du niveau
 
+    vector<vector<int>> _schema;
     //---- pour l'affichage du monde
     int _nbrTuilesEnColonneMonde; // nbr de tuiles en colonne du monde
     int _nbrTuilesEnLigneMonde;   // nbr de tuiles en ligne du monde
@@ -136,6 +136,11 @@ public:
      * \return hauteur du monde
      */
     int getMaxY()const;
+    /*!
+     * \brief Donne la liste des positions des monstres
+     * \return liste des positions
+     */
+    vector<SDL_Rect> getListPosMonstres();
     /*!
         * \brief Permet l'affichage du monde dans une fenetre
         * \param fenetre la fenetre dans laquel on affiche le monde

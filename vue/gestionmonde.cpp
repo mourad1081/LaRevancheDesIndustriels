@@ -1,30 +1,48 @@
 #include "gestionmonde.h"
-
 GestionMonde::GestionMonde(SDL_Surface * fenetre
                            ,int largeurFenetre, int hauteurFenetre){
     _fenetre = fenetre;
     _lesEvents = new Evenement();
     _largeurFenetre = largeurFenetre;
     _hauteurFenetre = hauteurFenetre;
+
+
+    // Charge la police en 32 points (taille)
+
+    _font = Hud::loadFont("font/GenBasB.ttf", 32);
+    //Variables nécessaires à l'affichage du HUD.
+    _HUD_vie = IMG_Load("img/life.png");
+    _HUD_etoiles = IMG_Load("img/stars.png");
+
     _monde = new Monde(largeurFenetre,hauteurFenetre);
-    _hero = new Hero("img/walkright.png", 93 ,800, 40, 80);
+    _hero = new Hero("img/walkright.png", 0 ,0, 64, 100);
+    _nbMonstres = _monde->getListPosMonstres().size();
 
-    /*float randomX;
-        for(int i=0; i < _nbMonstres ; i++)
-        {
-            //Il faudra placer les monstres en fonction du niveau.
-            randomX = rand()%_monde->getMaxX();
-            //randomX = 400;
-            monstres[i] = new Monstre ("img/walkright.png", 93 ,800, 40, 80);
-        }*/
 
-    _monstres[0] = new Monstre ("img/walkright.png", 93 ,800, 40, 80);
-    _monstres[1] = new Monstre ("img/walkright.png", 1845 ,685, 40, 80);
-    _monstres[2] = new Monstre ("img/walkright.png", 2394 ,685, 40, 80);
-    _monstres[3] = new Monstre ("img/walkright.png", 2877 ,750, 40, 80);
-    _monstres[4] = new Monstre ("img/walkright.png", 3480 ,750, 40, 80);
-
+    _monstres.resize(_nbMonstres);
+    SDL_Rect posMonstre;
+    for(int i=0; i < _nbMonstres ; i++)
+    {
+        posMonstre = _monde->getListPosMonstres()[i];
+        _monstres[i] = new Monstre ("img/walkright.png",
+                                    posMonstre.x,
+                                    posMonstre.y,
+                                    posMonstre.w,
+                                    posMonstre.h);
+    }
 }
+GestionMonde::~GestionMonde(){
+    //Libère le HUD
+    if (_HUD_etoiles != NULL)
+    {
+        SDL_FreeSurface(_HUD_etoiles);
+    }
+    if (_HUD_vie != NULL)
+    {
+        SDL_FreeSurface(_HUD_vie);
+    }
+}
+
 void GestionMonde::miseAjourJoueurs(){
     if (_lesEvents->key[SDLK_ESCAPE] || _lesEvents->quit || _hero->getNbVies() <= 0 ) {
         exit(0);
@@ -49,4 +67,21 @@ void GestionMonde::miseAjourDeLaMap(){
     }
     _lesEvents->ActiveAttenteEvenement();
     _monde->AfficherMonde(_fenetre);
+}
+
+void GestionMonde::drawHUD(){
+    //On crée une varuiable qui contiendra notre texte (jusqu'à 200 caractères, y'a de la marge ;) ).
+    char text[200];
+
+    // Affiche le nombre de vies en bas à droite
+    Hud::drawImage(_HUD_vie, _largeurFenetre - 200 , _hauteurFenetre - 100,_fenetre);
+    //Pour afficher le nombre de vies, on formate notre string pour qu'il prenne la valeur de la variable
+    sprintf(text, "%d", _hero->getNbVies());
+    //Puis on utilise notre fonction créée précédemment
+    Hud::drawString(text, _largeurFenetre - 125, _hauteurFenetre - 92, _font, _fenetre);
+
+    // Affiche le nombre d'étoiles en haut à gauche
+    Hud::drawImage(_HUD_etoiles, 60, 60, _fenetre);
+    sprintf(text, "%d", _hero->getNbPoints());
+    Hud::drawString(text, 100, 57, _font, _fenetre);
 }

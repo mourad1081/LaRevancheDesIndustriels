@@ -8,6 +8,7 @@
 #include <QVector>
 #include <QString>
 #include <string>
+#include <SDL.h>
 
 using namespace std;
 /*!
@@ -19,7 +20,9 @@ private:
     int _numeroNiveau;
     int _nbrLigne;
     int _nbrColonne;
+    int _nbrMonstres;
     vector<vector<int>> _niveau;
+    vector<SDL_Rect> _listePosMonstres;
 
     const int NB_NIVEAUX = 5;
     const string NOM_FICHIER = "lvls/lvl_";
@@ -27,6 +30,7 @@ private:
     const string BALISE_FICHIER_NIVEAU = "#NIVEAU";
     const string BALISE_LIGNE_NIVEAU = "#LIGNE";
     const string BALISE_COLONNE_NIVEAU = "#COLONNE";
+    const string BALISE_NOMBRE_MONSTRE = "#NOMBRE_MONSTRE";
 
 public:
     /*!
@@ -52,6 +56,12 @@ public:
      * \return le nombre de colonne du niveau.
      */
     int getNbrColonne() const;
+    /*!
+     * \brief Asseseur en lecture au tableau de position des monstres.
+     * \return le tableau.
+     */
+    vector<SDL_Rect> getListPosMonstres();
+
 
 private:
     void chargerNiveauDepuisFichier(ifstream& fichier)throw (ExceptionGame);

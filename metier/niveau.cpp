@@ -20,6 +20,10 @@ int Niveau::getNbrColonne() const {
     return _nbrColonne;
 }
 
+vector<SDL_Rect> Niveau::getListPosMonstres() {
+    return _listePosMonstres;
+}
+
 vector<vector<int>> Niveau::getNiveau()
 {
     return _niveau;
@@ -28,13 +32,37 @@ vector<vector<int>> Niveau::getNiveau()
 void Niveau::chargerNiveauDepuisFichier(ifstream& fichier)
                                         throw (ExceptionGame)
 {
-    string baliseLigne, baliseNiveau, baliseColonne;
+    string baliseLigne, baliseNiveau, baliseColonne, baliseNombre;
     int numTuile;
 
     fichier >> baliseNiveau;
     if (baliseNiveau.compare(BALISE_FICHIER_NIVEAU)){
         throw new
         ExceptionGame("Votre fichier ne contient pas la balise #NIVEAU");
+    }
+
+    fichier >> baliseNombre;
+    if (baliseNombre.compare(BALISE_NOMBRE_MONSTRE) ) {
+        throw new
+        ExceptionGame("Votre fichier ne contient pas la balise #NOMBRE_MONSTRE");
+    } else {
+        fichier >> _nbrMonstres;
+    }
+
+    _listePosMonstres.resize(_nbrMonstres);
+
+    SDL_Rect posMonstre;
+    int val;
+    for ( int i=0; i < _nbrMonstres ; i++){
+        fichier >> val;
+        posMonstre.x = val;
+        fichier >> val;
+        posMonstre.y = val;
+        fichier >> val;
+        posMonstre.w = val;
+        fichier >> val;
+        posMonstre.h = val;
+        _listePosMonstres[i] = posMonstre;
     }
 
     fichier >> baliseLigne;

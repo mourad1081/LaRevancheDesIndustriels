@@ -6,14 +6,13 @@
 #include "SDL_mixer.h"
 #include "vue/gestionmonde.h"
 #include "vue/gestionson.h"
-#include "SDL_ttf.h"
-
 #undef main
 using namespace std;
 void lancerApplication();
 
 int main(int argc, char **argv)
 {
+<<<<<<< HEAD
     QApplication a(argc, argv);
    // Application app;
    // app.show();
@@ -22,17 +21,35 @@ int main(int argc, char **argv)
   //  {
         lancerApplication();
    // }
+=======
+    /*QApplication a(argc, argv);
+    Application app;
+    app.show();
+    a.exec();
+    if(!app.getClicQuit())
+    {*/
+        lancerApplication();
+    //}
+>>>>>>> origin/master
 }
 
 void lancerApplication()
 {
-    TTF_Init();
     // initialise SDL
     if ( SDL_Init(SDL_INIT_VIDEO) == -1)
     {
         cerr << "Erreur d'initialisation de SDL" << endl;
         exit(EXIT_FAILURE);
     }
+
+    // Initialise SDL_TTF       (Pour l'affichage de string
+
+    if (TTF_Init() < 0)
+    {
+        cerr << "Erreur d'initialisation de SDL TTF" << endl;
+        exit(EXIT_FAILURE);
+    }
+
     // notre fenetre ,param (taille,taille,couleur,option)
    SDL_Surface * fenetre = SDL_SetVideoMode(0, 0, 32,
                                              SDL_HWSURFACE
@@ -55,6 +72,7 @@ void lancerApplication()
         gestionMonde = new GestionMonde(fenetre, fenetre->w, fenetre->h);
         while(true){
             gestionMonde->miseAjourDeLaMap();
+            gestionMonde->drawHUD();
             gestionMonde->miseAjourJoueurs();
         }
     }catch(ExceptionGame eg){
@@ -66,7 +84,6 @@ void lancerApplication()
 
     // libere la memoire
     SDL_FreeSurface(fenetre);
-    TTF_Quit();
     SDL_Quit();
     exit(EXIT_SUCCESS);
 }

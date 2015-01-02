@@ -72,12 +72,18 @@ int Monde::getMaxY()const{
     return this->getNbrTuilesEnLigneMonde()
             * this->getHauteurTuile();
 }
+
 int Monde::getLargeurFenetre() const{
     return _largeurFenetre;
 }
 int Monde::getHauteurFenetre() const{
     return _hauteurFenetre;
 }
+
+vector<SDL_Rect> Monde::getListPosMonstres() {
+    return _niveau->getListPosMonstres();
+}
+
 
 void Monde::AfficherMonde(SDL_Surface * fenetre){
 
@@ -134,7 +140,6 @@ bool Monde::collisionPerso(Hero *h){
             if (_tuiles[indicetile].getType() == TypeTuile::PLEIN){
                 return true;
             }
-            cout << "_schema[j][i] " << _schema[j][i] << endl;
             //On gère la tuile des pieces.
             if (_tuiles[indicetile].getType() == TypeTuile::PIECE
                     && _schema[j][i] != 6){
@@ -145,6 +150,9 @@ bool Monde::collisionPerso(Hero *h){
 
                     _schema[j][i] = 6;
                     h->incNbPoints();
+                    if(h->getNbPoints() > 0 && h->getNbPoints()%50 == 0){
+                        h->setNbVies(h->getNbVies()+1);
+                    }
                 }
             }
 
@@ -171,6 +179,18 @@ bool Monde::collisionPerso(Hero *h){
                         posHero.y -= 12;
                     }
                 }*/
+            }
+            //Si on est sur le bonhomme, on passe au niveau suivant
+            if (_schema[j][i] == 20){
+                if(this->getNiveauActuel() < 2){
+                    this->setNiveauActuel(this->getNiveauActuel()+1);
+
+                    SDL_Rect posDebutHero = h->getPosTestHero();
+                    posDebutHero.x = 0;
+                    posDebutHero.y = 0;
+                    h->setPosReelHero(&posDebutHero);
+                }
+                //changer pos joueur
             }
         }
     }

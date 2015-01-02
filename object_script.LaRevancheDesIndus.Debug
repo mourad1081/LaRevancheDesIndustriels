@@ -15,6 +15,7 @@ INPUT(
 ./debug\gestionson.o
 ./debug\parametresson.o
 ./debug\choixmusique.o
+./debug\hud.o
 ./debug\qrc_images.o
 ./debug\moc_application.o
 ./debug\moc_parametresson.o

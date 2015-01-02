@@ -35,17 +35,17 @@ private:
     int _nbVies, _nbPoints;
 
     // Constantes pour l'animation
-    const int TIME_BETWEEN_2_FRAMES = 8;
+    const int TIME_BETWEEN_2_FRAMES = 3;
 
     // Constante définissant le seuil entre les tiles traversables
 
-    const int VITESSE_JOUEUR = 5;
+    const int VITESSE_JOUEUR = 7;
     const int JUMP_HEIGHT = 20;
     const int GRAVITY_SPEED = 0.8;
-    const int MAX_FALL_SPEED = 5;
+    const int MAX_FALL_SPEED = 9;
 
     int _nb = 0;
-    float _gravity = 0.8;
+    float _gravity = 0.9;
     bool _estMort = false;
 
 public:
@@ -58,6 +58,8 @@ public:
 
     SDL_Rect getPosReelleHero();
     SDL_Rect getPosTestHero();
+    void setPosReelHero(SDL_Rect *pos);
+
 
     int getTimerMort();
     void setTimerMort(int val);
