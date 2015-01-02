@@ -25,10 +25,10 @@ tuiles15	vide
 tuiles16	vide_avec_degats
 tuiles17	vide_avec_degats
 tuiles18	piece
-tuiles19	vide
+tuiles19	fin_niveau
 tuiles20	plein
 tuiles21	vide
-tuiles22	fin_niveau
+tuiles22	plein
 tuiles23	plein
 tuiles24	plein
 tuiles25	plein

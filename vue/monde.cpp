@@ -141,8 +141,7 @@ bool Monde::collisionPerso(Hero *h){
                 return true;
             }
             //On gère la tuile des pieces.
-            if (_tuiles[indicetile].getType() == TypeTuile::PIECE
-                    && _schema[j][i] != 6){
+            if ( _schema[j][i] == 19){
                 if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                         && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
                         && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
@@ -181,7 +180,7 @@ bool Monde::collisionPerso(Hero *h){
                 }*/
             }
             //Si on est sur le bonhomme, on passe au niveau suivant
-            if (_schema[j][i] == 20){
+            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
                 if(this->getNiveauActuel() < 2){
                     this->setNiveauActuel(this->getNiveauActuel()+1);
 
