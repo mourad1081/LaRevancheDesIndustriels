@@ -16,6 +16,7 @@ Hero::Hero()
     _timerMort = 0;
     _onGround = 0;
 
+    _nb = 0;
     _nbVies = 3;
     _nbPoints = 0;
 }
@@ -41,6 +42,7 @@ Hero::Hero(char * name, int x, int y, int w, int h)
     _timerMort = 0;
     _onGround = 0;
 
+    _nb = 0;
     _nbVies = 3;
     _nbPoints = 0;
 
@@ -209,10 +211,8 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             _nb = 0;
             posReelle.x = 0;
             posReelle.y = 0;
-            //_nbVies--;
+            _nbVies--;
         }
-    }
-    if(_estMort){
     }
     //cout << "_timerMort : " << _timerMort << endl;
     //cout << "nbVies : " << _nbVies << endl;
@@ -223,7 +223,7 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //cout << "posReelle.y : "<< posReelle.y << endl;
     //cout << "_onGround : "<< _onGround << endl;
     //cout << "_gravity : "<< _gravity << endl;
-    cout << "_nb : "<< _nb << endl;
+    //cout << "_nb : "<< _nb << endl;
 
 
 }
@@ -279,6 +279,15 @@ SDL_Rect Hero::getPosTestHero()
 {
     return posTest;
 }
+
+void Hero::setPosReelHero(SDL_Rect *pos)
+{
+    posReelle.h = pos->h;
+    posReelle.w = pos->w;
+    posReelle.x = pos->x;
+    posReelle.y = pos->y;
+}
+
 
 int Hero::getTimerMort(){
     return _timerMort;

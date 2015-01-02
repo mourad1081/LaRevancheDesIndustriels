@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     metier/hero.cpp \
     vue/gestionson.cpp \
     vue/parametresson.cpp \
-    vue/choixmusique.cpp
+    vue/choixmusique.cpp \
+    vue/hud.cpp
 
 HEADERS  += \
     O_SDO/observateur.h \
@@ -50,7 +51,8 @@ HEADERS  += \
     vue/gestionmonde.h \
     vue/gestionson.h \
     vue/parametresson.h \
-    vue/choixmusique.h
+    vue/choixmusique.h \
+    vue/hud.h
 
 FORMS    += \
     vue/application.ui \
