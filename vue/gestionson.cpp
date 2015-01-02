@@ -24,7 +24,7 @@ GestionSon::GestionSon(string cheminSon, int frequence, Uint16 format,
 
     this->_musique = Mix_LoadMUS(cheminSon.c_str());
     this->_cheminMusique = cheminSon;
-    this->_frequence = frequence;
+    this->frequence = frequence;
     this->_format = format;
     this->_nombreCanaux = nbCanaux;
     this->_tailleChunk = tailleChunck;
@@ -82,56 +82,11 @@ void GestionSon::volume(Uint8 volume)
 
 void GestionSon::changerMusique(std::string chemin)
 {
-    setCheminMusique(chemin);
+    _cheminMusique = chemin;
     demarrerMusique();
-}
-
-Uint16 GestionSon::getFormat() const
-{
-    return _format;
-}
-
-void GestionSon::setFormat(const Uint16 &value)
-{
-    _format = value;
-}
-
-int GestionSon::getNombreCanaux() const
-{
-    return _nombreCanaux;
-}
-
-void GestionSon::setNombreCanaux(int value)
-{
-    _nombreCanaux = value;
-}
-
-int GestionSon::getFrequence() const
-{
-    return _frequence;
-}
-
-void GestionSon::setFrequence(int value)
-{
-    _frequence = value;
-}
-
-int GestionSon::getTailleChunk() const
-{
-    return _tailleChunk;
-}
-
-void GestionSon::setTailleChunk(int value)
-{
-    _tailleChunk = value;
 }
 
 std::string GestionSon::getCheminMusique() const
 {
     return _cheminMusique;
-}
-
-void GestionSon::setCheminMusique(string value)
-{
-    _cheminMusique = value;
 }
