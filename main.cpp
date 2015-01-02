@@ -6,6 +6,8 @@
 #include "SDL_mixer.h"
 #include "vue/gestionmonde.h"
 #include "vue/gestionson.h"
+#include "SDL_ttf.h"
+
 #undef main
 using namespace std;
 void lancerApplication();
@@ -24,6 +26,7 @@ int main(int argc, char **argv)
 
 void lancerApplication()
 {
+    TTF_Init();
     // initialise SDL
     if ( SDL_Init(SDL_INIT_VIDEO) == -1)
     {
@@ -63,6 +66,7 @@ void lancerApplication()
 
     // libere la memoire
     SDL_FreeSurface(fenetre);
+    TTF_Quit();
     SDL_Quit();
     exit(EXIT_SUCCESS);
 }
