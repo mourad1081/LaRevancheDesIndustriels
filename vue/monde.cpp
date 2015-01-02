@@ -141,7 +141,7 @@ bool Monde::collisionPerso(Hero *h){
                 return true;
             }
             //On gère la tuile des pieces.
-            if (_schema[j][i] == 19){
+            if ( _schema[j][i] == 19){
                 if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                         && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
                         && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
@@ -174,7 +174,7 @@ bool Monde::collisionPerso(Hero *h){
                 h->setPosReelHero(&posDebutHero);
             }
             //Si on est sur le bonhomme, on passe au niveau suivant
-            if (_schema[j][i] == 20){
+            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
                 if(this->getNiveauActuel() < 2){
                     this->setNiveauActuel(this->getNiveauActuel()+1);
                     SDL_Rect posDebutHero = h->getPosTestHero();
@@ -281,8 +281,12 @@ void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){
                     _tuiles[numTuile].setType(TypeTuile::VIDE);
                 } else if( ! typeTuile.compare("vide_avec_degats") ){
                     _tuiles[numTuile].setType(TypeTuile::VIDE_AVEC_DEGATS);
+                } else if( ! typeTuile.compare("piece") ){
+                    _tuiles[numTuile].setType(TypeTuile::PIECE);
+                } else if( ! typeTuile.compare("fin_niveau") ){
+                    _tuiles[numTuile].setType(TypeTuile::FIN_NIVEAU);
                 } else {
-                    _tuiles[numTuile].setType(TypeTuile::VIDE_AVEC_DEGATS);
+                    _tuiles[numTuile].setType(TypeTuile::VIDE);
                 }
                 numTuile++;
             }
