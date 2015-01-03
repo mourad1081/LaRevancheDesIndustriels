@@ -4,8 +4,13 @@
 #
 #-------------------------------------------------
 
+<<<<<<< HEAD
 QT       += core gui sql
 
+=======
+QT       += core gui
+QT       += multimedia
+>>>>>>> origin/master
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = LaRevancheDesIndus
@@ -83,7 +88,8 @@ INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include
 
 RESOURCES += \
-    images.qrc
+    images.qrc \
+    sons.qrc
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image

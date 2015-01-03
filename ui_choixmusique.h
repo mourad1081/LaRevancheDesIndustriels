@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'choixmusique.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -562,7 +562,7 @@ public:
     {
         ChoixMusique->setWindowTitle(QApplication::translate("ChoixMusique", "Dialog", 0));
         groupBox->setTitle(QApplication::translate("ChoixMusique", "Liste de th\303\250mes disponibles", 0));
-        musiqueChoisie->setText(QApplication::translate("ChoixMusique", "<html><head/><body><p><span style=\" font-style:italic;\">S\303\251lectionn\303\251e : </span></p></body></html>", 0));
+        musiqueChoisie->setText(QApplication::translate("ChoixMusique", "<html><head/><body><p>Attention : aucun th\303\250me s\303\251lectionn\303\251 !</p></body></html>", 0));
     } // retranslateUi
 
 };

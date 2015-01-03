@@ -163,11 +163,11 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             _sprite = IMG_Load("img/walkright.png");
         }
     }
-    if(evt->key[SDLK_UP] && _nb <= 20){
+    if(evt->key[SDLK_UP] && _nb <= 20) {
         _nb++;
         _etat = JUMP;
         posTest.y -= JUMP_HEIGHT;
-        if(!m->collisionPerso(this)){
+        if(!m->collisionPerso(this)) {
             posReelle.y -= JUMP_HEIGHT;
         }
 
@@ -199,8 +199,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //On centre le scrolling sur le joueur.
     this->centerScrollingOnPlayer(m);
 
-
-
     if (_timerMort > 0)
     {
         _timerMort--;
@@ -208,6 +206,8 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         //Mort du joueur.
         if (_timerMort == 0)
         {
+            GestionSon s;
+            s.demarrerBruitage("son/bruitages/mort.wav", 1);
             _nb = 0;
             posReelle.x = 0;
             posReelle.y = 0;
@@ -235,8 +235,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //cout << "_onGround : "<< _onGround << endl;
     //cout << "_gravity : "<< _gravity << endl;
     //cout << "_nb : "<< _nb << endl;
-
-
 }
 
 void Hero::centerScrollingOnPlayer(Monde * m)

@@ -2,6 +2,7 @@
 #define EVENEMENT_H
 
 #include <SDL.h>
+#include "vue/gestionson.h"
 
 /*!
  * \brief Classe qui permet de connaitre les évenements

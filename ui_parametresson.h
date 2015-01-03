@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'parametresson.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -20,9 +20,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 
@@ -46,19 +44,13 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QSpinBox *spinVies;
-    QSpacerItem *horizontalSpacer;
-    QGroupBox *groupBox_4;
-    QHBoxLayout *horizontalLayout_3;
-    QRadioButton *radioDifficulteFacile;
-    QRadioButton *radioDifficulteNormal;
-    QRadioButton *radioDifficulteConnard;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *ParametresSon)
     {
         if (ParametresSon->objectName().isEmpty())
             ParametresSon->setObjectName(QStringLiteral("ParametresSon"));
-        ParametresSon->resize(400, 300);
+        ParametresSon->resize(307, 231);
         ParametresSon->setStyleSheet(QLatin1String("QToolTip\n"
 "{\n"
 "     border: 1px solid black;\n"
@@ -559,8 +551,8 @@ public:
 
         sliderVolume = new QSlider(groupBox);
         sliderVolume->setObjectName(QStringLiteral("sliderVolume"));
-        sliderVolume->setMaximum(127);
-        sliderVolume->setValue(50);
+        sliderVolume->setMaximum(100);
+        sliderVolume->setValue(100);
         sliderVolume->setOrientation(Qt::Horizontal);
 
         horizontalLayout->addWidget(sliderVolume);
@@ -593,35 +585,8 @@ public:
 
         horizontalLayout_2->addWidget(spinVies);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer);
-
 
         verticalLayout_3->addLayout(horizontalLayout_2);
-
-        groupBox_4 = new QGroupBox(groupBox_3);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        horizontalLayout_3 = new QHBoxLayout(groupBox_4);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        radioDifficulteFacile = new QRadioButton(groupBox_4);
-        radioDifficulteFacile->setObjectName(QStringLiteral("radioDifficulteFacile"));
-
-        horizontalLayout_3->addWidget(radioDifficulteFacile);
-
-        radioDifficulteNormal = new QRadioButton(groupBox_4);
-        radioDifficulteNormal->setObjectName(QStringLiteral("radioDifficulteNormal"));
-        radioDifficulteNormal->setChecked(true);
-
-        horizontalLayout_3->addWidget(radioDifficulteNormal);
-
-        radioDifficulteConnard = new QRadioButton(groupBox_4);
-        radioDifficulteConnard->setObjectName(QStringLiteral("radioDifficulteConnard"));
-
-        horizontalLayout_3->addWidget(radioDifficulteConnard);
-
-
-        verticalLayout_3->addWidget(groupBox_4);
 
 
         verticalLayout_2->addWidget(groupBox_3);
@@ -647,15 +612,11 @@ public:
         groupBox_2->setTitle(QApplication::translate("ParametresSon", "Son", 0));
         checkBoutonActiverSon->setText(QApplication::translate("ParametresSon", "Activer le son", 0));
         checkBoutonSonInfini->setText(QApplication::translate("ParametresSon", "Jouer la musique \303\240 l'infini", 0));
-        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume", 0));
+        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume (Ne fonctionne apparemment pas)", 0));
         label_2->setText(QApplication::translate("ParametresSon", "0%", 0));
         label->setText(QApplication::translate("ParametresSon", "100%", 0));
         groupBox_3->setTitle(QApplication::translate("ParametresSon", "Difficult\303\251", 0));
         label_3->setText(QApplication::translate("ParametresSon", "Nombre de vies : ", 0));
-        groupBox_4->setTitle(QApplication::translate("ParametresSon", "Niveau de difficult\303\251 (Pas encore impl\303\251ment\303\251)", 0));
-        radioDifficulteFacile->setText(QApplication::translate("ParametresSon", "Facile", 0));
-        radioDifficulteNormal->setText(QApplication::translate("ParametresSon", "Normal", 0));
-        radioDifficulteConnard->setText(QApplication::translate("ParametresSon", "Connard", 0));
     } // retranslateUi
 
 };

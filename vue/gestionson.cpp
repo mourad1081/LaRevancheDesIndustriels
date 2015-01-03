@@ -1,7 +1,7 @@
 #include "gestionson.h"
 
 GestionSon::GestionSon()
-    : GestionSon("son/Game Of Thrones.mp3",
+    : GestionSon("son/Phoenix Wright.mp3",
                  44100,
                  MIX_DEFAULT_FORMAT,
                  MIX_DEFAULT_CHANNELS,
@@ -51,6 +51,14 @@ void GestionSon::demarrerMusique()
     //Paramètre 2 : Le nombre de fois que la musique doit se répêter
     //(-1 = infini)
     Mix_PlayMusic(_musique, -1);
+}
+
+void GestionSon::demarrerBruitage(std::string chemin, int nbRepetition)
+{
+    //Paramètre 1 : La musique à jouer
+    //Paramètre 2 : Le nombre de fois que la musique doit se répêter
+    //(-1 = infini)
+    Mix_PlayMusic(Mix_LoadMUS(chemin.c_str()), nbRepetition);
 }
 
 void GestionSon::pause()

@@ -23,16 +23,6 @@ bool ParametresSon::isMusiqueInfinie()
     return ui->checkBoutonSonInfini->isChecked();
 }
 
-Difficulte ParametresSon::getDifficulte()
-{
-    if(ui->radioDifficulteNormal->isChecked())
-        return Difficulte::NORMAL;
-    else if(ui->radioDifficulteConnard->isChecked())
-        return Difficulte::CONNARD;
-    else
-        return Difficulte::FACILE;
-}
-
 int ParametresSon::getNbVies()
 {
     return ui->spinVies->value();
