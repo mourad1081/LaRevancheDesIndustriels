@@ -3,6 +3,7 @@ var searchData=
   ['gestionmonde',['GestionMonde',['../class_gestion_monde.html#a35d11c7c0d38b77180e191b3d44c9ab7',1,'GestionMonde']]],
   ['gestionson',['GestionSon',['../class_gestion_son.html#a437122c08967f3c47d2383c9651da7ce',1,'GestionSon::GestionSon()'],['../class_gestion_son.html#af7b654223912326d279a647d8914b9ab',1,'GestionSon::GestionSon(std::string cheminSon)'],['../class_gestion_son.html#a4c189c89650a42f649ed7c0b45702081',1,'GestionSon::GestionSon(std::string cheminSon, int frequence, Uint16 format, int nbCanaux, int tailleChunck)']]],
   ['getcheminmusique',['getCheminMusique',['../class_gestion_son.html#a64ce078119a4c9178cb5cfe9492649c7',1,'GestionSon']]],
+  ['getclicquit',['getClicQuit',['../class_application.html#a2b9e0938e060e6150779c1c1273dd1c3',1,'Application']]],
   ['gethauteurfenetre',['getHauteurFenetre',['../class_monde.html#a0eb55165000cc9f8c6dd3955faea80b5',1,'Monde']]],
   ['gethauteurtuile',['getHauteurTuile',['../class_monde.html#a47f1017e1a665499a2304f613bc70f92',1,'Monde']]],
   ['gethoriscroll',['getHoriScroll',['../class_monde.html#a0583c541caa7530f010e68f073d4dcd7',1,'Monde']]],

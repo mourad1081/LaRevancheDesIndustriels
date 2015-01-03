@@ -5,6 +5,7 @@ var class_gestion_son =
     [ "GestionSon", "class_gestion_son.html#a4c189c89650a42f649ed7c0b45702081", null ],
     [ "~GestionSon", "class_gestion_son.html#ae4f1b3ef7a791d11491736f00c03581c", null ],
     [ "changerMusique", "class_gestion_son.html#aabd15ed5ef24d88d7b875e9b85c78b18", null ],
+    [ "demarrerBruitage", "class_gestion_son.html#a9a663ebc0c601e99b9714b6dd23332d9", null ],
     [ "demarrerMusique", "class_gestion_son.html#ae36b1dd0ce8394424ebfbb4291dba4fb", null ],
     [ "getCheminMusique", "class_gestion_son.html#a64ce078119a4c9178cb5cfe9492649c7", null ],
     [ "pause", "class_gestion_son.html#ab1b544ce8db23101c0be959c3296facb", null ],
