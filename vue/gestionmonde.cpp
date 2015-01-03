@@ -49,7 +49,24 @@ void GestionMonde::miseAjourJoueurs(){
     }
     _hero->drawAnimatedPlayer(_fenetre, _monde);
     _hero->updatePlayer(_lesEvents, _monde, _fenetre);
+    // passage au niveau suivant
+    if ( _monde->finDuNiveau(_hero) ) {
 
+        _nbMonstres = _monde->getListPosMonstres().size();
+        _monstres.clear();
+        _monstres.resize(_nbMonstres);
+
+        SDL_Rect posMonstre;
+        for(int i=0; i < _nbMonstres ; i++)
+        {
+            posMonstre = _monde->getListPosMonstres()[i];
+            _monstres[i] = new Monstre ("img/walkright.png",
+                                        posMonstre.x,
+                                        posMonstre.y,
+                                        40,
+                                        80);
+        }
+    }
     for(int i=0; i < _nbMonstres ; i++){
         if(!_monstres[i]->estMort()){
             _monstres[i]->drawAnimatedMonster(_fenetre, _monde);

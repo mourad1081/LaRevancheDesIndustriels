@@ -160,6 +160,8 @@ public:
      * \return true s'il y a collision, faux sinon
      */
     bool collisionMonstre(Monstre *m);
+
+    bool finDuNiveau(Hero *h);
 private:
     void chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame);
     SDL_Surface* chargerImage(string nomFichierImage);
