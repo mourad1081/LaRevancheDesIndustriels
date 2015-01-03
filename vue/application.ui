@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>728</width>
-    <height>391</height>
+    <height>339</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>JEU DE PLATFORME</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/img/YAY.gif</normaloff>:/img/YAY.gif</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -71,6 +75,18 @@ font:16pt;
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
       <item alignment="Qt::AlignRight">
        <widget class="QPushButton" name="btnNouvellePartie">
         <property name="minimumSize">
@@ -90,6 +106,9 @@ font:16pt;
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align:right</string>
         </property>
         <property name="text">
          <string>NOUVELLE PARTIE</string>
@@ -117,7 +136,8 @@ font:16pt;
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(162, 162, 162);</string>
+         <string notr="true">color: rgb(162, 162, 162);
+text-align:right</string>
         </property>
         <property name="text">
          <string>CONTINUER</string>
@@ -144,6 +164,9 @@ font:16pt;
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
+        <property name="styleSheet">
+         <string notr="true">text-align:right</string>
+        </property>
         <property name="text">
          <string>PARAMÈTRES</string>
         </property>
@@ -168,6 +191,9 @@ font:16pt;
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align:right</string>
         </property>
         <property name="text">
          <string>HACKER LA NASA</string>
@@ -195,7 +221,7 @@ font:16pt;
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">text-align:right</string>
         </property>
         <property name="text">
          <string>MUSIQUE</string>
@@ -222,6 +248,9 @@ font:16pt;
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
+        <property name="styleSheet">
+         <string notr="true">text-align:right</string>
+        </property>
         <property name="text">
          <string>QUITTER</string>
         </property>
@@ -232,6 +261,8 @@ font:16pt;
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../images.qrc"/>
+ </resources>
  <connections/>
 </ui>

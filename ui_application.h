@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'application.ui'
 **
-** Created by: Qt User Interface Compiler version 5.1.1
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,7 +43,10 @@ public:
     {
         if (Application->objectName().isEmpty())
             Application->setObjectName(QStringLiteral("Application"));
-        Application->resize(728, 391);
+        Application->resize(728, 339);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/img/YAY.gif"), QSize(), QIcon::Normal, QIcon::Off);
+        Application->setWindowIcon(icon);
         centralwidget = new QWidget(Application);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setStyleSheet(QLatin1String("\n"
@@ -88,7 +91,10 @@ public:
         horizontalLayout->addLayout(verticalLayout_2);
 
         verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        verticalLayout->setContentsMargins(0, -1, 5, -1);
         btnNouvellePartie = new QPushButton(centralwidget);
         btnNouvellePartie->setObjectName(QStringLiteral("btnNouvellePartie"));
         btnNouvellePartie->setMinimumSize(QSize(200, 0));
@@ -100,6 +106,7 @@ public:
         font.setStyleStrategy(QFont::PreferAntialias);
         btnNouvellePartie->setFont(font);
         btnNouvellePartie->setCursor(QCursor(Qt::PointingHandCursor));
+        btnNouvellePartie->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnNouvellePartie, 0, Qt::AlignRight);
 
@@ -112,7 +119,8 @@ public:
         font1.setStyleStrategy(QFont::PreferAntialias);
         btnContinuer->setFont(font1);
         btnContinuer->setCursor(QCursor(Qt::PointingHandCursor));
-        btnContinuer->setStyleSheet(QStringLiteral("color: rgb(162, 162, 162);"));
+        btnContinuer->setStyleSheet(QLatin1String("color: rgb(162, 162, 162);\n"
+"text-align:right"));
 
         verticalLayout->addWidget(btnContinuer, 0, Qt::AlignRight);
 
@@ -121,6 +129,7 @@ public:
         btnOptions->setMinimumSize(QSize(200, 0));
         btnOptions->setFont(font);
         btnOptions->setCursor(QCursor(Qt::PointingHandCursor));
+        btnOptions->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnOptions, 0, Qt::AlignRight);
 
@@ -129,6 +138,7 @@ public:
         btnHackNASA->setMinimumSize(QSize(200, 0));
         btnHackNASA->setFont(font);
         btnHackNASA->setCursor(QCursor(Qt::PointingHandCursor));
+        btnHackNASA->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnHackNASA, 0, Qt::AlignRight);
 
@@ -138,7 +148,7 @@ public:
         btnMusique->setMinimumSize(QSize(200, 0));
         btnMusique->setFont(font1);
         btnMusique->setCursor(QCursor(Qt::PointingHandCursor));
-        btnMusique->setStyleSheet(QStringLiteral(""));
+        btnMusique->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnMusique, 0, Qt::AlignRight);
 
@@ -147,6 +157,7 @@ public:
         btnQuitter->setMinimumSize(QSize(200, 0));
         btnQuitter->setFont(font);
         btnQuitter->setCursor(QCursor(Qt::PointingHandCursor));
+        btnQuitter->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnQuitter, 0, Qt::AlignRight);
 
@@ -162,7 +173,7 @@ public:
 
     void retranslateUi(QMainWindow *Application)
     {
-        Application->setWindowTitle(QApplication::translate("Application", "MainWindow", 0));
+        Application->setWindowTitle(QApplication::translate("Application", "JEU DE PLATFORME", 0));
         titre->setText(QString());
         gif->setText(QString());
         btnNouvellePartie->setText(QApplication::translate("Application", "NOUVELLE PARTIE", 0));

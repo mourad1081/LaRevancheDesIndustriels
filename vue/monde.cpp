@@ -173,6 +173,7 @@ bool Monde::collisionPerso(Hero *h){
                 posDebutHero.y -= 100;
                 h->setPosReelHero(&posDebutHero);
             }
+<<<<<<< HEAD
             //Si on est sur le bonhomme, on passe au niveau suivant
             if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
                 if(this->getNiveauActuel() < 2){
@@ -183,6 +184,8 @@ bool Monde::collisionPerso(Hero *h){
                     h->setPosReelHero(&posDebutHero);
                 }
             }
+=======
+>>>>>>> da1866f380fea40cf5ada06f042c174a59cd3b5c
         }
     }
     return false;
@@ -295,6 +298,37 @@ void Monde::chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame){
         throw new ExceptionGame("Votre fichier ne contient pas la balise #typeTuile");
     }
 
+}
+
+bool Monde::finDuNiveau(Hero *h){
+    SDL_Rect posHero = h->getPosTestHero();
+    int x1, x2, y1, y2,i,j;
+    Uint16 indicetile;
+
+    x1 = posHero.x / _largeurTuile;
+    y1 = posHero.y / _hauteurTuile;
+    x2 = (posHero.x + posHero.w -1) / _largeurTuile;
+    y2 = (posHero.y + posHero.h -1) / _hauteurTuile;
+
+    for ( i = x1 ; i <=  x2  ; i++) {
+        for ( j = y1 ; j <= y2  ; j++){
+
+            indicetile = _schema[j][i];
+            //Si on est sur le bonhomme, on passe au niveau suivant
+            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
+                if(this->getNiveauActuel() < 2){
+                    this->setNiveauActuel(this->getNiveauActuel()+1);
+                    SDL_Rect posDebutHero = h->getPosTestHero();
+                    posDebutHero.x = 0;
+                    posDebutHero.y = 0;
+                    h->setPosReelHero(&posDebutHero);
+                    return true;
+                }
+                //changer pos joueur
+            }
+        }
+    }
+    return false;
 }
 
 SDL_Surface* Monde::chargerImage(string nomFichierImage){

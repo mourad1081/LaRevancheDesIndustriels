@@ -12,14 +12,14 @@ void lancerApplication();
 
 int main(int argc, char **argv)
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     Application app;
     app.show();
     a.exec();
     if(!app.getClicQuit())
-    {*/
+    {
         lancerApplication();
-    //}
+    }
 }
 
 void lancerApplication()

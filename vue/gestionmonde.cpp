@@ -9,13 +9,13 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
 
     // Charge la police en 32 points (taille)
 
-    _font = Hud::loadFont("font/GenBasB.ttf", 32);
+    _font = Hud::loadFont("font/jokerman.ttf", 42);
     //Variables nécessaires à l'affichage du HUD.
     _HUD_vie = IMG_Load("img/life.png");
     _HUD_etoiles = IMG_Load("img/stars.png");
 
     _monde = new Monde(largeurFenetre,hauteurFenetre);
-    _hero = new Hero("img/walkright.png", 0 ,0, 64, 100);
+    _hero = new Hero("img/walkright.png", 0 ,0, 40, 80);
     _nbMonstres = _monde->getListPosMonstres().size();
 
 
@@ -28,7 +28,11 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
                                     posMonstre.x,
                                     posMonstre.y,
                                     40,
+<<<<<<< HEAD
                                     65);
+=======
+                                    80);
+>>>>>>> da1866f380fea40cf5ada06f042c174a59cd3b5c
     }
 }
 GestionMonde::~GestionMonde(){
@@ -49,7 +53,24 @@ void GestionMonde::miseAjourJoueurs(){
     }
     _hero->drawAnimatedPlayer(_fenetre, _monde);
     _hero->updatePlayer(_lesEvents, _monde, _fenetre);
+    // passage au niveau suivant
+    if ( _monde->finDuNiveau(_hero) ) {
 
+        _nbMonstres = _monde->getListPosMonstres().size();
+        _monstres.clear();
+        _monstres.resize(_nbMonstres);
+
+        SDL_Rect posMonstre;
+        for(int i=0; i < _nbMonstres ; i++)
+        {
+            posMonstre = _monde->getListPosMonstres()[i];
+            _monstres[i] = new Monstre ("img/walkright.png",
+                                        posMonstre.x,
+                                        posMonstre.y,
+                                        40,
+                                        80);
+        }
+    }
     for(int i=0; i < _nbMonstres ; i++){
         if(!_monstres[i]->estMort()){
             _monstres[i]->drawAnimatedMonster(_fenetre, _monde);
@@ -78,10 +99,10 @@ void GestionMonde::drawHUD(){
     //Pour afficher le nombre de vies, on formate notre string pour qu'il prenne la valeur de la variable
     sprintf(text, "%d", _hero->getNbVies());
     //Puis on utilise notre fonction créée précédemment
-    Hud::drawString(text, _largeurFenetre - 125, _hauteurFenetre - 92, _font, _fenetre);
+    Hud::drawString(text, _largeurFenetre - 75, _hauteurFenetre - 92, _font, _fenetre);
 
     // Affiche le nombre d'étoiles en haut à gauche
     Hud::drawImage(_HUD_etoiles, 60, 60, _fenetre);
     sprintf(text, "%d", _hero->getNbPoints());
-    Hud::drawString(text, 100, 57, _font, _fenetre);
+    Hud::drawString(text, 150, 62, _font, _fenetre);
 }

@@ -34,13 +34,15 @@ void Hud::drawString(char *text, int x, int y, TTF_Font *font, SDL_Surface * _fe
     SDL_Surface *surface;
     SDL_Color foregroundColor;
 
-    /* On choisit d'écrire le texte en noir */
-    foregroundColor.r = 0;
-    foregroundColor.g = 0;
-    foregroundColor.b = 0;
+    /* On choisit d'écrire le texte en doré */
+    foregroundColor.r = 255;
+    foregroundColor.g = 204;
+    foregroundColor.b = 2;
 
 
-    /* On utilise SDL_TTF pour générer une SDL_Surface à partir d'une chaîne de caractères (string) */
+    /* On utilise SDL_TTF pour générer une SDL_Surface à partir
+     *  d'une chaîne de caractères (string)
+     */
 
     surface = TTF_RenderUTF8_Blended(font, text, foregroundColor);
 
@@ -48,7 +50,6 @@ void Hud::drawString(char *text, int x, int y, TTF_Font *font, SDL_Surface * _fe
     if (surface == NULL)
     {
         printf("Couldn't create String %s: %s\n", text, SDL_GetError());
-
         return;
     }
 
@@ -61,7 +62,9 @@ void Hud::drawString(char *text, int x, int y, TTF_Font *font, SDL_Surface * _fe
 
     SDL_BlitSurface(surface, NULL, _fenetre, &dest);
 
-    /* On libère la SDL_Surface temporaire (pour éviter les fuites de mémoire - cf. chapitre dédié) */
+    /* On libère la SDL_Surface temporaire
+     *  (pour éviter les fuites de mémoire - cf. chapitre dédié)
+     */
     SDL_FreeSurface(surface);
 }
 void Hud::drawImage(SDL_Surface *image, int x, int y, SDL_Surface * _fenetre)
