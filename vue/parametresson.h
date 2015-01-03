@@ -9,7 +9,6 @@
 namespace Ui {
 class ParametresSon;
 }
-enum Difficulte {FACILE, NORMAL, CONNARD};
 class ParametresSon : public QDialog
 {
     Q_OBJECT
@@ -20,7 +19,6 @@ public:
 
     bool isSonActif();
     bool isMusiqueInfinie();
-    Difficulte getDifficulte();
     int getNbVies();
     int getVolume();
 private:

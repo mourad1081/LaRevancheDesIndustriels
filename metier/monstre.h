@@ -5,6 +5,7 @@
 #include "vue/monde.h"
 #include "metier/evenement.h"
 #include "metier/hero.h"
+#include "vue/gestionson.h"
 
 // Constantes pour l'animation
 //Valeurs attribuées aux états/directions

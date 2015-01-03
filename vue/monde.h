@@ -14,7 +14,7 @@
 
 #include "metier/niveau.h"
 #include "metier/tuile.h"
-
+#include "vue/gestionson.h"
 using namespace std;
 
 class Hero;
@@ -26,6 +26,10 @@ class Monde
 {
 private:
     Niveau * _niveau;
+
+    //Gestionnaire de son
+    GestionSon *_son;
+
     int _niveauActuel;
     //---- pour les tuiles
     int _largeurTuile;       // largeur d'une tuile
@@ -63,7 +67,7 @@ public:
      * \exception ExceptionGame Problème au niveau des balises
      *  dans le fichier de configuration
      */
-    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);   
+    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);
     /*!
      * \brief Asseseur en lecture.
      * \return le niveau actuel.

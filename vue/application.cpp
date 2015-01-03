@@ -1,5 +1,6 @@
 #include "application.h"
 #include "ui_application.h"
+#include <QMediaPlaylist>
 
 Application::Application(QWidget *parent) :
     QMainWindow(parent),
@@ -7,17 +8,23 @@ Application::Application(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
-    _musique.demarrerMusique();
-    _volume = 1;
-    _clicQuit = false;
-    _sonActif = true;
-    _nbVies = 3;
-    _difficulteJeu = NORMAL;
-    _jouerAMusiqueALinfini = true;
 
-    _film = new QMovie("://img/YAY.gif");
-    ui->gif->setMovie (_film);
-    _film->start ();
+    _clicQuit = false;
+    _nbVies = 3;
+
+    _chetiflorQuiDance = new QMovie("://img/YAY.gif");
+    ui->gif->setMovie (_chetiflorQuiDance);
+    _chetiflorQuiDance->start ();
+
+
+    _theme = new QMediaPlayer(this);
+    _playlist = new QMediaPlaylist(this);
+    _playlist->addMedia(QUrl::fromLocalFile("son\\Phoenix Wright.mp3"));
+    _playlist->setPlaybackMode(QMediaPlaylist::Loop);
+    _playlist->setCurrentIndex(0);
+    _theme->setPlaylist(_playlist);
+    _theme->setVolume(100);
+    _theme->play();
 }
 
 Application::~Application()
@@ -30,6 +37,7 @@ void Application::on_btnQuitter_clicked()
     this->_clicQuit = true;
     QApplication::quit();
 }
+
 bool Application::getClicQuit() const
 {
     return _clicQuit;
@@ -60,18 +68,14 @@ void Application::on_btnOptions_clicked()
     ParametresSon *param = new ParametresSon(0);
     if (param->exec() == QDialog::Accepted)
     {
-        if( (_sonActif = param->isSonActif()) )
+        if(param->isSonActif())
         {
-            _musique.reprendre();
-            _jouerAMusiqueALinfini = param->isMusiqueInfinie();
+
         } else
-            _musique.pause();
+            _theme->pause();
 
-        _difficulteJeu = param->getDifficulte();
         _nbVies = param->getNbVies();
-        _volume = param->getVolume();
-        _musique.volume(param->getVolume());
-
+        _theme->setVolume(param->getVolume());
     }
 }
 
@@ -80,7 +84,12 @@ void Application::on_btnMusique_clicked()
     ChoixMusique *param = new ChoixMusique(0);
     if (param->exec() == QDialog::Accepted)
     {
-        _musique.stop();
-        _musique.changerMusique(param->cheminMusique().toStdString());
+        _playlist = new QMediaPlaylist(this);
+        _playlist->addMedia(QUrl::fromLocalFile(param->cheminMusique()));
+        _playlist->setPlaybackMode(QMediaPlaylist::Loop);
+        _playlist->setCurrentIndex(0);
+        _theme->setPlaylist(_playlist);
+        _theme->setVolume(100);
+        _theme->play();
     }
 }

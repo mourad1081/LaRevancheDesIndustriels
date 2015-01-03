@@ -61,6 +61,13 @@ public:
     void demarrerMusique();
 
     /**
+     * @brief Permet de démarrer la lecture d'un son X fois
+     * @param chemin Le chemin vers le son
+     * @param nbRepetition Le nombre de répétitions
+     */
+    void demarrerBruitage(std::string chemin, int nbRepetition);
+
+    /**
      * @brief Met la musique en pause
      */
     void pause();
