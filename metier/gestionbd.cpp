@@ -21,11 +21,7 @@ GestionBD::~GestionBD()
 
 bool GestionBD::requete(QString requete)
 {
-    if(query->exec(requete)){
-        return true;
-    }else {
-        cout<<endl<<query->lastError().text().toStdString()<<endl;
-    }
+    return (query->exec(requete));
 }
 
 bool GestionBD::estConnecte() const

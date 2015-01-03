@@ -220,7 +220,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
                     requete+=QDate::currentDate().toString(Qt::TextDate);
                     requete+="  "+QTime::currentTime().toString()+"');";
                     gbd.requete(requete);
-                    cout<<gbd.selectAll("score").toStdString();
                 }
             }
         }
