@@ -4,6 +4,7 @@
 #include <SDL_image.h>
 #include "vue/monde.h"
 #include "metier/evenement.h"
+#include "gestionbd.h"
 
 //Valeurs attribuées aux états/directions
 #define WALK 1

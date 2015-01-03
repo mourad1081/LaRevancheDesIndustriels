@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     vue/gestionson.cpp \
     vue/parametresson.cpp \
     vue/choixmusique.cpp \
-    vue/hud.cpp
+    vue/hud.cpp \
+    metier/gestionbd.cpp
 
 HEADERS  += \
     vue/monde.h \
@@ -45,7 +46,8 @@ HEADERS  += \
     vue/gestionson.h \
     vue/parametresson.h \
     vue/choixmusique.h \
-    vue/hud.h
+    vue/hud.h \
+    metier/gestionbd.h
 
 FORMS    += \
     vue/application.ui \
