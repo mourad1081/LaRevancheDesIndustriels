@@ -9,6 +9,14 @@
 #include "SDL_ttf.h"
 #include "vue/hud.h"
 
+/*!
+ *\mainpage les aventures de ben le nudiste heureux
+ *\author Faïssal Abouri, Benoit Rion, Mourad Akandouch, Chetouani Abdelhalim.
+ *
+ * \version 1.0
+ *
+ * \date 2014-2015
+ */
 
 /*!
  * \brief Classe qui permet la gestion complete du monde.

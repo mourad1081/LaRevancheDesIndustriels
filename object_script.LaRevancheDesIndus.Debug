@@ -1,8 +1,5 @@
 INPUT(
 ./debug\main.o
-./debug\sujetDObservation.o
-./debug\personnagevue.o
-./debug\histoire.o
 ./debug\gestionmonde.o
 ./debug\monde.o
 ./debug\application.o

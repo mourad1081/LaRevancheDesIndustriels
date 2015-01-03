@@ -17,9 +17,6 @@ CONFIG += qt
 QMAKE_CXXFLAGS += -std=c++11 -pedantic-errors
 
 SOURCES += main.cpp\
-    O_SDO/sujetDObservation.cpp \
-    vue/personnagevue.cpp \
-    vue/histoire.cpp \
     vue/gestionmonde.cpp \
     vue/monde.cpp \
     vue/application.cpp \
@@ -35,10 +32,6 @@ SOURCES += main.cpp\
     vue/hud.cpp
 
 HEADERS  += \
-    O_SDO/observateur.h \
-    O_SDO/sujetDObservation.h \
-    vue/personnagevue.h \
-    vue/histoire.h \
     vue/monde.h \
     vue/application.h \
     metier/exceptiongame.h \

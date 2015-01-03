@@ -1,8 +1,5 @@
 INPUT(
 ./release\main.o
-./release\sujetDObservation.o
-./release\personnagevue.o
-./release\histoire.o
 ./release\gestionmonde.o
 ./release\monde.o
 ./release\application.o
