@@ -9,7 +9,7 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
 
     // Charge la police en 32 points (taille)
 
-    _font = Hud::loadFont("font/GenBasB.ttf", 32);
+    _font = Hud::loadFont("font/jokerman.ttf", 42);
     //Variables nécessaires à l'affichage du HUD.
     _HUD_vie = IMG_Load("img/life.png");
     _HUD_etoiles = IMG_Load("img/stars.png");
@@ -78,10 +78,10 @@ void GestionMonde::drawHUD(){
     //Pour afficher le nombre de vies, on formate notre string pour qu'il prenne la valeur de la variable
     sprintf(text, "%d", _hero->getNbVies());
     //Puis on utilise notre fonction créée précédemment
-    Hud::drawString(text, _largeurFenetre - 125, _hauteurFenetre - 92, _font, _fenetre);
+    Hud::drawString(text, _largeurFenetre - 75, _hauteurFenetre - 92, _font, _fenetre);
 
     // Affiche le nombre d'étoiles en haut à gauche
     Hud::drawImage(_HUD_etoiles, 60, 60, _fenetre);
     sprintf(text, "%d", _hero->getNbPoints());
-    Hud::drawString(text, 100, 57, _font, _fenetre);
+    Hud::drawString(text, 150, 62, _font, _fenetre);
 }
