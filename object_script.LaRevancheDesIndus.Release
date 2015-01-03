@@ -13,6 +13,7 @@ INPUT(
 ./release\parametresson.o
 ./release\choixmusique.o
 ./release\hud.o
+./release\gestionbd.o
 ./release\qrc_images.o
 ./release\qrc_sons.o
 ./release\moc_application.o
