@@ -149,9 +149,6 @@ void Monstre::updateMonster(Hero * h, Monde * m)
         //On devra alors tuer le monstre et on fera rebondir le joueur.
     }else if (posPlayer.y + posPlayer.h < posReelle.y + 10)
     {
-        SDL_Rect newPos = h->getPosReelleHero();
-        newPos.y -= 150;
-        h->setPosReelHero(&newPos);
         _timerMort = 1;
     }
     //Sinon, on renvoie 1 et c'est le joueur qui meurt...

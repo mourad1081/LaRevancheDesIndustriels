@@ -83,7 +83,7 @@ void Hero::drawAnimatedPlayer(SDL_Surface * screen, Monde * m)
     SDL_BlitSurface(_sprite, &src, screen, &dest);
 }
 
-void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
+void Hero::updatePlayer(Evenement * evt, Monde * m)
 {
     //A chaque fois que l'on va déplacer notre joueur,
     //on va vérifier s'il entre en collision avec des éléments.
@@ -162,18 +162,9 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         if(!m->collisionPerso(this)){
             posReelle.y -= JUMP_HEIGHT;
         }
-
-        /*if(_direction == LEFT)
-        {
-            _sprite = IMG_Load("img/jumpleft.png");
-        }else
-        {
-            _sprite = IMG_Load("img/jumpright.png");
-        }*/
     }
     //On incrémente la position y du perso, ce qui permet de
     //le faire chuter.
-    //}
     posTest.y += _gravity;
     if(!m->collisionPerso(this)){
         posReelle.y += _gravity;

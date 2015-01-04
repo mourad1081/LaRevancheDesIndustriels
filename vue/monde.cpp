@@ -1,11 +1,7 @@
 #include "monde.h"
 Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
-<<<<<<< HEAD
-    : _niveauActuel(3)
+    : _niveauActuel(1)
 {
-=======
-    : _niveauActuel(4){
->>>>>>> 2502474f373497b5c2e236086d9680a24120d397
     _largeurFenetre = largeurFenetre;
     _hauteurFenetre = hauteurFenetre;
     _horiScroll = 0;
@@ -172,16 +168,6 @@ bool Monde::collisionPerso(Hero *h) {
                     if(h->getTimerMort() == 0){
                         h->setTimerMort(30);
                     }
-                }
-            }
-
-            if (_schema[j][i] == 3){
-                if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
-                        && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
-                        && posHero.y + posHero.h >= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)){
-                    SDL_Rect posDebutHero = h->getPosTestHero();
-                    posDebutHero.y -= 200;
-                    h->setPosReelHero(&posDebutHero);
                 }
             }
         }

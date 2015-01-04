@@ -73,9 +73,8 @@ public:
      * \brief Methode permettant de faire évoluer le héro à l'écran
      * \param evt une événement
      * \param m le monde
-     * \param screen l'écran
      */
-    void updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen);
+    void updatePlayer(Evenement * evt, Monde * m);
     /*!
      * \brief Methode permettant de faire évoluer le scrolling par rapport
      * à la position du héro à l'écran

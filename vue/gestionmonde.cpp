@@ -56,7 +56,7 @@ void GestionMonde::miseAjourJoueurs()
         exit(0);
     }
     _hero->drawAnimatedPlayer(_fenetre, _monde);
-    _hero->updatePlayer(_lesEvents, _monde, _fenetre);
+    _hero->updatePlayer(_lesEvents, _monde);
     // passage au niveau suivant
     if ( _monde->finDuNiveau(_hero) )
     {
