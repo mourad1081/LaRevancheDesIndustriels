@@ -12,7 +12,7 @@ Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     _schema = _niveau->getNiveau();
     // ouvre le fichier de configuration en lecture
     ifstream fichierConfig(NOM_FICHIER_CONFIG.c_str(), ios::in);
-    if ( fichierConfig ){
+    if ( fichierConfig ) {
         chargerInfoDepuisFichier(fichierConfig);
     }else{
         throw new ExceptionGame("Erreur d'ouverture du fichier de configuration");

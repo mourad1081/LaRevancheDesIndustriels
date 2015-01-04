@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'application.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -35,6 +35,7 @@ public:
     QPushButton *btnNouvellePartie;
     QPushButton *btnContinuer;
     QPushButton *btnOptions;
+    QPushButton *historiqueScores;
     QPushButton *btnHackNASA;
     QPushButton *btnMusique;
     QPushButton *btnQuitter;
@@ -43,7 +44,7 @@ public:
     {
         if (Application->objectName().isEmpty())
             Application->setObjectName(QStringLiteral("Application"));
-        Application->resize(728, 339);
+        Application->resize(732, 339);
         QIcon icon;
         icon.addFile(QStringLiteral(":/img/YAY.gif"), QSize(), QIcon::Normal, QIcon::Off);
         Application->setWindowIcon(icon);
@@ -69,7 +70,7 @@ public:
 "QPushButton::hover\n"
 "{\n"
 "color:salmon;\n"
-"font:16pt;\n"
+"font:15pt;\n"
 "}"));
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -118,7 +119,7 @@ public:
         font1.setPointSize(14);
         font1.setStyleStrategy(QFont::PreferAntialias);
         btnContinuer->setFont(font1);
-        btnContinuer->setCursor(QCursor(Qt::PointingHandCursor));
+        btnContinuer->setCursor(QCursor(Qt::ArrowCursor));
         btnContinuer->setStyleSheet(QLatin1String("color: rgb(162, 162, 162);\n"
 "text-align:right"));
 
@@ -132,6 +133,16 @@ public:
         btnOptions->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnOptions, 0, Qt::AlignRight);
+
+        historiqueScores = new QPushButton(centralwidget);
+        historiqueScores->setObjectName(QStringLiteral("historiqueScores"));
+        QFont font2;
+        font2.setPointSize(14);
+        historiqueScores->setFont(font2);
+        historiqueScores->setCursor(QCursor(Qt::PointingHandCursor));
+        historiqueScores->setStyleSheet(QStringLiteral("text-align:right;"));
+
+        verticalLayout->addWidget(historiqueScores);
 
         btnHackNASA = new QPushButton(centralwidget);
         btnHackNASA->setObjectName(QStringLiteral("btnHackNASA"));
@@ -179,6 +190,7 @@ public:
         btnNouvellePartie->setText(QApplication::translate("Application", "NOUVELLE PARTIE", 0));
         btnContinuer->setText(QApplication::translate("Application", "CONTINUER", 0));
         btnOptions->setText(QApplication::translate("Application", "PARAM\303\210TRES", 0));
+        historiqueScores->setText(QApplication::translate("Application", "HISTORIQUE SCORES", 0));
         btnHackNASA->setText(QApplication::translate("Application", "HACKER LA NASA", 0));
         btnMusique->setText(QApplication::translate("Application", "MUSIQUE", 0));
         btnQuitter->setText(QApplication::translate("Application", "QUITTER", 0));

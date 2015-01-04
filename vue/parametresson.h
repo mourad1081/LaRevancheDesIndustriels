@@ -18,8 +18,6 @@ public:
     ~ParametresSon();
 
     bool isSonActif();
-    bool isMusiqueInfinie();
-    int getNbVies();
     int getVolume();
 private:
     Ui::ParametresSon *ui;

@@ -1,16 +1,16 @@
 #include "gestionbd.h"
 #include <iostream>
+#include <QMessageBox>
 using namespace std;
 GestionBD::GestionBD()
 {
-    db=QSqlDatabase::addDatabase("QMYSQL");
+    db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
     db.setUserName("root");
     db.setPassword("aaaa"); // Indiquez mdp que vous avez mis sur
-    db.setDatabaseName("gamedb"); //le nom de la db mdr
     connexionOk = db.open();
+    db.setDatabaseName("GAMEDB"); //le nom de la db mdr
     query = new QSqlQuery(db);
-
 }
 
 GestionBD::~GestionBD()
@@ -21,6 +21,7 @@ GestionBD::~GestionBD()
 
 bool GestionBD::requete(QString requete)
 {
+
     return (query->exec(requete));
 }
 
@@ -35,17 +36,23 @@ void GestionBD::closeBD()
         db.close();
 }
 
-QString GestionBD::selectAll(QString table)
+QVector<QString> GestionBD::selectAll(QString table)
 {
-    QString resultat;
+    QString s;
+    QVector<QString> resultat;
     QString requete="Select * From "+table;
-    if(query->exec(requete)){
-        while(query->next()){
-            for(int i=0;i<query->record().count();++i){
-              resultat+=" "+query->value(i).toString();
+    if(query->exec(requete))
+        while(query->next())
+        {
+            s = "";
+            for(int i = 0; i < query->record().count(); ++i)
+            {
+                s += " " + query->record().fieldName(i)
+                         + " : " + query->value(i).toString();
             }
-            resultat+="\n";
+            resultat.append(s);
         }
-    }
+
+
     return resultat;
 }
