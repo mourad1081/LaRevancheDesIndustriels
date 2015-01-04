@@ -1,7 +1,15 @@
 /********************************************************************************
 ** Form generated from reading UI file 'historiquescore.ui'
 **
+<<<<<<< HEAD
+** Created by: Qt User Interface Compiler version 5.2.1
+=======
+<<<<<<< HEAD
+** Created by: Qt User Interface Compiler version 5.2.1
+=======
 ** Created by: Qt User Interface Compiler version 5.1.1
+>>>>>>> origin/master
+>>>>>>> 4b36a2fcaa5672ccf4884244b5110b3fb45b7c22
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/

@@ -110,40 +110,269 @@ $(document).ready(function(){initNavTree('class_monstre.html','');});
 <div class="title">Monstre Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Représente un monstre du jeu.  
+ <a href="class_monstre.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="monstre_8h_source.html">monstre.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73d113ed85da064f383bdda1ea25fa22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73d113ed85da064f383bdda1ea25fa22"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Monstre</b> (char *name, int x, int y, int w, int h)</td></tr>
+<tr class="memitem:a73d113ed85da064f383bdda1ea25fa22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a73d113ed85da064f383bdda1ea25fa22">Monstre</a> (char *name, int x, int y, int w, int h)</td></tr>
+<tr class="memdesc:a73d113ed85da064f383bdda1ea25fa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur du <a class="el" href="class_monstre.html" title="Représente un monstre du jeu. ">Monstre</a>.  <a href="#a73d113ed85da064f383bdda1ea25fa22">More...</a><br/></td></tr>
 <tr class="separator:a73d113ed85da064f383bdda1ea25fa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7a0702355c65f2b1b8da5a46307f92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c7a0702355c65f2b1b8da5a46307f92"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawAnimatedMonster</b> (SDL_Surface *screen, <a class="el" href="class_monde.html">Monde</a> *m)</td></tr>
+<tr class="memitem:a8e736b63ae1f561904dad7767448156e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e736b63ae1f561904dad7767448156e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a8e736b63ae1f561904dad7767448156e">~Monstre</a> ()</td></tr>
+<tr class="memdesc:a8e736b63ae1f561904dad7767448156e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur. <br/></td></tr>
+<tr class="separator:a8e736b63ae1f561904dad7767448156e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7a0702355c65f2b1b8da5a46307f92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a7c7a0702355c65f2b1b8da5a46307f92">drawAnimatedMonster</a> (SDL_Surface *screen, <a class="el" href="class_monde.html">Monde</a> *m)</td></tr>
+<tr class="memdesc:a7c7a0702355c65f2b1b8da5a46307f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de dessiner le monstre sur l'écran.  <a href="#a7c7a0702355c65f2b1b8da5a46307f92">More...</a><br/></td></tr>
 <tr class="separator:a7c7a0702355c65f2b1b8da5a46307f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a662582c6d330ce374dac0395d0338605"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a662582c6d330ce374dac0395d0338605"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMonster</b> (<a class="el" href="class_hero.html">Hero</a> *h, <a class="el" href="class_monde.html">Monde</a> *m)</td></tr>
+<tr class="memitem:a662582c6d330ce374dac0395d0338605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a662582c6d330ce374dac0395d0338605">updateMonster</a> (<a class="el" href="class_hero.html">Hero</a> *h, <a class="el" href="class_monde.html">Monde</a> *m)</td></tr>
+<tr class="memdesc:a662582c6d330ce374dac0395d0338605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de faire évoluer le mosntre à l'écran.  <a href="#a662582c6d330ce374dac0395d0338605">More...</a><br/></td></tr>
 <tr class="separator:a662582c6d330ce374dac0395d0338605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e455f9b60630e69a60a886e30cf4e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62e455f9b60630e69a60a886e30cf4e3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>testCollision</b> (<a class="el" href="class_hero.html">Hero</a> *h)</td></tr>
-<tr class="separator:a62e455f9b60630e69a60a886e30cf4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f5058d2fb6283d6d08b7c345033de9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8f5058d2fb6283d6d08b7c345033de9"></a>
-SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>getPosReelleMonstre</b> ()</td></tr>
+<tr class="memitem:ac8f5058d2fb6283d6d08b7c345033de9"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#ac8f5058d2fb6283d6d08b7c345033de9">getPosReelleMonstre</a> ()</td></tr>
+<tr class="memdesc:ac8f5058d2fb6283d6d08b7c345033de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de retourner la position réelle du monstre.  <a href="#ac8f5058d2fb6283d6d08b7c345033de9">More...</a><br/></td></tr>
 <tr class="separator:ac8f5058d2fb6283d6d08b7c345033de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af80910e2b4c6b7875510738d36e93207"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af80910e2b4c6b7875510738d36e93207"></a>
-SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>getPosTestMonstre</b> ()</td></tr>
+<tr class="memitem:af80910e2b4c6b7875510738d36e93207"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#af80910e2b4c6b7875510738d36e93207">getPosTestMonstre</a> ()</td></tr>
+<tr class="memdesc:af80910e2b4c6b7875510738d36e93207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de retourner la position test du monstre.  <a href="#af80910e2b4c6b7875510738d36e93207">More...</a><br/></td></tr>
 <tr class="separator:af80910e2b4c6b7875510738d36e93207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39247fedcc1fefe51d82c5d0a9713a4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39247fedcc1fefe51d82c5d0a9713a4a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getTimerMort</b> ()</td></tr>
+<tr class="memitem:a39247fedcc1fefe51d82c5d0a9713a4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a39247fedcc1fefe51d82c5d0a9713a4a">getTimerMort</a> ()</td></tr>
+<tr class="memdesc:a39247fedcc1fefe51d82c5d0a9713a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de connaitre le timer de la mort du monstre Le timer permet de définir un temps d'attente avant la mort.  <a href="#a39247fedcc1fefe51d82c5d0a9713a4a">More...</a><br/></td></tr>
 <tr class="separator:a39247fedcc1fefe51d82c5d0a9713a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b459dea791c38a8f09ce9462219546"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73b459dea791c38a8f09ce9462219546"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTimerMort</b> (int val)</td></tr>
+<tr class="memitem:a73b459dea791c38a8f09ce9462219546"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#a73b459dea791c38a8f09ce9462219546">setTimerMort</a> (int val)</td></tr>
+<tr class="memdesc:a73b459dea791c38a8f09ce9462219546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de modifier le timer de la mort du monstre Le timer permet de définir un temps d'attente avant la mort.  <a href="#a73b459dea791c38a8f09ce9462219546">More...</a><br/></td></tr>
 <tr class="separator:a73b459dea791c38a8f09ce9462219546"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebc60bc5dfa1353663ba975c589dc2e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebc60bc5dfa1353663ba975c589dc2e3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>estMort</b> ()</td></tr>
+<tr class="memitem:aebc60bc5dfa1353663ba975c589dc2e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monstre.html#aebc60bc5dfa1353663ba975c589dc2e3">estMort</a> ()</td></tr>
+<tr class="memdesc:aebc60bc5dfa1353663ba975c589dc2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode permettant de savoir si le monstre est mort On utilise cette méthode pour ne pas afficher le monstre lorsqu'il est mort.  <a href="#aebc60bc5dfa1353663ba975c589dc2e3">More...</a><br/></td></tr>
 <tr class="separator:aebc60bc5dfa1353663ba975c589dc2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6137c725aa47019add590c65dc0c348b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6137c725aa47019add590c65dc0c348b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOnGround</b> ()</td></tr>
-<tr class="separator:a6137c725aa47019add590c65dc0c348b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Représente un monstre du jeu. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a73d113ed85da064f383bdda1ea25fa22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Monstre::Monstre </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur du <a class="el" href="class_monstre.html" title="Représente un monstre du jeu. ">Monstre</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>le nom du sprite </td></tr>
+    <tr><td class="paramname">x</td><td>la position x </td></tr>
+    <tr><td class="paramname">y</td><td>la position y </td></tr>
+    <tr><td class="paramname">w</td><td>la longueur </td></tr>
+    <tr><td class="paramname">h</td><td>la largeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7c7a0702355c65f2b1b8da5a46307f92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Monstre::drawAnimatedMonster </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monde.html">Monde</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de dessiner le monstre sur l'écran. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">screen</td><td>l'écran </td></tr>
+    <tr><td class="paramname">m</td><td>le monde </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aebc60bc5dfa1353663ba975c589dc2e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Monstre::estMort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de savoir si le monstre est mort On utilise cette méthode pour ne pas afficher le monstre lorsqu'il est mort. </p>
+<dl class="section return"><dt>Returns</dt><dd>vrai ou faux </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8f5058d2fb6283d6d08b7c345033de9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect Monstre::getPosReelleMonstre </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de retourner la position réelle du monstre. </p>
+<dl class="section return"><dt>Returns</dt><dd>la postion réelle </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af80910e2b4c6b7875510738d36e93207"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect Monstre::getPosTestMonstre </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de retourner la position test du monstre. </p>
+<dl class="section return"><dt>Returns</dt><dd>la postion test </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a39247fedcc1fefe51d82c5d0a9713a4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Monstre::getTimerMort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de connaitre le timer de la mort du monstre Le timer permet de définir un temps d'attente avant la mort. </p>
+<dl class="section return"><dt>Returns</dt><dd>le temps à attendre (en Msec) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a73b459dea791c38a8f09ce9462219546"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Monstre::setTimerMort </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de modifier le timer de la mort du monstre Le timer permet de définir un temps d'attente avant la mort. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>le temps à attendre (en Msec) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a662582c6d330ce374dac0395d0338605"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Monstre::updateMonster </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_hero.html">Hero</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monde.html">Monde</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Methode permettant de faire évoluer le mosntre à l'écran. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">h</td><td>le héro </td></tr>
+    <tr><td class="paramname">m</td><td>le monde </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="monstre_8h_source.html">monstre.h</a></li>
 <li>monstre.cpp</li>
@@ -154,7 +383,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOnGround</b> ()</td
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_monstre.html">Monstre</a></li>
-    <li class="footer">Generated on Sat Jan 3 2015 14:16:04 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:48:04 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

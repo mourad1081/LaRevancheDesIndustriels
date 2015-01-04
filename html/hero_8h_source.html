@@ -105,84 +105,94 @@ $(document).ready(function(){initNavTree('hero_8h_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;vue/monde.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;metier/evenement.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//Valeurs attribuées aux états/directions</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define WALK 1</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STOPPED 2</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define JUMP 3</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RIGHT 1</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LEFT 2</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_monde.html">Monde</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_hero.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_hero.html">Hero</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">//Sprite du Héro</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    SDL_Surface* _sprite;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//Coordonnées héro</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    SDL_Rect posReelle;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//Position de test pour les collisions</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Rect posTest;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//Variables utiles pour animation</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> _frameNumber, _frameTimer;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//Variables utiles au déplacement</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> _etat, _direction;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//Variables nécessaires au fonctionnement de la gestion des collisions</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> _onGround, _timerMort ;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//Variables liées au joueur</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> _nbVies, _nbPoints;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Constantes pour l&#39;animation</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> TIME_BETWEEN_2_FRAMES = 3;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Constante définissant le seuil entre les tiles traversables</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> VITESSE_JOUEUR = 7;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> JUMP_HEIGHT = 20;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> GRAVITY_SPEED = 0.8;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_FALL_SPEED = 9;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> _nb = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">float</span> _gravity = 0.9;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> _estMort = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_hero.html">Hero</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ~<a class="code" href="class_hero.html">Hero</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_hero.html">Hero</a>(<span class="keywordtype">char</span> * name, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> drawAnimatedPlayer(SDL_Surface * screen, <a class="code" href="class_monde.html">Monde</a> * m);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> updatePlayer(<a class="code" href="class_evenement.html">Evenement</a> * evt, <a class="code" href="class_monde.html">Monde</a> * m, SDL_Surface * screen);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> centerScrollingOnPlayer(<a class="code" href="class_monde.html">Monde</a> * m);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    SDL_Rect getPosReelleHero();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    SDL_Rect getPosTestHero();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setPosReelHero(SDL_Rect *pos);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> getTimerMort();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> setTimerMort(<span class="keywordtype">int</span> val);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> setNbVies(<span class="keywordtype">int</span> nbVies);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> getNbVies();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> incNbPoints();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> getNbPoints();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // HERO_H</span></div>
-<div class="ttc" id="class_hero_html"><div class="ttname"><a href="class_hero.html">Hero</a></div><div class="ttdef"><b>Definition:</b> hero.h:16</div></div>
-<div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdoc">Classe qui permet de connaitre les évenements qui se sont produit au clavier (ex: pression de touche...</div><div class="ttdef"><b>Definition:</b> evenement.h:10</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gestionbd.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//Valeurs attribuées aux états/directions</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define WALK 1</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STOPPED 2</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define JUMP 3</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RIGHT 1</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LEFT 2</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_monde.html">Monde</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_hero.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_hero.html">Hero</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//Sprite du Héro</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    SDL_Surface* _sprite;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//Coordonnées héro</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    SDL_Rect posReelle;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">//Position de test pour les collisions</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SDL_Rect posTest;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//Variables utiles pour animation</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> _frameNumber, _frameTimer;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//Variables utiles au déplacement</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> _etat, _direction;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//Variables nécessaires au fonctionnement de la gestion des collisions</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> _onGround, _timerMort ;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Variables liées au joueur</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> _nbVies, _nbPoints;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Constantes pour l&#39;animation</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> TIME_BETWEEN_2_FRAMES = 3;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> VITESSE_JOUEUR = 5;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> JUMP_HEIGHT = 20;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> GRAVITY_SPEED = 0.8;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_FALL_SPEED = 9;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> _nb = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">float</span> _gravity = 0.8;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_hero.html#a8caaea725433208c438689e6f617b416">Hero</a>(<span class="keywordtype">char</span> * name, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_hero.html#a5aeef41ede5a80dc29c5acd7b553c4da">~Hero</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#afb5164bd0406632a93c5d6ba1ab32d5e">drawAnimatedPlayer</a>(SDL_Surface * screen, <a class="code" href="class_monde.html">Monde</a> * m);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#adb8499c99d8ad235d33928c5970c2840">updatePlayer</a>(<a class="code" href="class_evenement.html">Evenement</a> * evt, <a class="code" href="class_monde.html">Monde</a> * m, SDL_Surface * screen);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#a39be954897dc72b19c6077797acf671f">centerScrollingOnPlayer</a>(<a class="code" href="class_monde.html">Monde</a> * m);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    SDL_Rect <a class="code" href="class_hero.html#af9c7e16887b95210b9872706f80edda0">getPosReelleHero</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    SDL_Rect <a class="code" href="class_hero.html#a19d9a1aab39b9077f2ebe7560c67bfac">getPosTestHero</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#a85973c41454b63ff25f3e0dd98a42fa4">setPosReelHero</a>(SDL_Rect *pos);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_hero.html#af2e252c2ed590caa9ee7e1a9baa0906b">getTimerMort</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#a95c452569d809ca756eab22a927671d9">setTimerMort</a>(<span class="keywordtype">int</span> val);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#abb1e5ca1a6addbf245b3eee284444709">setNbVies</a>(<span class="keywordtype">int</span> nbVies);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_hero.html#aec003d2fe4fea1dab7475eb56fca5c8a">getNbVies</a>();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_hero.html#ac991e003eb4ab9c839034ab8825f8309">incNbPoints</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_hero.html#ac55bbe6e03f1966d966c3a2421099841">getNbPoints</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif // HERO_H</span></div>
+<div class="ttc" id="class_hero_html_a39be954897dc72b19c6077797acf671f"><div class="ttname"><a href="class_hero.html#a39be954897dc72b19c6077797acf671f">Hero::centerScrollingOnPlayer</a></div><div class="ttdeci">void centerScrollingOnPlayer(Monde *m)</div><div class="ttdoc">Methode permettant de faire évoluer le scrolling par rapport à la position du héro à l&#39;écran...</div><div class="ttdef"><b>Definition:</b> hero.cpp:235</div></div>
+<div class="ttc" id="class_hero_html_a85973c41454b63ff25f3e0dd98a42fa4"><div class="ttname"><a href="class_hero.html#a85973c41454b63ff25f3e0dd98a42fa4">Hero::setPosReelHero</a></div><div class="ttdeci">void setPosReelHero(SDL_Rect *pos)</div><div class="ttdoc">Methode permettant de modifier la position réelle du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:287</div></div>
+<div class="ttc" id="class_hero_html_aec003d2fe4fea1dab7475eb56fca5c8a"><div class="ttname"><a href="class_hero.html#aec003d2fe4fea1dab7475eb56fca5c8a">Hero::getNbVies</a></div><div class="ttdeci">int getNbVies()</div><div class="ttdoc">Methode permettant de connaitre le nb de vie du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:307</div></div>
+<div class="ttc" id="class_hero_html_afb5164bd0406632a93c5d6ba1ab32d5e"><div class="ttname"><a href="class_hero.html#afb5164bd0406632a93c5d6ba1ab32d5e">Hero::drawAnimatedPlayer</a></div><div class="ttdeci">void drawAnimatedPlayer(SDL_Surface *screen, Monde *m)</div><div class="ttdoc">Methode permettant de dessiner le héro sur l&#39;écran. </div><div class="ttdef"><b>Definition:</b> hero.cpp:35</div></div>
+<div class="ttc" id="class_hero_html_ac55bbe6e03f1966d966c3a2421099841"><div class="ttname"><a href="class_hero.html#ac55bbe6e03f1966d966c3a2421099841">Hero::getNbPoints</a></div><div class="ttdeci">int getNbPoints()</div><div class="ttdoc">Methode permettant de connaitre le nb de points du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:315</div></div>
+<div class="ttc" id="class_hero_html"><div class="ttname"><a href="class_hero.html">Hero</a></div><div class="ttdoc">Représente le héro du jeu. </div><div class="ttdef"><b>Definition:</b> hero.h:20</div></div>
+<div class="ttc" id="class_evenement_html"><div class="ttname"><a href="class_evenement.html">Evenement</a></div><div class="ttdoc">Classe qui permet de connaitre les évenements qui se sont produit au clavier (ex: pression de touche...</div><div class="ttdef"><b>Definition:</b> evenement.h:11</div></div>
+<div class="ttc" id="class_hero_html_a8caaea725433208c438689e6f617b416"><div class="ttname"><a href="class_hero.html#a8caaea725433208c438689e6f617b416">Hero::Hero</a></div><div class="ttdeci">Hero(char *name, int x, int y, int w, int h)</div><div class="ttdoc">Constructeur du Hero. </div><div class="ttdef"><b>Definition:</b> hero.cpp:3</div></div>
+<div class="ttc" id="class_hero_html_a5aeef41ede5a80dc29c5acd7b553c4da"><div class="ttname"><a href="class_hero.html#a5aeef41ede5a80dc29c5acd7b553c4da">Hero::~Hero</a></div><div class="ttdeci">~Hero()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> hero.cpp:31</div></div>
+<div class="ttc" id="class_hero_html_af9c7e16887b95210b9872706f80edda0"><div class="ttname"><a href="class_hero.html#af9c7e16887b95210b9872706f80edda0">Hero::getPosReelleHero</a></div><div class="ttdeci">SDL_Rect getPosReelleHero()</div><div class="ttdoc">Methode permettant de retourner la position réelle du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:278</div></div>
+<div class="ttc" id="class_hero_html_af2e252c2ed590caa9ee7e1a9baa0906b"><div class="ttname"><a href="class_hero.html#af2e252c2ed590caa9ee7e1a9baa0906b">Hero::getTimerMort</a></div><div class="ttdeci">int getTimerMort()</div><div class="ttdoc">Methode permettant de connaitre le timer de la mort du héro Le timer permet de définir un temps d&#39;att...</div><div class="ttdef"><b>Definition:</b> hero.cpp:295</div></div>
+<div class="ttc" id="class_hero_html_a19d9a1aab39b9077f2ebe7560c67bfac"><div class="ttname"><a href="class_hero.html#a19d9a1aab39b9077f2ebe7560c67bfac">Hero::getPosTestHero</a></div><div class="ttdeci">SDL_Rect getPosTestHero()</div><div class="ttdoc">Methode permettant de retourner la position test du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:282</div></div>
+<div class="ttc" id="class_hero_html_adb8499c99d8ad235d33928c5970c2840"><div class="ttname"><a href="class_hero.html#adb8499c99d8ad235d33928c5970c2840">Hero::updatePlayer</a></div><div class="ttdeci">void updatePlayer(Evenement *evt, Monde *m, SDL_Surface *screen)</div><div class="ttdoc">Methode permettant de faire évoluer le héro à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> hero.cpp:86</div></div>
+<div class="ttc" id="class_hero_html_a95c452569d809ca756eab22a927671d9"><div class="ttname"><a href="class_hero.html#a95c452569d809ca756eab22a927671d9">Hero::setTimerMort</a></div><div class="ttdeci">void setTimerMort(int val)</div><div class="ttdoc">Methode permettant de modifier le timer de la mort du héro Le timer permet de définir un temps d&#39;atte...</div><div class="ttdef"><b>Definition:</b> hero.cpp:299</div></div>
 <div class="ttc" id="class_monde_html"><div class="ttname"><a href="class_monde.html">Monde</a></div><div class="ttdoc">Représente un Monde. </div><div class="ttdef"><b>Definition:</b> monde.h:25</div></div>
+<div class="ttc" id="class_hero_html_ac991e003eb4ab9c839034ab8825f8309"><div class="ttname"><a href="class_hero.html#ac991e003eb4ab9c839034ab8825f8309">Hero::incNbPoints</a></div><div class="ttdeci">void incNbPoints()</div><div class="ttdoc">Methode permettant d&#39;augmenter de 1 le nb de points du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:311</div></div>
+<div class="ttc" id="class_hero_html_abb1e5ca1a6addbf245b3eee284444709"><div class="ttname"><a href="class_hero.html#abb1e5ca1a6addbf245b3eee284444709">Hero::setNbVies</a></div><div class="ttdeci">void setNbVies(int nbVies)</div><div class="ttdoc">Methode permettant de modifier le nb de vie du héro. </div><div class="ttdef"><b>Definition:</b> hero.cpp:303</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_0ef2b6733cc36e89f12e3278b0743d60.html">projet 2 c++ v2</a></li><li class="navelem"><a class="el" href="dir_4aa7e3950a043968f33893902f0198d0.html">Nouveau dossier</a></li><li class="navelem"><a class="el" href="dir_458f8eb5947ccf2792b80f9f162eeb5b.html">metier</a></li><li class="navelem"><b>hero.h</b></li>
-    <li class="footer">Generated on Sat Jan 3 2015 14:16:04 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:48:04 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

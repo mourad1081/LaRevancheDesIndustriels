@@ -4,6 +4,7 @@ var hierarchy =
     [ "exception", null, [
       [ "ExceptionGame", "class_exception_game.html", null ]
     ] ],
+    [ "GestionBD", "class_gestion_b_d.html", null ],
     [ "GestionMonde", "class_gestion_monde.html", null ],
     [ "GestionSon", "class_gestion_son.html", null ],
     [ "Hero", "class_hero.html", null ],
@@ -13,10 +14,14 @@ var hierarchy =
     [ "Niveau", "class_niveau.html", null ],
     [ "QDialog", null, [
       [ "ChoixMusique", "class_choix_musique.html", null ],
+      [ "HistoriqueScore", "class_historique_score.html", null ],
       [ "ParametresSon", "class_parametres_son.html", null ]
     ] ],
     [ "QMainWindow", null, [
       [ "Application", "class_application.html", null ]
+    ] ],
+    [ "QWidget", null, [
+      [ "HistoriqueScore::ScoreVue", "class_historique_score_1_1_score_vue.html", null ]
     ] ],
     [ "Tuile", "class_tuile.html", null ]
 ];

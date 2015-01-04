@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['niveau',['Niveau',['../class_niveau.html#a55c043a2fcc046329ff275d010549069',1,'Niveau']]]
+  ['incnbpoints',['incNbPoints',['../class_hero.html#ac991e003eb4ab9c839034ab8825f8309',1,'Hero']]],
+  ['issonactif',['isSonActif',['../class_parametres_son.html#ae946ee9d2f825b54744ccef661d34d49',1,'ParametresSon']]]
 ];

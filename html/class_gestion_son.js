@@ -1,10 +1,11 @@
 var class_gestion_son =
 [
     [ "GestionSon", "class_gestion_son.html#a437122c08967f3c47d2383c9651da7ce", null ],
-    [ "GestionSon", "class_gestion_son.html#af7b654223912326d279a647d8914b9ab", null ],
-    [ "GestionSon", "class_gestion_son.html#a4c189c89650a42f649ed7c0b45702081", null ],
+    [ "GestionSon", "class_gestion_son.html#ac808561e05328b984b98d65a88a00399", null ],
+    [ "GestionSon", "class_gestion_son.html#aabbad46bb7e8c8759f4d437fe19359bc", null ],
     [ "~GestionSon", "class_gestion_son.html#ae4f1b3ef7a791d11491736f00c03581c", null ],
     [ "changerMusique", "class_gestion_son.html#aabd15ed5ef24d88d7b875e9b85c78b18", null ],
+    [ "demarrerBruitage", "class_gestion_son.html#a9a663ebc0c601e99b9714b6dd23332d9", null ],
     [ "demarrerMusique", "class_gestion_son.html#ae36b1dd0ce8394424ebfbb4291dba4fb", null ],
     [ "getCheminMusique", "class_gestion_son.html#a64ce078119a4c9178cb5cfe9492649c7", null ],
     [ "pause", "class_gestion_son.html#ab1b544ce8db23101c0be959c3296facb", null ],

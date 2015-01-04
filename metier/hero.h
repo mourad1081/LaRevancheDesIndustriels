@@ -14,6 +14,9 @@
 #define LEFT 2
 
 class Monde;
+/**
+ * @brief Représente le héro du jeu.
+ */
 class Hero
 {
 private:

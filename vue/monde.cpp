@@ -1,7 +1,11 @@
 #include "monde.h"
 Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
+<<<<<<< HEAD
     : _niveauActuel(3)
 {
+=======
+    : _niveauActuel(4){
+>>>>>>> 2502474f373497b5c2e236086d9680a24120d397
     _largeurFenetre = largeurFenetre;
     _hauteurFenetre = hauteurFenetre;
     _horiScroll = 0;

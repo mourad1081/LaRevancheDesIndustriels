@@ -34,7 +34,7 @@ public:
      * @brief Construit un gestionnaire de son avec une musique directement
      * @param cheminSon Chemin vers la musique à jouer
      */
-    GestionSon(std::string cheminSon);
+    GestionSon(string cheminSon);
 
     /**
      * @brief Construit un gestionnaire de son personnalisé
@@ -45,7 +45,7 @@ public:
      * (1 : mono, 2 ou MIX_DEFAULT_CHANNELS : stéréo)
      * @param tailleChunck Le nombre de bits pour les sons (1024 suffit)
      */
-    GestionSon(std::string cheminSon, int frequence,
+    GestionSon(string cheminSon, int frequence,
                Uint16 format, int nbCanaux, int tailleChunck);
 
     /**

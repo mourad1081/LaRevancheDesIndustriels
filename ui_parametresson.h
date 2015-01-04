@@ -1,11 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'parametresson.ui'
 **
-<<<<<<< HEAD
-** Created by: Qt User Interface Compiler version 5.1.1
-=======
-** Created by: Qt User Interface Compiler version 5.3.2
->>>>>>> 4d2d39a730298c2f09504bbcd07035cd7c22c80a
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -579,7 +575,7 @@ public:
         ParametresSon->setWindowTitle(QApplication::translate("ParametresSon", "Dialog", 0));
         groupBox_2->setTitle(QApplication::translate("ParametresSon", "Son", 0));
         checkBoutonActiverSon->setText(QApplication::translate("ParametresSon", "Activer le son", 0));
-        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume (Ne fonctionne apparemment pas)", 0));
+        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume", 0));
         label_2->setText(QApplication::translate("ParametresSon", "0%", 0));
         label->setText(QApplication::translate("ParametresSon", "100%", 0));
     } // retranslateUi
