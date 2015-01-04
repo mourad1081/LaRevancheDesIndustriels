@@ -4,6 +4,7 @@ var hierarchy =
     [ "exception", null, [
       [ "ExceptionGame", "class_exception_game.html", null ]
     ] ],
+    [ "GestionBD", "class_gestion_b_d.html", null ],
     [ "GestionMonde", "class_gestion_monde.html", null ],
     [ "GestionSon", "class_gestion_son.html", null ],
     [ "Hero", "class_hero.html", null ],

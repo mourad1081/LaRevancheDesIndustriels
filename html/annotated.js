@@ -4,6 +4,7 @@ var annotated =
     [ "ChoixMusique", "class_choix_musique.html", "class_choix_musique" ],
     [ "Evenement", "class_evenement.html", "class_evenement" ],
     [ "ExceptionGame", "class_exception_game.html", "class_exception_game" ],
+    [ "GestionBD", "class_gestion_b_d.html", "class_gestion_b_d" ],
     [ "GestionMonde", "class_gestion_monde.html", "class_gestion_monde" ],
     [ "GestionSon", "class_gestion_son.html", "class_gestion_son" ],
     [ "Hero", "class_hero.html", "class_hero" ],
