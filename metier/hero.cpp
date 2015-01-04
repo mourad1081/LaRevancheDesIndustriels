@@ -105,9 +105,6 @@ void Hero::drawAnimatedPlayer(SDL_Surface * screen, Monde * m)
 
 void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 {
-    //Cette variable permet d'augmenter la distance de test de collisions
-    int valTest= 0;
-
     //A chaque fois que l'on va déplacer notre joueur,
     //on va vérifier s'il entre en collision avec des éléments.
     //On utilisera donc une position de test.
@@ -124,70 +121,81 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //On défini l'état du perso
     _etat = STOPPED;
 
-    if (evt->key[SDLK_LEFT])
-    {
-        _etat = WALK;
-
-        //On teste le déplacement vers la gauche, le joueur ne sera déplacé que si
-        // il n'y a pas de collision.
-
-        posTest.x -= VITESSE_JOUEUR + valTest;
-        if(!m->collisionPerso(this)){
-            posReelle.x -= VITESSE_JOUEUR;
-        }
-
-        //On teste le sens pour l'animation : si le joueur allait dans le sens contraire
-        //précédemment, il faut recharger le spritesheet pour l'animation.
-        if(_direction == RIGHT)
+    if(_timerMort == 0) {
+        if (evt->key[SDLK_LEFT])
         {
-            _direction = LEFT;
-            _sprite = IMG_Load("img/walkleft.png");
+            _etat = WALK;
+
+            //On teste le déplacement vers la gauche, le joueur ne sera déplacé que si
+            // il n'y a pas de collision.
+
+            posTest.x -= VITESSE_JOUEUR;
+            if(!m->collisionPerso(this)){
+                posReelle.x -= VITESSE_JOUEUR;
+            }
+
+            //On teste le sens pour l'animation : si le joueur allait dans le sens contraire
+            //précédemment, il faut recharger le spritesheet pour l'animation.
+            if(_direction == RIGHT)
+            {
+                _direction = LEFT;
+                _sprite = IMG_Load("img/walkleft.png");
+            }
         }
-    }
 
-    if (evt->key[SDLK_RIGHT])
-    {
-        _etat = WALK;
-
-        //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
-        // il n'y a pas de collision.
-
-        posTest.x += VITESSE_JOUEUR + valTest;
-        if(!m->collisionPerso(this)){
-            posReelle.x += VITESSE_JOUEUR;
-        }
-
-        if(_direction == LEFT)
+        if (evt->key[SDLK_RIGHT])
         {
-            _direction =  RIGHT;
-            _sprite = IMG_Load("img/walkright.png");
-        }
-    }
-    if(evt->key[SDLK_UP] && _nb <= 20){
-        _nb++;
-        _etat = JUMP;
-        posTest.y -= JUMP_HEIGHT;
-        if(!m->collisionPerso(this)){
-            posReelle.y -= JUMP_HEIGHT;
-        }
+            _etat = WALK;
 
-        /*if(_direction == LEFT)
-        {
-            _sprite = IMG_Load("img/jumpleft.png");
-        }else
-        {
-            _sprite = IMG_Load("img/jumpright.png");
-        }*/
+            //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
+            // il n'y a pas de collision.
+
+            posTest.x += VITESSE_JOUEUR;
+            if(!m->collisionPerso(this)){
+                posReelle.x += VITESSE_JOUEUR;
+            }
+
+            if(_direction == LEFT)
+            {
+                _direction =  RIGHT;
+                _sprite = IMG_Load("img/walkright.png");
+            }
+        }
+        if(evt->key[SDLK_UP] && _onGround == 1 && _nb <= 20){
+            _nb++;
+            _etat = JUMP;
+            posTest.y -= JUMP_HEIGHT;
+            if(!m->collisionPerso(this)){
+                posReelle.y -= JUMP_HEIGHT;
+            }
+
+            if(_direction == LEFT)
+            {
+                _sprite = IMG_Load("img/jumpleft.png");
+            }else
+            {
+                _sprite = IMG_Load("img/jumpright.png");
+            }
+        }
     }
     //On incrémente la position y du perso, ce qui permet de
     //le faire chuter.
-
+    //}
     posTest.y += _gravity;
     if(!m->collisionPerso(this)){
         posReelle.y += _gravity;
+        //_onGround = 0;
     }else{
         _nb = 0;
         _gravity = 0.8;
+        _onGround = 1;
+        if(_direction == LEFT)
+        {
+            _sprite = IMG_Load("img/walkleft.png");
+        }else
+        {
+            _sprite = IMG_Load("img/walkright.png");
+        }
     }
     _gravity += _gravity;
     if(_gravity >= MAX_FALL_SPEED)
@@ -198,10 +206,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 
     //On centre le scrolling sur le joueur.
     this->centerScrollingOnPlayer(m);
-    if(_estMort){
-        posReelle.y ++;
-    }
-
 
     if (_timerMort > 0)
     {
@@ -211,26 +215,12 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         if (_timerMort == 0)
         {
             _nb = 0;
-            _estMort = false;
             posReelle.x = 0;
             posReelle.y = 0;
+            _onGround = 0;
             _nbVies--;
-        }else{
-            _estMort = true;
         }
     }
-    //cout << "_timerMort : " << _timerMort << endl;
-    //cout << "nbVies : " << _nbVies << endl;
-    //cout << "nbPoints : " << _nbPoints << endl;
-
-
-    //cout << "posReelle.x : "<< posReelle.x << endl;
-    //cout << "posReelle.y : "<< posReelle.y << endl;
-    //cout << "_onGround : "<< _onGround << endl;
-    //cout << "_gravity : "<< _gravity << endl;
-    //cout << "_nb : "<< _nb << endl;
-
-
 }
 
 void Hero::centerScrollingOnPlayer(Monde * m)
@@ -292,7 +282,6 @@ void Hero::setPosReelHero(SDL_Rect *pos)
     posReelle.x = pos->x;
     posReelle.y = pos->y;
 }
-
 
 int Hero::getTimerMort(){
     return _timerMort;

@@ -28,11 +28,7 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
                                     posMonstre.x,
                                     posMonstre.y,
                                     40,
-<<<<<<< HEAD
                                     65);
-=======
-                                    80);
->>>>>>> da1866f380fea40cf5ada06f042c174a59cd3b5c
     }
 }
 GestionMonde::~GestionMonde(){
@@ -55,7 +51,6 @@ void GestionMonde::miseAjourJoueurs(){
     _hero->updatePlayer(_lesEvents, _monde, _fenetre);
     // passage au niveau suivant
     if ( _monde->finDuNiveau(_hero) ) {
-
         _nbMonstres = _monde->getListPosMonstres().size();
         _monstres.clear();
         _monstres.resize(_nbMonstres);
@@ -64,11 +59,11 @@ void GestionMonde::miseAjourJoueurs(){
         for(int i=0; i < _nbMonstres ; i++)
         {
             posMonstre = _monde->getListPosMonstres()[i];
-            _monstres[i] = new Monstre ("img/walkright.png",
+            _monstres[i] = new Monstre ("img/monstre.png",
                                         posMonstre.x,
                                         posMonstre.y,
                                         40,
-                                        80);
+                                        65);
         }
     }
     for(int i=0; i < _nbMonstres ; i++){

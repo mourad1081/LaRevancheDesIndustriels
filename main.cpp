@@ -12,14 +12,14 @@ void lancerApplication();
 
 int main(int argc, char **argv)
 {
-    QApplication a(argc, argv);
+    /*QApplication a(argc, argv);
     Application app;
     app.show();
     a.exec();
     if(!app.getClicQuit())
-    {
+    {*/
         lancerApplication();
-    }
+    //}
 }
 
 void lancerApplication()
@@ -31,7 +31,7 @@ void lancerApplication()
         exit(EXIT_FAILURE);
     }
 
-    // Initialise SDL_TTF       (Pour l'affichage de string
+    // Initialise SDL_TTF       (Pour l'affichage de string)
 
     if (TTF_Init() < 0)
     {

@@ -17,7 +17,6 @@ Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     }else{
         throw new ExceptionGame("Erreur d'ouverture du fichier de configuration");
     }
-
     fichierConfig.close();
 }
 
@@ -123,7 +122,7 @@ bool Monde::collisionPerso(Hero *h){
     //si c'est le cas, on retourne vrai.
     if (posHero.x < 0  || posHero.y < 0 ||
             posHero.x + posHero.w >= this->getMaxX()
-            || posHero.y + posHero.h >= this->getMaxY())
+            || posHero.y + posHero.h >= this->getMaxY() - 10)
     {
         return true;
     }
@@ -141,7 +140,7 @@ bool Monde::collisionPerso(Hero *h){
                 return true;
             }
             //On gère la tuile des pieces.
-            if ( _schema[j][i] == 19){
+            if (_tuiles[indicetile].getType() == TypeTuile::PIECE){
                 if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
                         && posHero.y <= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)
                         && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
@@ -163,29 +162,20 @@ bool Monde::collisionPerso(Hero *h){
                         _schema[j][i] = 11;
                     }
                     if(h->getTimerMort() == 0){
-                        h->setTimerMort(100);
+                        h->setTimerMort(30);
                     }
                 }
             }
 
-            if (_schema[j][i] == 2){
-                SDL_Rect posDebutHero = h->getPosTestHero();
-                posDebutHero.y -= 100;
-                h->setPosReelHero(&posDebutHero);
-            }
-<<<<<<< HEAD
-            //Si on est sur le bonhomme, on passe au niveau suivant
-            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
-                if(this->getNiveauActuel() < 2){
-                    this->setNiveauActuel(this->getNiveauActuel()+1);
+            if (_schema[j][i] == 3){
+                if(posHero.x <= (i * _largeurTuile) + 2*(_largeurTuile/3)
+                        && posHero.x + posHero.w >= (i * _largeurTuile) + (_largeurTuile/3)
+                        && posHero.y + posHero.h >= (j * _hauteurTuile) + 2*(_hauteurTuile / 3)){
                     SDL_Rect posDebutHero = h->getPosTestHero();
-                    posDebutHero.x = 0;
-                    posDebutHero.y = 0;
+                    posDebutHero.y -= 200;
                     h->setPosReelHero(&posDebutHero);
                 }
             }
-=======
->>>>>>> da1866f380fea40cf5ada06f042c174a59cd3b5c
         }
     }
     return false;
@@ -219,15 +209,14 @@ bool Monde::collisionMonstre(Monstre *m){
             if (_tuiles[indicetile].getType() == TypeTuile::VIDE_AVEC_DEGATS){
                 return true;
             }
-            if( i-1 >= 0 && j-1 >= 0
-                    && i+1 <=_nbrTuilesEnColonneMonde && j+1 <= _nbrTuilesEnLigneMonde){
+            if( i-1 >= 0 && i+1 <=_nbrTuilesEnColonneMonde && j+2 < _nbrTuilesEnLigneMonde){
 
-                if (((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
-                      || _tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
-                     && _tuiles[_schema[j+1][i-1]].getType() == TypeTuile::PLEIN)
-                        || ((_tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE
-                             || _tuiles[_schema[j+1][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
-                            && _tuiles[_schema[j+1][i+1]].getType() == TypeTuile::PLEIN)) {
+                if (((_tuiles[_schema[j+2][i]].getType() == TypeTuile::VIDE
+                      || _tuiles[_schema[j+2][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
+                     && _tuiles[_schema[j+2][i-1]].getType() == TypeTuile::PLEIN)
+                        || ((_tuiles[_schema[j+2][i]].getType() == TypeTuile::VIDE
+                             || _tuiles[_schema[j+2][i]].getType() == TypeTuile::VIDE_AVEC_DEGATS)
+                            && _tuiles[_schema[j+2][i+1]].getType() == TypeTuile::PLEIN)) {
                     return true;
                 }
             }
@@ -316,7 +305,7 @@ bool Monde::finDuNiveau(Hero *h){
             indicetile = _schema[j][i];
             //Si on est sur le bonhomme, on passe au niveau suivant
             if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
-                if(this->getNiveauActuel() < 2){
+                if(this->getNiveauActuel() <= 4){
                     this->setNiveauActuel(this->getNiveauActuel()+1);
                     SDL_Rect posDebutHero = h->getPosTestHero();
                     posDebutHero.x = 0;
@@ -324,7 +313,6 @@ bool Monde::finDuNiveau(Hero *h){
                     h->setPosReelHero(&posDebutHero);
                     return true;
                 }
-                //changer pos joueur
             }
         }
     }
