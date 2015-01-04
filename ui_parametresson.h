@@ -21,7 +21,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSlider>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -33,24 +32,18 @@ public:
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout;
     QCheckBox *checkBoutonActiverSon;
-    QCheckBox *checkBoutonSonInfini;
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QSlider *sliderVolume;
     QLabel *label;
-    QGroupBox *groupBox_3;
-    QVBoxLayout *verticalLayout_3;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_3;
-    QSpinBox *spinVies;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *ParametresSon)
     {
         if (ParametresSon->objectName().isEmpty())
             ParametresSon->setObjectName(QStringLiteral("ParametresSon"));
-        ParametresSon->resize(307, 231);
+        ParametresSon->resize(357, 153);
         ParametresSon->setStyleSheet(QLatin1String("QToolTip\n"
 "{\n"
 "     border: 1px solid black;\n"
@@ -534,12 +527,6 @@ public:
 
         verticalLayout->addWidget(checkBoutonActiverSon);
 
-        checkBoutonSonInfini = new QCheckBox(groupBox_2);
-        checkBoutonSonInfini->setObjectName(QStringLiteral("checkBoutonSonInfini"));
-        checkBoutonSonInfini->setChecked(true);
-
-        verticalLayout->addWidget(checkBoutonSonInfini);
-
         groupBox = new QGroupBox(groupBox_2);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         horizontalLayout = new QHBoxLayout(groupBox);
@@ -568,29 +555,6 @@ public:
 
         verticalLayout_2->addWidget(groupBox_2);
 
-        groupBox_3 = new QGroupBox(ParametresSon);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        verticalLayout_3 = new QVBoxLayout(groupBox_3);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_3 = new QLabel(groupBox_3);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        horizontalLayout_2->addWidget(label_3);
-
-        spinVies = new QSpinBox(groupBox_3);
-        spinVies->setObjectName(QStringLiteral("spinVies"));
-        spinVies->setValue(3);
-
-        horizontalLayout_2->addWidget(spinVies);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_2);
-
-
-        verticalLayout_2->addWidget(groupBox_3);
-
         buttonBox = new QDialogButtonBox(ParametresSon);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
@@ -611,12 +575,9 @@ public:
         ParametresSon->setWindowTitle(QApplication::translate("ParametresSon", "Dialog", 0));
         groupBox_2->setTitle(QApplication::translate("ParametresSon", "Son", 0));
         checkBoutonActiverSon->setText(QApplication::translate("ParametresSon", "Activer le son", 0));
-        checkBoutonSonInfini->setText(QApplication::translate("ParametresSon", "Jouer la musique \303\240 l'infini", 0));
         groupBox->setTitle(QApplication::translate("ParametresSon", "Volume (Ne fonctionne apparemment pas)", 0));
         label_2->setText(QApplication::translate("ParametresSon", "0%", 0));
         label->setText(QApplication::translate("ParametresSon", "100%", 0));
-        groupBox_3->setTitle(QApplication::translate("ParametresSon", "Difficult\303\251", 0));
-        label_3->setText(QApplication::translate("ParametresSon", "Nombre de vies : ", 0));
     } // retranslateUi
 
 };

@@ -4,17 +4,17 @@
 
 class GestionBD
 {
-private:
-QSqlDatabase db;
-QSqlQuery *query;
-bool connexionOk;
-public:
-    GestionBD();
-    ~GestionBD();
-    bool requete(QString requete);
-    bool estConnecte() const;
-    void closeBD();
-    QString selectAll(QString table);
+    private:
+        QSqlDatabase db;
+        QSqlQuery *query;
+        bool connexionOk;
+    public:
+        GestionBD();
+        ~GestionBD();
+        bool requete(QString requete);
+        bool estConnecte() const;
+        void closeBD();
+        QVector<QString> selectAll(QString table);
 };
 
 #endif // GESTIONBD_H

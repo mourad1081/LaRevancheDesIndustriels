@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>307</width>
-    <height>231</height>
+    <width>357</width>
+    <height>153</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -495,16 +495,6 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="checkBoutonSonInfini">
-        <property name="text">
-         <string>Jouer la musique à l'infini</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>Volume (Ne fonctionne apparemment pas)</string>
@@ -539,33 +529,6 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          </item>
         </layout>
        </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="title">
-      <string>Difficulté</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>Nombre de vies : </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinVies">
-          <property name="value">
-           <number>3</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </item>
      </layout>
     </widget>

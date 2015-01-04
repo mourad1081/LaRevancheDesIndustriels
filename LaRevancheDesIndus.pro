@@ -4,13 +4,8 @@
 #
 #-------------------------------------------------
 
-<<<<<<< HEAD
-QT       += core gui sql
+QT       += core gui sql multimedia
 
-=======
-QT       += core gui
-QT       += multimedia
->>>>>>> origin/master
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = LaRevancheDesIndus
@@ -35,7 +30,8 @@ SOURCES += main.cpp\
     vue/parametresson.cpp \
     vue/choixmusique.cpp \
     vue/hud.cpp \
-    metier/gestionbd.cpp
+    metier/gestionbd.cpp \
+    vue/historiquescore.cpp
 
 HEADERS  += \
     vue/monde.h \
@@ -52,12 +48,14 @@ HEADERS  += \
     vue/parametresson.h \
     vue/choixmusique.h \
     vue/hud.h \
-    metier/gestionbd.h
+    metier/gestionbd.h \
+    vue/historiquescore.h
 
 FORMS    += \
     vue/application.ui \
     vue/parametresson.ui \
-    vue/choixmusique.ui
+    vue/choixmusique.ui \
+    vue/historiquescore.ui
 
 INCLUDEPATH += $$PWD/SDL/include/SDL
 DEPENDPATH += $$PWD/SDL/include/SDL
@@ -88,8 +86,7 @@ INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include
 
 RESOURCES += \
-    images.qrc \
-    sons.qrc
+    images.qrc
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/SDL/lib/ -lSDL_image
@@ -102,3 +99,8 @@ unix|win32: LIBS += -L$$PWD/SDL/lib/ -lSDL_mixer
 
 INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include
+
+unix|win32: LIBS += -L$$PWD/ -llibmysql
+
+INCLUDEPATH += $$PWD/
+DEPENDPATH += $$PWD/

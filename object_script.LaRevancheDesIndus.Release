@@ -14,9 +14,10 @@ INPUT(
 ./release\choixmusique.o
 ./release\hud.o
 ./release\gestionbd.o
+./release\historiquescore.o
 ./release\qrc_images.o
-./release\qrc_sons.o
 ./release\moc_application.o
 ./release\moc_parametresson.o
 ./release\moc_choixmusique.o
+./release\moc_historiquescore.o
 );

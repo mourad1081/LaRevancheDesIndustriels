@@ -8,6 +8,9 @@
 #include "choixmusique.h"
 #include <string>
 #include <QMediaPlayer>
+#include <metier/gestionbd.h>
+#include "historiquescore.h"
+
 class ParametresSon;
 namespace Ui {
 class Application;
@@ -84,6 +87,8 @@ private slots:
      */
     void on_btnMusique_clicked();
 
+    void on_historiqueScores_clicked();
+
 private:
     Ui::Application *ui;
     bool _clicQuit;
@@ -91,7 +96,7 @@ private:
     //---Paramètres---//
     QMediaPlayer *_theme;
     QMediaPlaylist *_playlist;
-    int _nbVies;
+
     //--- GIF---//
     QMovie *_chetiflorQuiDance;
 };

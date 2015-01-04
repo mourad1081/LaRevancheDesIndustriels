@@ -1,25 +1,5 @@
 #include "hero.h"
-Hero::Hero()
-{
-    _sprite = nullptr;
-    //On charge les coordonnées du hero
-    posReelle.x = 0;
-    posReelle.y = 0;
-    posReelle.w = 0;
-    posReelle.h = 0;
 
-    //On initialise les variables pour l'animation
-    _frameNumber = 0;
-    _frameTimer = 0;
-
-    //Variables nécessaires au fonctionnement de la gestion des collisions
-    _timerMort = 0;
-    _onGround = 0;
-
-    _nb = 0;
-    _nbVies = 3;
-    _nbPoints = 0;
-}
 Hero::Hero(char * name, int x, int y, int w, int h)
 {
     //On charge le sprite
@@ -43,7 +23,7 @@ Hero::Hero(char * name, int x, int y, int w, int h)
     _onGround = 0;
 
     _nb = 0;
-    _nbVies = 1;
+    _nbVies = 3;
     _nbPoints = 0;
 
 }
@@ -130,7 +110,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 
         //On teste le déplacement vers la gauche, le joueur ne sera déplacé que si
         // il n'y a pas de collision.
-
         posTest.x -= VITESSE_JOUEUR + valTest;
         if(!m->collisionPerso(this)){
             posReelle.x -= VITESSE_JOUEUR;
@@ -151,7 +130,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
 
         //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
         // il n'y a pas de collision.
-
         posTest.x += VITESSE_JOUEUR + valTest;
         if(!m->collisionPerso(this)){
             posReelle.x += VITESSE_JOUEUR;
@@ -212,10 +190,14 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             posReelle.x = 0;
             posReelle.y = 0;
             _nbVies--;
-            if (_nbVies==0){
+            if (_nbVies == 0)
+            {
                 GestionBD gbd;
-                if(gbd.estConnecte()){
-                    QString requete="insert into score(valscore,date)values(";
+                if(gbd.estConnecte())
+                {
+                    QString requete =
+                            "insert into gamedb.score (valscore,date) values(";
+
                     requete+=QString::number(_nbPoints)+",'";
                     requete+=QDate::currentDate().toString(Qt::TextDate);
                     requete+="  "+QTime::currentTime().toString()+"');";

@@ -10,12 +10,10 @@ Application::Application(QWidget *parent) :
     setWindowFlags(Qt::FramelessWindowHint);
 
     _clicQuit = false;
-    _nbVies = 3;
 
     _chetiflorQuiDance = new QMovie("://img/YAY.gif");
     ui->gif->setMovie (_chetiflorQuiDance);
     _chetiflorQuiDance->start ();
-
 
     _theme = new QMediaPlayer(this);
     _playlist = new QMediaPlaylist(this);
@@ -70,11 +68,10 @@ void Application::on_btnOptions_clicked()
     {
         if(param->isSonActif())
         {
-
+            _theme->play();
         } else
             _theme->pause();
 
-        _nbVies = param->getNbVies();
         _theme->setVolume(param->getVolume());
     }
 }
@@ -92,4 +89,14 @@ void Application::on_btnMusique_clicked()
         _theme->setVolume(100);
         _theme->play();
     }
+}
+
+void Application::on_historiqueScores_clicked()
+{
+    GestionBD bdd;
+    QVector<QString> scores = bdd.selectAll("gamedb.score");
+    HistoriqueScore *scoresGUI = new HistoriqueScore();
+    for(int i = 0; i < scores.size(); i++)
+        scoresGUI->getListeScore()->addItem(scores.at(i));
+    scoresGUI->exec();
 }
