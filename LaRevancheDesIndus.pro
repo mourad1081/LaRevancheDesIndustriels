@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,9 +17,6 @@ CONFIG += qt
 QMAKE_CXXFLAGS += -std=c++11 -pedantic-errors
 
 SOURCES += main.cpp\
-    O_SDO/sujetDObservation.cpp \
-    vue/personnagevue.cpp \
-    vue/histoire.cpp \
     vue/gestionmonde.cpp \
     vue/monde.cpp \
     vue/application.cpp \
@@ -32,13 +29,11 @@ SOURCES += main.cpp\
     vue/gestionson.cpp \
     vue/parametresson.cpp \
     vue/choixmusique.cpp \
-    vue/hud.cpp
+    vue/hud.cpp \
+    metier/gestionbd.cpp \
+    vue/historiquescore.cpp
 
 HEADERS  += \
-    O_SDO/observateur.h \
-    O_SDO/sujetDObservation.h \
-    vue/personnagevue.h \
-    vue/histoire.h \
     vue/monde.h \
     vue/application.h \
     metier/exceptiongame.h \
@@ -52,12 +47,15 @@ HEADERS  += \
     vue/gestionson.h \
     vue/parametresson.h \
     vue/choixmusique.h \
-    vue/hud.h
+    vue/hud.h \
+    metier/gestionbd.h \
+    vue/historiquescore.h
 
 FORMS    += \
     vue/application.ui \
     vue/parametresson.ui \
-    vue/choixmusique.ui
+    vue/choixmusique.ui \
+    vue/historiquescore.ui
 
 INCLUDEPATH += $$PWD/SDL/include/SDL
 DEPENDPATH += $$PWD/SDL/include/SDL
@@ -101,3 +99,8 @@ unix|win32: LIBS += -L$$PWD/SDL/lib/ -lSDL_mixer
 
 INCLUDEPATH += $$PWD/SDL/include
 DEPENDPATH += $$PWD/SDL/include
+
+unix|win32: LIBS += -L$$PWD/ -llibmysql
+
+INCLUDEPATH += $$PWD/
+DEPENDPATH += $$PWD/

@@ -1,8 +1,5 @@
 INPUT(
 ./release\main.o
-./release\sujetDObservation.o
-./release\personnagevue.o
-./release\histoire.o
 ./release\gestionmonde.o
 ./release\monde.o
 ./release\application.o
@@ -16,8 +13,11 @@ INPUT(
 ./release\parametresson.o
 ./release\choixmusique.o
 ./release\hud.o
+./release\gestionbd.o
+./release\historiquescore.o
 ./release\qrc_images.o
 ./release\moc_application.o
 ./release\moc_parametresson.o
 ./release\moc_choixmusique.o
+./release\moc_historiquescore.o
 );

@@ -1,6 +1,8 @@
 #include "gestionmonde.h"
-GestionMonde::GestionMonde(SDL_Surface * fenetre
-                           ,int largeurFenetre, int hauteurFenetre){
+GestionMonde::GestionMonde(SDL_Surface * fenetre,
+                           int largeurFenetre,
+                           int hauteurFenetre)
+{
     _fenetre = fenetre;
     _lesEvents = new Evenement();
     _largeurFenetre = largeurFenetre;
@@ -31,7 +33,8 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre
                                     65);
     }
 }
-GestionMonde::~GestionMonde(){
+GestionMonde::~GestionMonde()
+{
     //Libère le HUD
     if (_HUD_etoiles != NULL)
     {
@@ -43,14 +46,19 @@ GestionMonde::~GestionMonde(){
     }
 }
 
-void GestionMonde::miseAjourJoueurs(){
-    if (_lesEvents->key[SDLK_ESCAPE] || _lesEvents->quit || _hero->getNbVies() <= 0 ) {
+void GestionMonde::miseAjourJoueurs()
+{
+    if (_lesEvents->key[SDLK_ESCAPE]
+            || _lesEvents->quit
+            || _hero->getNbVies() <= 0 )
+    {
         exit(0);
     }
     _hero->drawAnimatedPlayer(_fenetre, _monde);
     _hero->updatePlayer(_lesEvents, _monde, _fenetre);
     // passage au niveau suivant
-    if ( _monde->finDuNiveau(_hero) ) {
+    if ( _monde->finDuNiveau(_hero) )
+    {
         _nbMonstres = _monde->getListPosMonstres().size();
         _monstres.clear();
         _monstres.resize(_nbMonstres);
@@ -77,15 +85,20 @@ void GestionMonde::miseAjourJoueurs(){
 
 }
 
-void GestionMonde::miseAjourDeLaMap(){
-    if (_lesEvents->key[SDLK_ESCAPE] || _lesEvents->quit || _hero->getNbVies() <= 0 ) {
+void GestionMonde::miseAjourDeLaMap()
+{
+    if (_lesEvents->key[SDLK_ESCAPE]
+            || _lesEvents->quit
+            || _hero->getNbVies() <= 0 )
+    {
         exit(0);
     }
     _lesEvents->ActiveAttenteEvenement();
     _monde->AfficherMonde(_fenetre);
 }
 
-void GestionMonde::drawHUD(){
+void GestionMonde::drawHUD()
+{
     //On crée une varuiable qui contiendra notre texte (jusqu'à 200 caractères, y'a de la marge ;) ).
     char text[200];
 

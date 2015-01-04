@@ -9,16 +9,16 @@ void Evenement::ActiveAttenteEvenement(){
     {
         switch (event.type)
         {
-        case SDL_KEYDOWN:
+        case SDL_KEYDOWN :
             key[event.key.keysym.sym]=1;
             break;
-        case SDL_KEYUP:
+        case SDL_KEYUP :
             key[event.key.keysym.sym]=0;
             break;
-        case SDL_QUIT:
+        case SDL_QUIT :
             quit = 1;
             break;
-        default:
+        default :
             break;
         }
     }

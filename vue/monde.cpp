@@ -1,6 +1,6 @@
 #include "monde.h"
 Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
-    :   _niveauActuel(1)
+    : _niveauActuel(1)
 {
     _largeurFenetre = largeurFenetre;
     _hauteurFenetre = hauteurFenetre;
@@ -12,12 +12,13 @@ Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
     _schema = _niveau->getNiveau();
     // ouvre le fichier de configuration en lecture
     ifstream fichierConfig(NOM_FICHIER_CONFIG.c_str(), ios::in);
-    if ( fichierConfig ){
+    if ( fichierConfig ) {
         chargerInfoDepuisFichier(fichierConfig);
     }else{
         throw new ExceptionGame("Erreur d'ouverture du fichier de configuration");
     }
     fichierConfig.close();
+    _son = new GestionSon();
 }
 
 int Monde::getNiveauActuel() const
@@ -113,7 +114,7 @@ void Monde::AfficherMonde(SDL_Surface * fenetre){
     }
 }
 
-bool Monde::collisionPerso(Hero *h){
+bool Monde::collisionPerso(Hero *h) {
     SDL_Rect posHero = h->getPosTestHero();
     int x1, x2, y1, y2,i,j;
     Uint16 indicetile;
@@ -148,6 +149,9 @@ bool Monde::collisionPerso(Hero *h){
 
                     _schema[j][i] = 6;
                     h->incNbPoints();
+                    //Mourad -- Bruitage
+                    _son->demarrerBruitage("son/bruitages/coin.wav", 1);
+                    //Fin Mourad
                     if(h->getNbPoints() > 0 && h->getNbPoints()%50 == 0){
                         h->setNbVies(h->getNbVies()+1);
                     }
@@ -304,7 +308,10 @@ bool Monde::finDuNiveau(Hero *h){
 
             indicetile = _schema[j][i];
             //Si on est sur le bonhomme, on passe au niveau suivant
-            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU){
+            if (_tuiles[indicetile].getType() == TypeTuile::FIN_NIVEAU) {
+                //Mourad -- Bruitage
+                _son->demarrerBruitage("son/bruitages/level_fini.wav", 1);
+                //Fin Mourad
                 if(this->getNiveauActuel() <= 4){
                     this->setNiveauActuel(this->getNiveauActuel()+1);
                     SDL_Rect posDebutHero = h->getPosTestHero();

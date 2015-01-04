@@ -1,25 +1,5 @@
 #include "hero.h"
-Hero::Hero()
-{
-    _sprite = nullptr;
-    //On charge les coordonnées du hero
-    posReelle.x = 0;
-    posReelle.y = 0;
-    posReelle.w = 0;
-    posReelle.h = 0;
 
-    //On initialise les variables pour l'animation
-    _frameNumber = 0;
-    _frameTimer = 0;
-
-    //Variables nécessaires au fonctionnement de la gestion des collisions
-    _timerMort = 0;
-    _onGround = 0;
-
-    _nb = 0;
-    _nbVies = 3;
-    _nbPoints = 0;
-}
 Hero::Hero(char * name, int x, int y, int w, int h)
 {
     //On charge le sprite
@@ -121,8 +101,20 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     //On défini l'état du perso
     _etat = STOPPED;
 
-    if(_timerMort == 0) {
-        if (evt->key[SDLK_LEFT])
+    if (evt->key[SDLK_LEFT])
+    {
+        _etat = WALK;
+
+        //On teste le déplacement vers la gauche, le joueur ne sera déplacé que si
+        // il n'y a pas de collision.
+        posTest.x -= VITESSE_JOUEUR;
+        if(!m->collisionPerso(this)){
+            posReelle.x -= VITESSE_JOUEUR;
+        }
+
+        //On teste le sens pour l'animation : si le joueur allait dans le sens contraire
+        //précédemment, il faut recharger le spritesheet pour l'animation.
+        if(_direction == RIGHT)
         {
             _etat = WALK;
 
@@ -142,40 +134,45 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
                 _sprite = IMG_Load("img/walkleft.png");
             }
         }
+    }
 
-        if (evt->key[SDLK_RIGHT])
-        {
-            _etat = WALK;
+    if (evt->key[SDLK_RIGHT])
+    {
+        _etat = WALK;
+        //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
+        // il n'y a pas de collision.
 
-            //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
-            // il n'y a pas de collision.
-
-            posTest.x += VITESSE_JOUEUR;
-            if(!m->collisionPerso(this)){
-                posReelle.x += VITESSE_JOUEUR;
-            }
-
-            if(_direction == LEFT)
-            {
-                _direction =  RIGHT;
-                _sprite = IMG_Load("img/walkright.png");
-            }
+        posTest.x += VITESSE_JOUEUR;
+        if(!m->collisionPerso(this)){
+            posReelle.x += VITESSE_JOUEUR;
         }
-        if(evt->key[SDLK_UP] && _onGround == 1 && _nb <= 20){
-            _nb++;
-            _etat = JUMP;
-            posTest.y -= JUMP_HEIGHT;
-            if(!m->collisionPerso(this)){
-                posReelle.y -= JUMP_HEIGHT;
-            }
+        //On teste le déplacement vers la droite, le joueur ne sera déplacé que si
+        // il n'y a pas de collision.
+        posTest.x += VITESSE_JOUEUR;
+        if(!m->collisionPerso(this)){
+            posReelle.x += VITESSE_JOUEUR;
+        }
 
-            if(_direction == LEFT)
-            {
-                _sprite = IMG_Load("img/jumpleft.png");
-            }else
-            {
-                _sprite = IMG_Load("img/jumpright.png");
-            }
+        if(_direction == LEFT)
+        {
+            _direction =  RIGHT;
+            _sprite = IMG_Load("img/walkright.png");
+        }
+    }
+    if(evt->key[SDLK_UP] && _onGround == 1 && _nb <= 20){
+        _nb++;
+        _etat = JUMP;
+        posTest.y -= JUMP_HEIGHT;
+        if(!m->collisionPerso(this)){
+            posReelle.y -= JUMP_HEIGHT;
+        }
+
+        if(_direction == LEFT)
+        {
+            _sprite = IMG_Load("img/jumpleft.png");
+        }else
+        {
+            _sprite = IMG_Load("img/jumpright.png");
         }
     }
     //On incrémente la position y du perso, ce qui permet de
@@ -184,7 +181,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     posTest.y += _gravity;
     if(!m->collisionPerso(this)){
         posReelle.y += _gravity;
-        //_onGround = 0;
     }else{
         _nb = 0;
         _gravity = 0.8;
@@ -214,14 +210,31 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
         //Mort du joueur.
         if (_timerMort == 0)
         {
+            GestionSon s;
+            s.demarrerBruitage("son/bruitages/mort.wav", 1);
             _nb = 0;
             posReelle.x = 0;
             posReelle.y = 0;
             _onGround = 0;
             _nbVies--;
+            if (_nbVies == 0)
+            {
+                GestionBD gbd;
+                if(gbd.estConnecte())
+                {
+                    QString requete =
+                            "insert into gamedb.score (valscore,date) values(";
+
+                    requete+=QString::number(_nbPoints)+",'";
+                    requete+=QDate::currentDate().toString(Qt::TextDate);
+                    requete+="  "+QTime::currentTime().toString()+"');";
+                    gbd.requete(requete);
+                }
+            }
         }
     }
 }
+
 
 void Hero::centerScrollingOnPlayer(Monde * m)
 {

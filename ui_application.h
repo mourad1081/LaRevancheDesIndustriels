@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'application.ui'
 **
+<<<<<<< HEAD
 ** Created by: Qt User Interface Compiler version 5.1.1
+=======
+** Created by: Qt User Interface Compiler version 5.3.2
+>>>>>>> 4d2d39a730298c2f09504bbcd07035cd7c22c80a
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,8 +37,8 @@ public:
     QLabel *gif;
     QVBoxLayout *verticalLayout;
     QPushButton *btnNouvellePartie;
-    QPushButton *btnContinuer;
     QPushButton *btnOptions;
+    QPushButton *historiqueScores;
     QPushButton *btnHackNASA;
     QPushButton *btnMusique;
     QPushButton *btnQuitter;
@@ -43,7 +47,7 @@ public:
     {
         if (Application->objectName().isEmpty())
             Application->setObjectName(QStringLiteral("Application"));
-        Application->resize(728, 339);
+        Application->resize(732, 339);
         QIcon icon;
         icon.addFile(QStringLiteral(":/img/YAY.gif"), QSize(), QIcon::Normal, QIcon::Off);
         Application->setWindowIcon(icon);
@@ -69,7 +73,7 @@ public:
 "QPushButton::hover\n"
 "{\n"
 "color:salmon;\n"
-"font:16pt;\n"
+"font:15pt;\n"
 "}"));
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -110,20 +114,6 @@ public:
 
         verticalLayout->addWidget(btnNouvellePartie, 0, Qt::AlignRight);
 
-        btnContinuer = new QPushButton(centralwidget);
-        btnContinuer->setObjectName(QStringLiteral("btnContinuer"));
-        btnContinuer->setEnabled(false);
-        btnContinuer->setMinimumSize(QSize(200, 0));
-        QFont font1;
-        font1.setPointSize(14);
-        font1.setStyleStrategy(QFont::PreferAntialias);
-        btnContinuer->setFont(font1);
-        btnContinuer->setCursor(QCursor(Qt::PointingHandCursor));
-        btnContinuer->setStyleSheet(QLatin1String("color: rgb(162, 162, 162);\n"
-"text-align:right"));
-
-        verticalLayout->addWidget(btnContinuer, 0, Qt::AlignRight);
-
         btnOptions = new QPushButton(centralwidget);
         btnOptions->setObjectName(QStringLiteral("btnOptions"));
         btnOptions->setMinimumSize(QSize(200, 0));
@@ -132,6 +122,16 @@ public:
         btnOptions->setStyleSheet(QStringLiteral("text-align:right"));
 
         verticalLayout->addWidget(btnOptions, 0, Qt::AlignRight);
+
+        historiqueScores = new QPushButton(centralwidget);
+        historiqueScores->setObjectName(QStringLiteral("historiqueScores"));
+        QFont font1;
+        font1.setPointSize(14);
+        historiqueScores->setFont(font1);
+        historiqueScores->setCursor(QCursor(Qt::PointingHandCursor));
+        historiqueScores->setStyleSheet(QStringLiteral("text-align:right;"));
+
+        verticalLayout->addWidget(historiqueScores);
 
         btnHackNASA = new QPushButton(centralwidget);
         btnHackNASA->setObjectName(QStringLiteral("btnHackNASA"));
@@ -146,7 +146,10 @@ public:
         btnMusique->setObjectName(QStringLiteral("btnMusique"));
         btnMusique->setEnabled(true);
         btnMusique->setMinimumSize(QSize(200, 0));
-        btnMusique->setFont(font1);
+        QFont font2;
+        font2.setPointSize(14);
+        font2.setStyleStrategy(QFont::PreferAntialias);
+        btnMusique->setFont(font2);
         btnMusique->setCursor(QCursor(Qt::PointingHandCursor));
         btnMusique->setStyleSheet(QStringLiteral("text-align:right"));
 
@@ -177,8 +180,8 @@ public:
         titre->setText(QString());
         gif->setText(QString());
         btnNouvellePartie->setText(QApplication::translate("Application", "NOUVELLE PARTIE", 0));
-        btnContinuer->setText(QApplication::translate("Application", "CONTINUER", 0));
         btnOptions->setText(QApplication::translate("Application", "PARAM\303\210TRES", 0));
+        historiqueScores->setText(QApplication::translate("Application", "MEILLEURS SCORES", 0));
         btnHackNASA->setText(QApplication::translate("Application", "HACKER LA NASA", 0));
         btnMusique->setText(QApplication::translate("Application", "MUSIQUE", 0));
         btnQuitter->setText(QApplication::translate("Application", "QUITTER", 0));

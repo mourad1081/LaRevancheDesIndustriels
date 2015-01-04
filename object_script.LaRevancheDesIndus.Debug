@@ -1,8 +1,5 @@
 INPUT(
 ./debug\main.o
-./debug\sujetDObservation.o
-./debug\personnagevue.o
-./debug\histoire.o
 ./debug\gestionmonde.o
 ./debug\monde.o
 ./debug\application.o
@@ -16,8 +13,11 @@ INPUT(
 ./debug\parametresson.o
 ./debug\choixmusique.o
 ./debug\hud.o
+./debug\gestionbd.o
+./debug\historiquescore.o
 ./debug\qrc_images.o
 ./debug\moc_application.o
 ./debug\moc_parametresson.o
 ./debug\moc_choixmusique.o
+./debug\moc_historiquescore.o
 );

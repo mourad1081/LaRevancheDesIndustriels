@@ -14,18 +14,22 @@
 
 #include "metier/niveau.h"
 #include "metier/tuile.h"
-
+#include "vue/gestionson.h"
 using namespace std;
+
+class Hero;
+class Monstre;
 /*!
  * \brief Représente un Monde
  */
-class Hero;
-class Monstre;
-
 class Monde
 {
 private:
     Niveau * _niveau;
+
+    //Gestionnaire de son
+    GestionSon *_son;
+
     int _niveauActuel;
     //---- pour les tuiles
     int _largeurTuile;       // largeur d'une tuile
@@ -63,7 +67,7 @@ public:
      * \exception ExceptionGame Problème au niveau des balises
      *  dans le fichier de configuration
      */
-    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);   
+    Monde(int largeurFenetre, int hauteurFenetre) throw(ExceptionGame);
     /*!
      * \brief Asseseur en lecture.
      * \return le niveau actuel.
@@ -142,25 +146,30 @@ public:
      */
     vector<SDL_Rect> getListPosMonstres();
     /*!
-        * \brief Permet l'affichage du monde dans une fenetre
-        * \param fenetre la fenetre dans laquel on affiche le monde
-        */
+    * \brief Permet l'affichage du monde dans une fenetre
+    * \param fenetre la fenetre dans laquel on affiche le monde
+    */
     void AfficherMonde(SDL_Surface * fenetre);
     /*!
      * \brief Permet de savoir si le personnage est en collison avec
      * un element du monde qu'il ne peut pas traverser
-     * \param perso
-     * \return true s'il y a collision, faux sinon
+     * \param le personnage
+     * \return true s'il y a collision, false sinon
      */
     bool collisionPerso(Hero *h);
     /*!
      * \brief Permet de savoir si un monstre est en collison avec
      * un element du monde qu'il ne peut pas traverser
-     * \param monstre
-     * \return true s'il y a collision, faux sinon
+     * \param le monstre
+     * \return true s'il y a collision, false sinon
      */
     bool collisionMonstre(Monstre *m);
-
+    /*!
+     * \brief Permet de savoirle personnage est arriver
+     * à la fin du niveau en cour
+     * \param le personnage
+     * \return true si il est arriver & la fin du niveau, false sinon
+     */
     bool finDuNiveau(Hero *h);
 private:
     void chargerInfoDepuisFichier(ifstream &fichier) throw(ExceptionGame);
