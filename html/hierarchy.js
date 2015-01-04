@@ -14,6 +14,7 @@ var hierarchy =
     [ "Niveau", "class_niveau.html", null ],
     [ "QDialog", null, [
       [ "ChoixMusique", "class_choix_musique.html", null ],
+      [ "HistoriqueScore", "class_historique_score.html", null ],
       [ "ParametresSon", "class_parametres_son.html", null ]
     ] ],
     [ "QMainWindow", null, [

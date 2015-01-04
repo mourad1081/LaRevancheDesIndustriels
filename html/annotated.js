@@ -8,6 +8,7 @@ var annotated =
     [ "GestionMonde", "class_gestion_monde.html", "class_gestion_monde" ],
     [ "GestionSon", "class_gestion_son.html", "class_gestion_son" ],
     [ "Hero", "class_hero.html", "class_hero" ],
+    [ "HistoriqueScore", "class_historique_score.html", "class_historique_score" ],
     [ "Hud", "class_hud.html", "class_hud" ],
     [ "Monde", "class_monde.html", "class_monde" ],
     [ "Monstre", "class_monstre.html", "class_monstre" ],

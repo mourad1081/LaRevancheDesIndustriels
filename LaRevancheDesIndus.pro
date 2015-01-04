@@ -4,16 +4,13 @@
 #
 #-------------------------------------------------
 
-<<<<<<< HEAD
 
 QT       += core gui sql
 
 QT       += core gui
 QT       += multimedia
-=======
 QT       += core gui sql multimedia
 
->>>>>>> 07328e53dc70ae5c4f7360cef1f2fa60413f0113
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = LaRevancheDesIndus

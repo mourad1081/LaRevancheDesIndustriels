@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['gestionbd',['GestionBD',['../class_gestion_b_d.html#aa08abbc5e2abc1efa7d4ad9dce943cd3',1,'GestionBD']]],
   ['gestionmonde',['GestionMonde',['../class_gestion_monde.html#a35d11c7c0d38b77180e191b3d44c9ab7',1,'GestionMonde']]],
   ['gestionson',['GestionSon',['../class_gestion_son.html#a437122c08967f3c47d2383c9651da7ce',1,'GestionSon::GestionSon()'],['../class_gestion_son.html#af7b654223912326d279a647d8914b9ab',1,'GestionSon::GestionSon(std::string cheminSon)'],['../class_gestion_son.html#a4c189c89650a42f649ed7c0b45702081',1,'GestionSon::GestionSon(std::string cheminSon, int frequence, Uint16 format, int nbCanaux, int tailleChunck)']]],
   ['getcheminmusique',['getCheminMusique',['../class_gestion_son.html#a64ce078119a4c9178cb5cfe9492649c7',1,'GestionSon']]],

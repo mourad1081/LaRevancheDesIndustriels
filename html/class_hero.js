@@ -1,8 +1,7 @@
 var class_hero =
 [
-    [ "Hero", "class_hero.html#ab5920677a4b5cb59d6f513922d037dca", null ],
-    [ "~Hero", "class_hero.html#a5aeef41ede5a80dc29c5acd7b553c4da", null ],
     [ "Hero", "class_hero.html#a8caaea725433208c438689e6f617b416", null ],
+    [ "~Hero", "class_hero.html#a5aeef41ede5a80dc29c5acd7b553c4da", null ],
     [ "centerScrollingOnPlayer", "class_hero.html#a39be954897dc72b19c6077797acf671f", null ],
     [ "drawAnimatedPlayer", "class_hero.html#afb5164bd0406632a93c5d6ba1ab32d5e", null ],
     [ "getNbPoints", "class_hero.html#ac55bbe6e03f1966d966c3a2421099841", null ],

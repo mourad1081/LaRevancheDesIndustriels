@@ -110,122 +110,22 @@ $(document).ready(function(){initNavTree('class_gestion_b_d.html','');});
 <div class="title">GestionBD Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>The <a class="el" href="class_gestion_b_d.html" title="The GestionBD classe permettant de gérer une base de donnée. ">GestionBD</a> classe permettant de gérer une base de donnée.  
- <a href="class_gestion_b_d.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="gestionbd_8h_source.html">gestionbd.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa08abbc5e2abc1efa7d4ad9dce943cd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa08abbc5e2abc1efa7d4ad9dce943cd3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#aa08abbc5e2abc1efa7d4ad9dce943cd3">GestionBD</a> ()</td></tr>
-<tr class="memdesc:aa08abbc5e2abc1efa7d4ad9dce943cd3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_gestion_b_d.html" title="The GestionBD classe permettant de gérer une base de donnée. ">GestionBD</a> Démarre une connexion avec la base de donnée GameBD. <br/></td></tr>
-<tr class="separator:aa08abbc5e2abc1efa7d4ad9dce943cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a970f18bd84d4da7697d82be04553c09e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#a970f18bd84d4da7697d82be04553c09e">~GestionBD</a> ()</td></tr>
-<tr class="separator:a970f18bd84d4da7697d82be04553c09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16f0814f7eb57ad14181b16e572d971b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#a16f0814f7eb57ad14181b16e572d971b">requete</a> (QString requete)</td></tr>
-<tr class="memdesc:a16f0814f7eb57ad14181b16e572d971b"><td class="mdescLeft">&#160;</td><td class="mdescRight">requete Permet d'envoyer une requête à la base de donnée.  <a href="#a16f0814f7eb57ad14181b16e572d971b">More...</a><br/></td></tr>
+<tr class="memitem:a16f0814f7eb57ad14181b16e572d971b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16f0814f7eb57ad14181b16e572d971b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>requete</b> (QString requete)</td></tr>
 <tr class="separator:a16f0814f7eb57ad14181b16e572d971b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad553391bfa3477789a37c28b954f8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#a7ad553391bfa3477789a37c28b954f8a">estConnecte</a> () const </td></tr>
-<tr class="memdesc:a7ad553391bfa3477789a37c28b954f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">estConnecte Indique si la connexion a bien eu lieu.  <a href="#a7ad553391bfa3477789a37c28b954f8a">More...</a><br/></td></tr>
+<tr class="memitem:a7ad553391bfa3477789a37c28b954f8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ad553391bfa3477789a37c28b954f8a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>estConnecte</b> () const </td></tr>
 <tr class="separator:a7ad553391bfa3477789a37c28b954f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af21bffa2c93a8014ad649568c8ed2f44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af21bffa2c93a8014ad649568c8ed2f44"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#af21bffa2c93a8014ad649568c8ed2f44">closeBD</a> ()</td></tr>
-<tr class="memdesc:af21bffa2c93a8014ad649568c8ed2f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">closeBD Permet de se déconnecter de la base de donnée. <br/></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>closeBD</b> ()</td></tr>
 <tr class="separator:af21bffa2c93a8014ad649568c8ed2f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51a3fc22bc11d21160ee86d350f88031"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gestion_b_d.html#a51a3fc22bc11d21160ee86d350f88031">selectAll</a> (QString table)</td></tr>
-<tr class="memdesc:a51a3fc22bc11d21160ee86d350f88031"><td class="mdescLeft">&#160;</td><td class="mdescRight">selectAll Envoie une requête qui permet de voir tout le contenu d'une table.  <a href="#a51a3fc22bc11d21160ee86d350f88031">More...</a><br/></td></tr>
-<tr class="separator:a51a3fc22bc11d21160ee86d350f88031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b73bd7cc6f0cb613c9763b1737fc51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3b73bd7cc6f0cb613c9763b1737fc51"></a>
+QVector&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>selectAll</b> (QString table)</td></tr>
+<tr class="separator:ad3b73bd7cc6f0cb613c9763b1737fc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_gestion_b_d.html" title="The GestionBD classe permettant de gérer une base de donnée. ">GestionBD</a> classe permettant de gérer une base de donnée. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a970f18bd84d4da7697d82be04553c09e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GestionBD::~GestionBD </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Destructeur de la classe <a class="el" href="class_gestion_b_d.html" title="The GestionBD classe permettant de gérer une base de donnée. ">GestionBD</a> Déconnecte également de la base de donnée. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7ad553391bfa3477789a37c28b954f8a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GestionBD::estConnecte </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>estConnecte Indique si la connexion a bien eu lieu. </p>
-<dl class="section return"><dt>Returns</dt><dd>true si la connexion s'est fait, false sinon. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a16f0814f7eb57ad14181b16e572d971b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GestionBD::requete </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>requete</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>requete Permet d'envoyer une requête à la base de donnée. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">requete</td><td>La requête SQL. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true si la requête est correcte, false sinon. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a51a3fc22bc11d21160ee86d350f88031"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString GestionBD::selectAll </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>table</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>selectAll Envoie une requête qui permet de voir tout le contenu d'une table. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">table</td><td>la table dont on veut le contenu. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>le contenu de la table. </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="gestionbd_8h_source.html">gestionbd.h</a></li>
 <li>gestionbd.cpp</li>
@@ -236,7 +136,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_gestion_b_d.html">GestionBD</a></li>
-    <li class="footer">Generated on Sat Jan 3 2015 20:10:04 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 14:31:20 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
