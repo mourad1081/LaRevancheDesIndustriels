@@ -13,14 +13,14 @@ void lancerApplication();
 
 int main(int argc, char **argv)
 {
-    QApplication a(argc, argv);
-    Application app;
-    app.show();
-    a.exec();
-    if(!app.getClicQuit())
-    {
+   // QApplication a(argc, argv);
+    //Application app;
+    //app.show();
+    //a.exec();
+   // if(!app.getClicQuit())
+   // {
         lancerApplication();
-    }
+   // }
 }
 
 void lancerApplication()
@@ -41,7 +41,6 @@ void lancerApplication()
     // notre fenetre ,param (taille,taille,couleur,option)
     SDL_Surface * fenetre = SDL_SetVideoMode(0, 0, 32,
                                              SDL_HWSURFACE
-                                             | SDL_FULLSCREEN
                                              | SDL_DOUBLEBUF);
     // renomer la fenetre
     SDL_WM_SetCaption("Jeu de plateforme", NULL);
