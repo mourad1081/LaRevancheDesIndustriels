@@ -575,7 +575,7 @@ public:
         ParametresSon->setWindowTitle(QApplication::translate("ParametresSon", "Dialog", 0));
         groupBox_2->setTitle(QApplication::translate("ParametresSon", "Son", 0));
         checkBoutonActiverSon->setText(QApplication::translate("ParametresSon", "Activer le son", 0));
-        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume (Ne fonctionne apparemment pas)", 0));
+        groupBox->setTitle(QApplication::translate("ParametresSon", "Volume", 0));
         label_2->setText(QApplication::translate("ParametresSon", "0%", 0));
         label->setText(QApplication::translate("ParametresSon", "100%", 0));
     } // retranslateUi
