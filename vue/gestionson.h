@@ -34,7 +34,7 @@ public:
      * @brief Construit un gestionnaire de son avec une musique directement
      * @param cheminSon Chemin vers la musique à jouer
      */
-    GestionSon(std::string cheminSon);
+    GestionSon(string cheminSon);
 
     /**
      * @brief Construit un gestionnaire de son personnalisé

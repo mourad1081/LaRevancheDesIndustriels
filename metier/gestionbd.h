@@ -17,7 +17,7 @@ public:
      */
     GestionBD();
     /**
-      * @biref Destructeur de la classe GestionBD
+      * @brief Destructeur de la classe GestionBD
       * Déconnecte également de la base de donnée.
       */
     ~GestionBD();
