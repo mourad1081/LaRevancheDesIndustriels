@@ -1,11 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'choixmusique.ui'
 **
-<<<<<<< HEAD
-** Created by: Qt User Interface Compiler version 5.1.1
-=======
-** Created by: Qt User Interface Compiler version 5.3.2
->>>>>>> 4d2d39a730298c2f09504bbcd07035cd7c22c80a
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
