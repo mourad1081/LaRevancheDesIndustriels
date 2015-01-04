@@ -94,10 +94,6 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
     posTest.h = posReelle.h;
     posTest.w = posReelle.w;
 
-    //std::cout << "_x" << posReelle.x << endl;
-    //std::cout << "_y" << posReelle.y << endl;
-
-
     //On défini l'état du perso
     _etat = STOPPED;
 
@@ -167,13 +163,13 @@ void Hero::updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen)
             posReelle.y -= JUMP_HEIGHT;
         }
 
-        if(_direction == LEFT)
+        /*if(_direction == LEFT)
         {
             _sprite = IMG_Load("img/jumpleft.png");
         }else
         {
             _sprite = IMG_Load("img/jumpright.png");
-        }
+        }*/
     }
     //On incrémente la position y du perso, ce qui permet de
     //le faire chuter.
