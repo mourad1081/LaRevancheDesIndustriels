@@ -1,6 +1,6 @@
 #include "monde.h"
 Monde::Monde(int largeurFenetre, int hauteurFenetre)  throw(ExceptionGame)
-    : _niveauActuel(1)
+    : _niveauActuel(4)
 {
     _largeurFenetre = largeurFenetre;
     _hauteurFenetre = hauteurFenetre;
