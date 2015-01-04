@@ -104,28 +104,246 @@ $(document).ready(function(){initNavTree('class_hud.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_hud-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Hud Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant d'écrire sur une fenêtre SDL et d'afficher des images.  
+ <a href="class_hud.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hud_8h_source.html">hud.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad367d9f8d5947cd6b150658f4a7011c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad367d9f8d5947cd6b150658f4a7011c4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hud.html#ad367d9f8d5947cd6b150658f4a7011c4">Hud</a> ()</td></tr>
+<tr class="memdesc:ad367d9f8d5947cd6b150658f4a7011c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut de la classe <a class="el" href="class_hud.html" title="Classe permettant d&#39;écrire sur une fenêtre SDL et d&#39;afficher des images. ">Hud</a> Pas utilisé (méthodes statiques) <br/></td></tr>
+<tr class="separator:ad367d9f8d5947cd6b150658f4a7011c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0c90a6a372d01f41c0de6b56eb523536"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c90a6a372d01f41c0de6b56eb523536"></a>
-static TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>loadFont</b> (char *name, int size)  throw (ExceptionGame)</td></tr>
+<tr class="memitem:a0c90a6a372d01f41c0de6b56eb523536"><td class="memItemLeft" align="right" valign="top">static TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hud.html#a0c90a6a372d01f41c0de6b56eb523536">loadFont</a> (char *name, int size)  throw (ExceptionGame)</td></tr>
+<tr class="memdesc:a0c90a6a372d01f41c0de6b56eb523536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de charger une typographie.  <a href="#a0c90a6a372d01f41c0de6b56eb523536">More...</a><br/></td></tr>
 <tr class="separator:a0c90a6a372d01f41c0de6b56eb523536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a450ac0427df7083df23a9299e97134eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a450ac0427df7083df23a9299e97134eb"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>closeFont</b> (TTF_Font *font)</td></tr>
+<tr class="memitem:a450ac0427df7083df23a9299e97134eb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hud.html#a450ac0427df7083df23a9299e97134eb">closeFont</a> (TTF_Font *font)</td></tr>
+<tr class="memdesc:a450ac0427df7083df23a9299e97134eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de fermet une typographie.  <a href="#a450ac0427df7083df23a9299e97134eb">More...</a><br/></td></tr>
 <tr class="separator:a450ac0427df7083df23a9299e97134eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acec65832c8d99543e1902f3054b9bed0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec65832c8d99543e1902f3054b9bed0"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>drawString</b> (char *text, int x, int y, TTF_Font *font, SDL_Surface *_fenetre)</td></tr>
+<tr class="memitem:acec65832c8d99543e1902f3054b9bed0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hud.html#acec65832c8d99543e1902f3054b9bed0">drawString</a> (char *text, int x, int y, TTF_Font *font, SDL_Surface *_fenetre)</td></tr>
+<tr class="memdesc:acec65832c8d99543e1902f3054b9bed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de dessiner une string à l'écran.  <a href="#acec65832c8d99543e1902f3054b9bed0">More...</a><br/></td></tr>
 <tr class="separator:acec65832c8d99543e1902f3054b9bed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3611d5a519e3be846deea37a6f1d6e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3611d5a519e3be846deea37a6f1d6e4"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>drawImage</b> (SDL_Surface *image, int x, int y, SDL_Surface *_fenetre)</td></tr>
+<tr class="memitem:ab3611d5a519e3be846deea37a6f1d6e4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hud.html#ab3611d5a519e3be846deea37a6f1d6e4">drawImage</a> (SDL_Surface *image, int x, int y, SDL_Surface *_fenetre)</td></tr>
+<tr class="memdesc:ab3611d5a519e3be846deea37a6f1d6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode permettant de dessiner une image à l'écran.  <a href="#ab3611d5a519e3be846deea37a6f1d6e4">More...</a><br/></td></tr>
 <tr class="separator:ab3611d5a519e3be846deea37a6f1d6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant d'écrire sur une fenêtre SDL et d'afficher des images. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a450ac0427df7083df23a9299e97134eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hud::closeFont </td>
+          <td>(</td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de fermet une typographie. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>la typo </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab3611d5a519e3be846deea37a6f1d6e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hud::drawImage </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>_fenetre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de dessiner une image à l'écran. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>le sprite </td></tr>
+    <tr><td class="paramname">x</td><td>la position x </td></tr>
+    <tr><td class="paramname">y</td><td>la position y </td></tr>
+    <tr><td class="paramname">_fenetre</td><td>la fenetre </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acec65832c8d99543e1902f3054b9bed0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hud::drawString </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>_fenetre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de dessiner une string à l'écran. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>le text </td></tr>
+    <tr><td class="paramname">x</td><td>la position x </td></tr>
+    <tr><td class="paramname">y</td><td>la position y </td></tr>
+    <tr><td class="paramname">font</td><td>la typo </td></tr>
+    <tr><td class="paramname">_fenetre</td><td>la fenetre </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0c90a6a372d01f41c0de6b56eb523536"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font * Hud::loadFont </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2"><a class="el" href="class_exception_game.html">ExceptionGame</a></td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode permettant de charger une typographie. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>le nom </td></tr>
+    <tr><td class="paramname">size</td><td>la taille </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="hud_8h_source.html">hud.h</a></li>
 <li>hud.cpp</li>
@@ -136,7 +354,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>drawImage</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_hud.html">Hud</a></li>
-    <li class="footer">Generated on Sun Jan 4 2015 14:31:20 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:38:33 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

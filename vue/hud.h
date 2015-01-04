@@ -3,6 +3,9 @@
 #include "SDL_ttf.h"
 #include "metier/exceptiongame.h"
 
+/*!
+ * \brief Classe permettant d'écrire sur une fenêtre SDL et d'afficher des images
+ */
 class Hud
 {
 public:

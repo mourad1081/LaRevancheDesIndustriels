@@ -15,6 +15,9 @@
 
 class Monde;
 class Hero;
+/**
+ * @brief Représente un monstre du jeu.
+ */
 class Monstre
 {
 private:

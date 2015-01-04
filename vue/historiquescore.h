@@ -32,7 +32,10 @@ public:
      * @brief Destructeur de l'interface graphique
      */
     ~HistoriqueScore();
-
+    /**
+     * @brief ScoreVue est une classe permettant d'afficher un score
+     * en provenance de la BD "GAMEDB.SCORE" sous forme de QWidget
+     */
     class ScoreVue : public QWidget
     {
     public:

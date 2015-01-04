@@ -75,7 +75,7 @@ public:
     int getNiveauActuel() const;
     /*!
      * \brief Asseseur en écriture.
-     * \param le nouveau niveau actuel.
+     * \param nouveauNiveau le nouveau niveau actuel.
      */
     void setNiveauActuel(int nouveauNiveau) throw(ExceptionGame);
     /*!
@@ -153,21 +153,21 @@ public:
     /*!
      * \brief Permet de savoir si le personnage est en collison avec
      * un element du monde qu'il ne peut pas traverser
-     * \param le personnage
+     * \param h le personnage
      * \return true s'il y a collision, false sinon
      */
     bool collisionPerso(Hero *h);
     /*!
      * \brief Permet de savoir si un monstre est en collison avec
      * un element du monde qu'il ne peut pas traverser
-     * \param le monstre
+     * \param m le monstre
      * \return true s'il y a collision, false sinon
      */
     bool collisionMonstre(Monstre *m);
     /*!
      * \brief Permet de savoirle personnage est arriver
      * à la fin du niveau en cour
-     * \param le personnage
+     * \param h le personnage
      * \return true si il est arriver & la fin du niveau, false sinon
      */
     bool finDuNiveau(Hero *h);

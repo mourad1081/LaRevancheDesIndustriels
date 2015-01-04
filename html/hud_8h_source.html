@@ -104,26 +104,31 @@ $(document).ready(function(){initNavTree('hud_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;SDL_ttf.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;metier/exceptiongame.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_hud.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_hud.html">Hud</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_hud.html">Hud</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">static</span> TTF_Font *loadFont(<span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> size) <span class="keywordflow">throw</span>(<a class="code" href="class_exception_game.html">ExceptionGame</a>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> closeFont(TTF_Font *font);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> drawString(<span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, TTF_Font *font, SDL_Surface * _fenetre);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> drawImage(SDL_Surface *image, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, SDL_Surface * _fenetre);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif // HUD_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_hud.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_hud.html">Hud</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_hud.html#ad367d9f8d5947cd6b150658f4a7011c4">Hud</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> TTF_Font *<a class="code" href="class_hud.html#a0c90a6a372d01f41c0de6b56eb523536">loadFont</a>(<span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> size) <span class="keywordflow">throw</span>(<a class="code" href="class_exception_game.html">ExceptionGame</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_hud.html#a450ac0427df7083df23a9299e97134eb">closeFont</a>(TTF_Font *font);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_hud.html#acec65832c8d99543e1902f3054b9bed0">drawString</a>(<span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, TTF_Font *font, SDL_Surface * _fenetre);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_hud.html#ab3611d5a519e3be846deea37a6f1d6e4">drawImage</a>(SDL_Surface *image, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, SDL_Surface * _fenetre);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // HUD_H</span></div>
 <div class="ttc" id="class_exception_game_html"><div class="ttname"><a href="class_exception_game.html">ExceptionGame</a></div><div class="ttdoc">Exception lier au jeu. </div><div class="ttdef"><b>Definition:</b> exceptiongame.h:13</div></div>
-<div class="ttc" id="class_hud_html"><div class="ttname"><a href="class_hud.html">Hud</a></div><div class="ttdef"><b>Definition:</b> hud.h:6</div></div>
+<div class="ttc" id="class_hud_html_ad367d9f8d5947cd6b150658f4a7011c4"><div class="ttname"><a href="class_hud.html#ad367d9f8d5947cd6b150658f4a7011c4">Hud::Hud</a></div><div class="ttdeci">Hud()</div><div class="ttdoc">Constructeur par défaut de la classe Hud Pas utilisé (méthodes statiques) </div><div class="ttdef"><b>Definition:</b> hud.cpp:3</div></div>
+<div class="ttc" id="class_hud_html_a0c90a6a372d01f41c0de6b56eb523536"><div class="ttname"><a href="class_hud.html#a0c90a6a372d01f41c0de6b56eb523536">Hud::loadFont</a></div><div class="ttdeci">static TTF_Font * loadFont(char *name, int size)</div><div class="ttdoc">Méthode permettant de charger une typographie. </div><div class="ttdef"><b>Definition:</b> hud.cpp:5</div></div>
+<div class="ttc" id="class_hud_html_a450ac0427df7083df23a9299e97134eb"><div class="ttname"><a href="class_hud.html#a450ac0427df7083df23a9299e97134eb">Hud::closeFont</a></div><div class="ttdeci">static void closeFont(TTF_Font *font)</div><div class="ttdoc">Méthode permettant de fermet une typographie. </div><div class="ttdef"><b>Definition:</b> hud.cpp:20</div></div>
+<div class="ttc" id="class_hud_html"><div class="ttname"><a href="class_hud.html">Hud</a></div><div class="ttdoc">Classe permettant d&#39;écrire sur une fenêtre SDL et d&#39;afficher des images. </div><div class="ttdef"><b>Definition:</b> hud.h:9</div></div>
+<div class="ttc" id="class_hud_html_ab3611d5a519e3be846deea37a6f1d6e4"><div class="ttname"><a href="class_hud.html#ab3611d5a519e3be846deea37a6f1d6e4">Hud::drawImage</a></div><div class="ttdeci">static void drawImage(SDL_Surface *image, int x, int y, SDL_Surface *_fenetre)</div><div class="ttdoc">Méthode permettant de dessiner une image à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> hud.cpp:70</div></div>
+<div class="ttc" id="class_hud_html_acec65832c8d99543e1902f3054b9bed0"><div class="ttname"><a href="class_hud.html#acec65832c8d99543e1902f3054b9bed0">Hud::drawString</a></div><div class="ttdeci">static void drawString(char *text, int x, int y, TTF_Font *font, SDL_Surface *_fenetre)</div><div class="ttdoc">Méthode permettant de dessiner une string à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> hud.cpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_0ef2b6733cc36e89f12e3278b0743d60.html">projet 2 c++ v2</a></li><li class="navelem"><a class="el" href="dir_4aa7e3950a043968f33893902f0198d0.html">Nouveau dossier</a></li><li class="navelem"><a class="el" href="dir_2c95d5beeb49b67c0ace58cb73c2a24a.html">vue</a></li><li class="navelem"><b>hud.h</b></li>
-    <li class="footer">Generated on Sun Jan 4 2015 14:31:19 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:38:32 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

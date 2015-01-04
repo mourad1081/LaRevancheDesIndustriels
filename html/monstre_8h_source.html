@@ -116,53 +116,56 @@ $(document).ready(function(){initNavTree('monstre_8h_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_monde.html">Monde</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="class_hero.html">Hero</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_monstre.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_monstre.html">Monstre</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//Sprite du monstre</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    SDL_Surface* _sprite;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//Coordonnées monstre</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SDL_Rect posReelle;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_monstre.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_monstre.html">Monstre</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//Sprite du monstre</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SDL_Surface* _sprite;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//Position de test pour les collisions</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    SDL_Rect posTest;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">//Coordonnées monstre</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    SDL_Rect posReelle;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//Variables utiles pour animation</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> _frameNumber, _frameTimer;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> _etat, _direction;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> _onGround, _timerMort;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> _estMort;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Constantes pour l&#39;animation</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> TIME_BETWEEN_2_FRAMES = 8;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//Position de test pour les collisions</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    SDL_Rect posTest;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Variables utiles pour animation</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> _frameNumber, _frameTimer;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> _etat, _direction;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> _onGround, _timerMort;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> _estMort;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Constante définissant le seuil entre les tiles traversables</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> VITESSE_MONSTER = 1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Constantes pour l&#39;animation</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> TIME_BETWEEN_2_FRAMES = 8;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_monstre.html">Monstre</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ~<a class="code" href="class_monstre.html">Monstre</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_monstre.html">Monstre</a>(<span class="keywordtype">char</span> * name, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> drawAnimatedMonster(SDL_Surface * screen, <a class="code" href="class_monde.html">Monde</a> * m);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> updateMonster(<a class="code" href="class_hero.html">Hero</a> * h, <a class="code" href="class_monde.html">Monde</a> * m);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> testCollision(<a class="code" href="class_hero.html">Hero</a> * h);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    SDL_Rect getPosReelleMonstre();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    SDL_Rect getPosTestMonstre();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> getTimerMort();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setTimerMort(<span class="keywordtype">int</span> val);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> estMort();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> isOnGround();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // MONSTRE_H</span></div>
-<div class="ttc" id="class_hero_html"><div class="ttname"><a href="class_hero.html">Hero</a></div><div class="ttdef"><b>Definition:</b> hero.h:17</div></div>
-<div class="ttc" id="class_monstre_html"><div class="ttname"><a href="class_monstre.html">Monstre</a></div><div class="ttdef"><b>Definition:</b> monstre.h:18</div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Constante définissant le seuil entre les tiles traversables</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> VITESSE_MONSTER = 1;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_monstre.html#a73d113ed85da064f383bdda1ea25fa22">Monstre</a>(<span class="keywordtype">char</span> * name, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_monstre.html#a8e736b63ae1f561904dad7767448156e">~Monstre</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_monstre.html#a7c7a0702355c65f2b1b8da5a46307f92">drawAnimatedMonster</a>(SDL_Surface * screen, <a class="code" href="class_monde.html">Monde</a> * m);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_monstre.html#a662582c6d330ce374dac0395d0338605">updateMonster</a>(<a class="code" href="class_hero.html">Hero</a> * h, <a class="code" href="class_monde.html">Monde</a> * m);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    SDL_Rect <a class="code" href="class_monstre.html#ac8f5058d2fb6283d6d08b7c345033de9">getPosReelleMonstre</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    SDL_Rect <a class="code" href="class_monstre.html#af80910e2b4c6b7875510738d36e93207">getPosTestMonstre</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_monstre.html#a39247fedcc1fefe51d82c5d0a9713a4a">getTimerMort</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_monstre.html#a73b459dea791c38a8f09ce9462219546">setTimerMort</a>(<span class="keywordtype">int</span> val);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_monstre.html#aebc60bc5dfa1353663ba975c589dc2e3">estMort</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // MONSTRE_H</span></div>
+<div class="ttc" id="class_monstre_html_a39247fedcc1fefe51d82c5d0a9713a4a"><div class="ttname"><a href="class_monstre.html#a39247fedcc1fefe51d82c5d0a9713a4a">Monstre::getTimerMort</a></div><div class="ttdeci">int getTimerMort()</div><div class="ttdoc">Methode permettant de connaitre le timer de la mort du monstre Le timer permet de définir un temps d&#39;...</div><div class="ttdef"><b>Definition:</b> monstre.cpp:180</div></div>
+<div class="ttc" id="class_hero_html"><div class="ttname"><a href="class_hero.html">Hero</a></div><div class="ttdoc">Représente le héro du jeu. </div><div class="ttdef"><b>Definition:</b> hero.h:20</div></div>
+<div class="ttc" id="class_monstre_html_a7c7a0702355c65f2b1b8da5a46307f92"><div class="ttname"><a href="class_monstre.html#a7c7a0702355c65f2b1b8da5a46307f92">Monstre::drawAnimatedMonster</a></div><div class="ttdeci">void drawAnimatedMonster(SDL_Surface *screen, Monde *m)</div><div class="ttdoc">Methode permettant de dessiner le monstre sur l&#39;écran. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:33</div></div>
+<div class="ttc" id="class_monstre_html_ac8f5058d2fb6283d6d08b7c345033de9"><div class="ttname"><a href="class_monstre.html#ac8f5058d2fb6283d6d08b7c345033de9">Monstre::getPosReelleMonstre</a></div><div class="ttdeci">SDL_Rect getPosReelleMonstre()</div><div class="ttdoc">Methode permettant de retourner la position réelle du monstre. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:171</div></div>
+<div class="ttc" id="class_monstre_html_af80910e2b4c6b7875510738d36e93207"><div class="ttname"><a href="class_monstre.html#af80910e2b4c6b7875510738d36e93207">Monstre::getPosTestMonstre</a></div><div class="ttdeci">SDL_Rect getPosTestMonstre()</div><div class="ttdoc">Methode permettant de retourner la position test du monstre. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:175</div></div>
+<div class="ttc" id="class_monstre_html_a73b459dea791c38a8f09ce9462219546"><div class="ttname"><a href="class_monstre.html#a73b459dea791c38a8f09ce9462219546">Monstre::setTimerMort</a></div><div class="ttdeci">void setTimerMort(int val)</div><div class="ttdoc">Methode permettant de modifier le timer de la mort du monstre Le timer permet de définir un temps d&#39;a...</div><div class="ttdef"><b>Definition:</b> monstre.cpp:184</div></div>
+<div class="ttc" id="class_monstre_html_a662582c6d330ce374dac0395d0338605"><div class="ttname"><a href="class_monstre.html#a662582c6d330ce374dac0395d0338605">Monstre::updateMonster</a></div><div class="ttdeci">void updateMonster(Hero *h, Monde *m)</div><div class="ttdoc">Methode permettant de faire évoluer le mosntre à l&#39;écran. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:80</div></div>
+<div class="ttc" id="class_monstre_html_a73d113ed85da064f383bdda1ea25fa22"><div class="ttname"><a href="class_monstre.html#a73d113ed85da064f383bdda1ea25fa22">Monstre::Monstre</a></div><div class="ttdeci">Monstre(char *name, int x, int y, int w, int h)</div><div class="ttdoc">Constructeur du Monstre. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:3</div></div>
+<div class="ttc" id="class_monstre_html_a8e736b63ae1f561904dad7767448156e"><div class="ttname"><a href="class_monstre.html#a8e736b63ae1f561904dad7767448156e">Monstre::~Monstre</a></div><div class="ttdeci">~Monstre()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> monstre.cpp:29</div></div>
+<div class="ttc" id="class_monstre_html"><div class="ttname"><a href="class_monstre.html">Monstre</a></div><div class="ttdoc">Représente un monstre du jeu. </div><div class="ttdef"><b>Definition:</b> monstre.h:21</div></div>
+<div class="ttc" id="class_monstre_html_aebc60bc5dfa1353663ba975c589dc2e3"><div class="ttname"><a href="class_monstre.html#aebc60bc5dfa1353663ba975c589dc2e3">Monstre::estMort</a></div><div class="ttdeci">bool estMort()</div><div class="ttdoc">Methode permettant de savoir si le monstre est mort On utilise cette méthode pour ne pas afficher le ...</div><div class="ttdef"><b>Definition:</b> monstre.cpp:188</div></div>
 <div class="ttc" id="class_monde_html"><div class="ttname"><a href="class_monde.html">Monde</a></div><div class="ttdoc">Représente un Monde. </div><div class="ttdef"><b>Definition:</b> monde.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -170,7 +173,7 @@ $(document).ready(function(){initNavTree('monstre_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_0ef2b6733cc36e89f12e3278b0743d60.html">projet 2 c++ v2</a></li><li class="navelem"><a class="el" href="dir_4aa7e3950a043968f33893902f0198d0.html">Nouveau dossier</a></li><li class="navelem"><a class="el" href="dir_458f8eb5947ccf2792b80f9f162eeb5b.html">metier</a></li><li class="navelem"><b>monstre.h</b></li>
-    <li class="footer">Generated on Sun Jan 4 2015 14:31:19 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:38:33 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

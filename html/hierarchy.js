@@ -20,5 +20,8 @@ var hierarchy =
     [ "QMainWindow", null, [
       [ "Application", "class_application.html", null ]
     ] ],
+    [ "QWidget", null, [
+      [ "HistoriqueScore::ScoreVue", "class_historique_score_1_1_score_vue.html", null ]
+    ] ],
     [ "Tuile", "class_tuile.html", null ]
 ];

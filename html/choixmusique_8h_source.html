@@ -105,54 +105,49 @@ $(document).ready(function(){initNavTree('choixmusique_8h_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QDialog&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QFile&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QDir&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QScrollBar&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QIcon&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_choix_musique.html">ChoixMusique</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_choix_musique.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_choix_musique.html">ChoixMusique</a> : <span class="keyword">public</span> QDialog</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_choix_musique.html#a61c83f0e9c1d2b3dac86b619f6a3441d">changerMusique</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_choix_musique.html#a279dd9346badde30894cc662f65eac87">ChoixMusique</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_choix_musique.html#a74a78a06d9d459e27371b3cec9f08866">~ChoixMusique</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        QString <a class="code" href="class_choix_musique.html#ae53ebd9884bd597e1517208b64ada3fc">cheminMusique</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_choix_musique.html#ae9818a88f1101e5510220774da7cb561">setCheminMusique</a>(<span class="keyword">const</span> QString &amp;cheminMusique);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QLabel *getMusiqueChoisie() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        QString _cheminMusique; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        QScrollBar *_barrDeScroll;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        QVector&lt;QPushButton *&gt; _listeMusiques;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Ui::ChoixMusique *ui;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // CHOIXMUSIQUE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QIcon&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="class_choix_musique.html">ChoixMusique</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_choix_musique.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_choix_musique.html">ChoixMusique</a> : <span class="keyword">public</span> QDialog</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_choix_musique.html#a61c83f0e9c1d2b3dac86b619f6a3441d">changerMusique</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_choix_musique.html#a279dd9346badde30894cc662f65eac87">ChoixMusique</a>(QWidget *parent = 0);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_choix_musique.html#a74a78a06d9d459e27371b3cec9f08866">~ChoixMusique</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        QString <a class="code" href="class_choix_musique.html#ae53ebd9884bd597e1517208b64ada3fc">cheminMusique</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_choix_musique.html#ae9818a88f1101e5510220774da7cb561">setCheminMusique</a>(<span class="keyword">const</span> QString &amp;cheminMusique);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QString _cheminMusique; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QVector&lt;QPushButton *&gt; _listeMusiques; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        Ui::ChoixMusique *ui;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // CHOIXMUSIQUE_H</span></div>
 <div class="ttc" id="class_choix_musique_html_ae9818a88f1101e5510220774da7cb561"><div class="ttname"><a href="class_choix_musique.html#ae9818a88f1101e5510220774da7cb561">ChoixMusique::setCheminMusique</a></div><div class="ttdeci">void setCheminMusique(const QString &amp;cheminMusique)</div><div class="ttdoc">Permet de définir le chemin vers la musique sélectionnée. </div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:34</div></div>
 <div class="ttc" id="class_choix_musique_html_ae53ebd9884bd597e1517208b64ada3fc"><div class="ttname"><a href="class_choix_musique.html#ae53ebd9884bd597e1517208b64ada3fc">ChoixMusique::cheminMusique</a></div><div class="ttdeci">QString cheminMusique() const </div><div class="ttdoc">Permet de recevoir le chemin relatif vers la musique sélectionnée. </div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:29</div></div>
 <div class="ttc" id="class_choix_musique_html_a279dd9346badde30894cc662f65eac87"><div class="ttname"><a href="class_choix_musique.html#a279dd9346badde30894cc662f65eac87">ChoixMusique::ChoixMusique</a></div><div class="ttdeci">ChoixMusique(QWidget *parent=0)</div><div class="ttdoc">Constructeur de l&#39;interface permettant de choisir un thème. </div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:5</div></div>
-<div class="ttc" id="class_choix_musique_html"><div class="ttname"><a href="class_choix_musique.html">ChoixMusique</a></div><div class="ttdoc">Interface graphique permettant de choisir la musique qui sera jouée pendant la partie. </div><div class="ttdef"><b>Definition:</b> choixmusique.h:20</div></div>
+<div class="ttc" id="class_choix_musique_html"><div class="ttname"><a href="class_choix_musique.html">ChoixMusique</a></div><div class="ttdoc">Interface graphique permettant de choisir la musique qui sera jouée pendant la partie. </div><div class="ttdef"><b>Definition:</b> choixmusique.h:18</div></div>
 <div class="ttc" id="class_choix_musique_html_a74a78a06d9d459e27371b3cec9f08866"><div class="ttname"><a href="class_choix_musique.html#a74a78a06d9d459e27371b3cec9f08866">ChoixMusique::~ChoixMusique</a></div><div class="ttdeci">~ChoixMusique()</div><div class="ttdoc">Destructeur de l&#39;interface permettant de choisir un thème. </div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:25</div></div>
-<div class="ttc" id="class_choix_musique_html_a61c83f0e9c1d2b3dac86b619f6a3441d"><div class="ttname"><a href="class_choix_musique.html#a61c83f0e9c1d2b3dac86b619f6a3441d">ChoixMusique::changerMusique</a></div><div class="ttdeci">void changerMusique()</div><div class="ttdoc">Permet de changer de musique. La nouvelle musique sera celle qui a été sélectionnée en dernier...</div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:44</div></div>
+<div class="ttc" id="class_choix_musique_html_a61c83f0e9c1d2b3dac86b619f6a3441d"><div class="ttname"><a href="class_choix_musique.html#a61c83f0e9c1d2b3dac86b619f6a3441d">ChoixMusique::changerMusique</a></div><div class="ttdeci">void changerMusique()</div><div class="ttdoc">Permet de changer de musique. La nouvelle musique sera celle qui a été sélectionnée en dernier...</div><div class="ttdef"><b>Definition:</b> choixmusique.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_0ef2b6733cc36e89f12e3278b0743d60.html">projet 2 c++ v2</a></li><li class="navelem"><a class="el" href="dir_4aa7e3950a043968f33893902f0198d0.html">Nouveau dossier</a></li><li class="navelem"><a class="el" href="dir_2c95d5beeb49b67c0ace58cb73c2a24a.html">vue</a></li><li class="navelem"><b>choixmusique.h</b></li>
-    <li class="footer">Generated on Sun Jan 4 2015 14:31:19 for les aventures de ben le nudiste heureux by
+    <li class="footer">Generated on Sun Jan 4 2015 21:38:32 for les aventures de ben le nudiste heureux by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
