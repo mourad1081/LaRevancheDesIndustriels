@@ -7,14 +7,11 @@ GestionBD::GestionBD()
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
     db.setUserName("root");
-<<<<<<< HEAD
     db.setPassword("aaaa");
     db.setDatabaseName("gamedb");
-=======
-    db.setPassword("aaaa"); // Indiquez mdp que vous avez mis sur
->>>>>>> origin/master
+    db.setPassword("aaaa");
     connexionOk = db.open();
-    db.setDatabaseName("GAMEDB"); //le nom de la db mdr
+    db.setDatabaseName("GAMEDB");
     query = new QSqlQuery(db);
 }
 
