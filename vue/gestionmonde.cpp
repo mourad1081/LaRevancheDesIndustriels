@@ -26,11 +26,11 @@ GestionMonde::GestionMonde(SDL_Surface * fenetre,
     for(int i=0; i < _nbMonstres ; i++)
     {
         posMonstre = _monde->getListPosMonstres()[i];
-        _monstres[i] = new Monstre ("img/walkright.png",
+        _monstres[i] = new Monstre ("img/monstre.png",
                                     posMonstre.x,
                                     posMonstre.y,
                                     40,
-                                    80);
+                                    65);
     }
 }
 GestionMonde::~GestionMonde()
@@ -67,11 +67,11 @@ void GestionMonde::miseAjourJoueurs()
         for(int i=0; i < _nbMonstres ; i++)
         {
             posMonstre = _monde->getListPosMonstres()[i];
-            _monstres[i] = new Monstre ("img/walkright.png",
+            _monstres[i] = new Monstre ("img/monstre.png",
                                         posMonstre.x,
                                         posMonstre.y,
                                         40,
-                                        80);
+                                        65);
         }
     }
     for(int i=0; i < _nbMonstres ; i++){

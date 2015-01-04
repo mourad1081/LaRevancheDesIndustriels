@@ -15,11 +15,8 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -27,10 +24,7 @@ class Ui_HistoriqueScore
 {
 public:
     QVBoxLayout *verticalLayout_2;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout;
-    QListWidget *listeScores;
+    QVBoxLayout *lay;
     QPushButton *fermer;
 
     void setupUi(QDialog *HistoriqueScore)
@@ -260,17 +254,17 @@ public:
 "QScrollBar:vertical\n"
 "{\n"
 "      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);\n"
-"      width: 7px;\n"
+"      width: 15px;\n"
 "      margin: 16px 0 16px 0;\n"
 "      border: 1px solid #222222;\n"
 "}\n"
 "\n"
 "QScrollBar::handle:vertical\n"
 "{\n"
-"      background: QLinearGradi"
-                        "ent( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 0.5 #d7801a, stop: 1 #ffa02f);\n"
+"      background: QLinearGrad"
+                        "ient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 0.5 #d7801a, stop: 1 #ffa02f);\n"
 "      min-height: 20px;\n"
-"      border-radius: 2px;\n"
+"      border-radius: 3x;\n"
 "}\n"
 "\n"
 "QScrollBar::add-line:vertical\n"
@@ -510,22 +504,10 @@ public:
 "}"));
         verticalLayout_2 = new QVBoxLayout(HistoriqueScore);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        scrollArea = new QScrollArea(HistoriqueScore);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 474, 213));
-        verticalLayout = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        listeScores = new QListWidget(scrollAreaWidgetContents);
-        listeScores->setObjectName(QStringLiteral("listeScores"));
+        lay = new QVBoxLayout();
+        lay->setObjectName(QStringLiteral("lay"));
 
-        verticalLayout->addWidget(listeScores);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        verticalLayout_2->addWidget(scrollArea);
+        verticalLayout_2->addLayout(lay);
 
         fermer = new QPushButton(HistoriqueScore);
         fermer->setObjectName(QStringLiteral("fermer"));

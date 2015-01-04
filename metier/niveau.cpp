@@ -58,10 +58,6 @@ void Niveau::chargerNiveauDepuisFichier(ifstream& fichier)
         posMonstre.x = val;
         fichier >> val;
         posMonstre.y = val;
-        fichier >> val;
-        posMonstre.w = val;
-        fichier >> val;
-        posMonstre.h = val;
         _listePosMonstres[i] = posMonstre;
     }
 

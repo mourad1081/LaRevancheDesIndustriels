@@ -40,15 +40,15 @@ QVector<QString> GestionBD::selectAll(QString table)
 {
     QString s;
     QVector<QString> resultat;
-    QString requete="Select * From "+table;
+    QString requete="Select * From "+table+" where 1 order by score.valscore desc";
     if(query->exec(requete))
         while(query->next())
         {
             s = "";
             for(int i = 0; i < query->record().count(); ++i)
             {
-                s += " " + query->record().fieldName(i)
-                         + " : " + query->value(i).toString();
+                s += query->record().fieldName(i)
+                         + "  " + query->value(i).toString() + " ";
             }
             resultat.append(s);
         }

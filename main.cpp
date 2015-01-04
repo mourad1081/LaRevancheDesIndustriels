@@ -31,7 +31,8 @@ void lancerApplication()
         cerr << "Erreur d'initialisation de SDL" << endl;
         exit(EXIT_FAILURE);
     }
-    // Initialise SDL_TTF       (Pour l'affichage de string
+
+    // Initialise SDL_TTF       (Pour l'affichage de string)
     if (TTF_Init() < 0)
     {
         cerr << "Erreur d'initialisation de SDL TTF" << endl;

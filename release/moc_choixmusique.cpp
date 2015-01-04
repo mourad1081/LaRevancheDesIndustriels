@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'choixmusique.h'
 **
+<<<<<<< HEAD:debug/moc_choixmusique.cpp
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.1.1)
+=======
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.2)
+>>>>>>> 4d2d39a730298c2f09504bbcd07035cd7c22c80a:release/moc_choixmusique.cpp
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +16,11 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'choixmusique.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
+<<<<<<< HEAD:debug/moc_choixmusique.cpp
+#error "This file was generated using the moc from 5.1.1. It"
+=======
 #error "This file was generated using the moc from 5.3.2. It"
+>>>>>>> 4d2d39a730298c2f09504bbcd07035cd7c22c80a:release/moc_choixmusique.cpp
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
