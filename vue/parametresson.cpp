@@ -18,15 +18,7 @@ bool ParametresSon::isSonActif()
     return ui->checkBoutonActiverSon->isChecked();
 }
 
-bool ParametresSon::isMusiqueInfinie()
-{
-    return ui->checkBoutonSonInfini->isChecked();
-}
 
-int ParametresSon::getNbVies()
-{
-    return ui->spinVies->value();
-}
 
 int ParametresSon::getVolume()
 {

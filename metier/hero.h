@@ -50,9 +50,8 @@ private:
     bool _estMort = false;
 
 public:
-    Hero();
-    ~Hero();
     Hero(char * name, int x, int y, int w, int h);
+    ~Hero();
     void drawAnimatedPlayer(SDL_Surface * screen, Monde * m);
     void updatePlayer(Evenement * evt, Monde * m, SDL_Surface * screen);
     void centerScrollingOnPlayer(Monde * m);

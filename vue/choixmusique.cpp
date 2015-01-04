@@ -36,11 +36,6 @@ void ChoixMusique::setCheminMusique(const QString &cheminMusique)
     _cheminMusique = cheminMusique;
 }
 
-QLabel *ChoixMusique::getMusiqueChoisie() const
-{
-    return ui->musiqueChoisie;
-}
-
 void ChoixMusique::changerMusique()
 {
     _cheminMusique = "son\\" + ((QPushButton *)sender())->text() + ".mp3";
