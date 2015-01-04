@@ -97,7 +97,7 @@ private:
     QMediaPlayer *_theme;
     QMediaPlaylist *_playlist;
 
-    //--- GIF---//
+    //--- GIF du pokémon chetiflor qui dance pendant l'intro ---//
     QMovie *_chetiflorQuiDance;
 };
 

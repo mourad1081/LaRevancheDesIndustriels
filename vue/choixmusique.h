@@ -4,11 +4,9 @@
 #include <QDialog>
 #include <QFile>
 #include <QDir>
-#include <QScrollBar>
 #include <QPushButton>
 #include <QIcon>
 #include <QVector>
-#include <QLabel>
 namespace Ui {
 class ChoixMusique;
 }
@@ -20,15 +18,15 @@ class ChoixMusique;
 class ChoixMusique : public QDialog
 {
     Q_OBJECT
-    public slots:
 
+    public slots:
         /**
          * @brief Permet de changer de musique. La nouvelle musique sera celle
          * qui a été sélectionnée en dernier.
          */
         void changerMusique();
-    public:
 
+    public:
         /**
          * @brief Constructeur de l'interface permettant de choisir un thème
          * @param parent Parent de l'interface
@@ -53,12 +51,9 @@ class ChoixMusique : public QDialog
          */
         void setCheminMusique(const QString &cheminMusique);
 
-        QLabel *getMusiqueChoisie() const;
-private:
-
+    private:
         QString _cheminMusique; /** Chemin vers la musique */
-        QScrollBar *_barrDeScroll;
-        QVector<QPushButton *> _listeMusiques;
+        QVector<QPushButton *> _listeMusiques; /*! Liste de musiques dispo */
         Ui::ChoixMusique *ui;
 };
 

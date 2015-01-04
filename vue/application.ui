@@ -116,35 +116,6 @@ font:15pt;
        </widget>
       </item>
       <item alignment="Qt::AlignRight">
-       <widget class="QPushButton" name="btnContinuer">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>200</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>14</pointsize>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>ArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(162, 162, 162);
-text-align:right</string>
-        </property>
-        <property name="text">
-         <string>CONTINUER</string>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignRight">
        <widget class="QPushButton" name="btnOptions">
         <property name="minimumSize">
          <size>
@@ -186,7 +157,7 @@ text-align:right</string>
          <string notr="true">text-align:right;</string>
         </property>
         <property name="text">
-         <string>HISTORIQUE SCORES</string>
+         <string>MEILLEURS SCORES</string>
         </property>
        </widget>
       </item>

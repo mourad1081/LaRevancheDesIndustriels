@@ -93,10 +93,5 @@ void Application::on_btnMusique_clicked()
 
 void Application::on_historiqueScores_clicked()
 {
-    GestionBD bdd;
-    QVector<QString> scores = bdd.selectAll("gamedb.score");
-    HistoriqueScore *scoresGUI = new HistoriqueScore();
-    for(int i = 0; i < scores.size(); i++)
-        scoresGUI->getListeScore()->addItem(scores.at(i));
-    scoresGUI->exec();
+    (new HistoriqueScore())->exec();
 }

@@ -33,7 +33,6 @@ public:
     QLabel *gif;
     QVBoxLayout *verticalLayout;
     QPushButton *btnNouvellePartie;
-    QPushButton *btnContinuer;
     QPushButton *btnOptions;
     QPushButton *historiqueScores;
     QPushButton *btnHackNASA;
@@ -111,20 +110,6 @@ public:
 
         verticalLayout->addWidget(btnNouvellePartie, 0, Qt::AlignRight);
 
-        btnContinuer = new QPushButton(centralwidget);
-        btnContinuer->setObjectName(QStringLiteral("btnContinuer"));
-        btnContinuer->setEnabled(false);
-        btnContinuer->setMinimumSize(QSize(200, 0));
-        QFont font1;
-        font1.setPointSize(14);
-        font1.setStyleStrategy(QFont::PreferAntialias);
-        btnContinuer->setFont(font1);
-        btnContinuer->setCursor(QCursor(Qt::ArrowCursor));
-        btnContinuer->setStyleSheet(QLatin1String("color: rgb(162, 162, 162);\n"
-"text-align:right"));
-
-        verticalLayout->addWidget(btnContinuer, 0, Qt::AlignRight);
-
         btnOptions = new QPushButton(centralwidget);
         btnOptions->setObjectName(QStringLiteral("btnOptions"));
         btnOptions->setMinimumSize(QSize(200, 0));
@@ -136,9 +121,9 @@ public:
 
         historiqueScores = new QPushButton(centralwidget);
         historiqueScores->setObjectName(QStringLiteral("historiqueScores"));
-        QFont font2;
-        font2.setPointSize(14);
-        historiqueScores->setFont(font2);
+        QFont font1;
+        font1.setPointSize(14);
+        historiqueScores->setFont(font1);
         historiqueScores->setCursor(QCursor(Qt::PointingHandCursor));
         historiqueScores->setStyleSheet(QStringLiteral("text-align:right;"));
 
@@ -157,7 +142,10 @@ public:
         btnMusique->setObjectName(QStringLiteral("btnMusique"));
         btnMusique->setEnabled(true);
         btnMusique->setMinimumSize(QSize(200, 0));
-        btnMusique->setFont(font1);
+        QFont font2;
+        font2.setPointSize(14);
+        font2.setStyleStrategy(QFont::PreferAntialias);
+        btnMusique->setFont(font2);
         btnMusique->setCursor(QCursor(Qt::PointingHandCursor));
         btnMusique->setStyleSheet(QStringLiteral("text-align:right"));
 
@@ -188,9 +176,8 @@ public:
         titre->setText(QString());
         gif->setText(QString());
         btnNouvellePartie->setText(QApplication::translate("Application", "NOUVELLE PARTIE", 0));
-        btnContinuer->setText(QApplication::translate("Application", "CONTINUER", 0));
         btnOptions->setText(QApplication::translate("Application", "PARAM\303\210TRES", 0));
-        historiqueScores->setText(QApplication::translate("Application", "HISTORIQUE SCORES", 0));
+        historiqueScores->setText(QApplication::translate("Application", "MEILLEURS SCORES", 0));
         btnHackNASA->setText(QApplication::translate("Application", "HACKER LA NASA", 0));
         btnMusique->setText(QApplication::translate("Application", "MUSIQUE", 0));
         btnQuitter->setText(QApplication::translate("Application", "QUITTER", 0));

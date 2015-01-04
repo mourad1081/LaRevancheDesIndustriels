@@ -231,7 +231,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 QScrollBar:vertical
 {
       background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);
-      width: 7px;
+      width: 15px;
       margin: 16px 0 16px 0;
       border: 1px solid #222222;
 }
@@ -240,7 +240,7 @@ QScrollBar::handle:vertical
 {
       background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 0.5 #d7801a, stop: 1 #ffa02f);
       min-height: 20px;
-      border-radius: 2px;
+      border-radius: 3x;
 }
 
 QScrollBar::add-line:vertical
@@ -476,26 +476,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>474</width>
-        <height>213</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QListWidget" name="listeScores"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
+    <layout class="QVBoxLayout" name="lay"/>
    </item>
    <item>
     <widget class="QPushButton" name="fermer">
