@@ -13,6 +13,7 @@ void lancerApplication();
 
 int main(int argc, char **argv)
 {
+<<<<<<< HEAD
    // QApplication a(argc, argv);
     //Application app;
     //app.show();
@@ -21,6 +22,16 @@ int main(int argc, char **argv)
    // {
         lancerApplication();
    // }
+=======
+    /*QApplication a(argc, argv);
+    Application app;
+    app.show();
+    a.exec();
+    if(!app.getClicQuit())
+    {*/
+        lancerApplication();
+    //}
+>>>>>>> origin/master
 }
 
 void lancerApplication()
